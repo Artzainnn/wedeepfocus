@@ -1,0 +1,547 @@
+{
+  "options_page_title": {
+    "en": "{1} settings",
+    "fr": "Réglages de {1}",
+    "description": "Browser tab title of the settings page. {1} is the app name."
+  },
+  "options_status_saving": {
+    "en": "Saving",
+    "fr": "Enregistrement",
+    "description": "Discreet status pill while a change is being saved."
+  },
+  "options_status_error": {
+    "en": "Not saved",
+    "fr": "Non enregistré",
+    "description": "Discreet status pill when a change was refused or failed."
+  },
+  "options_load_error": {
+    "en": "Couldn't load your settings.",
+    "fr": "Impossible de charger tes réglages.",
+    "description": "Error banner if the settings could not be read."
+  },
+  "options_reload": {
+    "en": "Reload",
+    "fr": "Recharger",
+    "description": "Button that reloads the settings page."
+  },
+  "options_dismiss": {
+    "en": "Dismiss",
+    "fr": "Fermer",
+    "description": "Accessible label of the button closing a notification."
+  },
+  "options_undo": {
+    "en": "Undo",
+    "fr": "Annuler",
+    "description": "Button in a notification that brings back what was just deleted."
+  },
+  "options_lock_banner": {
+    "en": "Block active until {1}. You can add, not remove.",
+    "fr": "Blocage actif jusqu'à {1}. Tu peux ajouter, pas retirer.",
+    "description": "Banner shown while a block is active. {1} is a time like 14:00 (or weekday and time)."
+  },
+  "options_lock_banner_plain": {
+    "en": "Block active. You can add, not remove.",
+    "fr": "Blocage actif. Tu peux ajouter, pas retirer.",
+    "description": "Same banner when the end time is unknown."
+  },
+  "options_locked_tooltip": {
+    "en": "Locked until the block ends",
+    "fr": "Verrouillé jusqu'à la fin du blocage",
+    "description": "Tooltip on controls disabled during an active block."
+  },
+  "options_missing_one": {
+    "en": "1 site shows Chrome's error page instead of your goal.",
+    "fr": "1 site affiche la page d'erreur de Chrome au lieu de ton objectif.",
+    "description": "Banner when one blocked site lacks host permission. It is still blocked, with Chrome's own error page instead of the page showing the goal. Next to an Allow button."
+  },
+  "options_missing_other": {
+    "en": "{1} sites show Chrome's error page instead of your goal.",
+    "fr": "{1} sites affichent la page d'erreur de Chrome au lieu de ton objectif.",
+    "description": "Same banner for several sites. {1} is the number of sites (2 or more). Never say the sites are not blocked."
+  },
+  "options_chip_missing": {
+    "en": "Chrome's error page until you allow access",
+    "fr": "Page d'erreur de Chrome tant que tu n'autorises pas l'accès",
+    "description": "Tooltip on a site chip that lacks host permission (still blocked, with Chrome's error page)."
+  },
+  "options_permission_denied": {
+    "en": "Access not granted: those sites show Chrome's error page.",
+    "fr": "Accès refusé : ces sites affichent la page d'erreur de Chrome.",
+    "description": "Notice after the user declined the Chrome permission prompt. Never say the sites are not blocked."
+  },
+  "options_groups_title": {
+    "en": "Groups",
+    "fr": "Groupes",
+    "description": "Section title: groups of sites that can be switched on and off."
+  },
+  "options_groups_sub": {
+    "en": "Turn on what distracts you.",
+    "fr": "Active ce qui te distrait.",
+    "description": "One short line under the Groups title."
+  },
+  "options_group_new": {
+    "en": "New group",
+    "fr": "Nouveau groupe",
+    "description": "Button creating an empty group of sites."
+  },
+  "options_group_default_name": {
+    "en": "My group",
+    "fr": "Mon groupe",
+    "description": "Name given to a group the user left unnamed (max 30 characters)."
+  },
+  "options_group_count_zero": {
+    "en": "No sites",
+    "fr": "Aucun site",
+    "description": "Under a group name when the group has no site."
+  },
+  "options_group_count_one": {
+    "en": "1 site",
+    "fr": "1 site",
+    "description": "Under a group name when the group has one site."
+  },
+  "options_group_count": {
+    "en": "{1} sites",
+    "fr": "{1} sites",
+    "description": "Under a group name. {1} is the number of sites (2 or more)."
+  },
+  "options_group_toggle_aria": {
+    "en": "Block {1}",
+    "fr": "Bloquer : {1}",
+    "description": "Accessible label of a group switch. {1} is the group name."
+  },
+  "options_group_missing": {
+    "en": "Needs access",
+    "fr": "Accès à autoriser",
+    "description": "Tooltip and screen reader text of the small warning icon on a group with sites lacking host permission."
+  },
+  "options_group_name_label": {
+    "en": "Group name",
+    "fr": "Nom du groupe",
+    "description": "Accessible label of the group name field."
+  },
+  "options_group_icon_label": {
+    "en": "Icon",
+    "fr": "Icône",
+    "description": "Accessible label of the row of icons to pick from for a group."
+  },
+  "options_group_sites_aria": {
+    "en": "Sites in {1}",
+    "fr": "Sites de {1}",
+    "description": "Accessible label of the list of sites of a group. {1} is the group name."
+  },
+  "options_group_delete": {
+    "en": "Delete group",
+    "fr": "Supprimer le groupe",
+    "description": "Button deleting a group and its list of sites."
+  },
+  "options_group_deleted": {
+    "en": "Group deleted.",
+    "fr": "Groupe supprimé.",
+    "description": "Notification after deleting a group, next to an Undo button."
+  },
+  "options_group_limit": {
+    "en": "{1} groups max",
+    "fr": "{1} groupes maximum",
+    "description": "Tooltip on the disabled New group button when the limit is reached. {1} is the limit (20)."
+  },
+  "options_group_full": {
+    "en": "{1} sites max per group.",
+    "fr": "{1} sites maximum par groupe.",
+    "description": "Inline error when a group already has the maximum number of sites. {1} is the limit (100)."
+  },
+  "options_group_no_room": {
+    "en": "No room left to save more sites.",
+    "fr": "Plus de place pour enregistrer d'autres sites.",
+    "description": "Inline error when the groups no longer fit in Chrome's sync storage."
+  },
+  "options_site_in_group": {
+    "en": "Already in this group.",
+    "fr": "Déjà dans ce groupe.",
+    "description": "Inline error when adding a site the group already has."
+  },
+  "options_site_covered": {
+    "en": "Already covered by {1}.",
+    "fr": "Déjà couvert par {1}.",
+    "description": "Inline error when a parent domain in the same list already covers the site. {1} is that domain."
+  },
+  "options_custom_in_group": {
+    "en": "Already in {1}.",
+    "fr": "Déjà dans {1}.",
+    "description": "Inline error when adding one of Your sites that an active group already blocks. {1} is the group name."
+  },
+  "options_site_input_label": {
+    "en": "Site to block",
+    "fr": "Site à bloquer",
+    "description": "Accessible label of the fields adding a site."
+  },
+  "options_site_placeholder": {
+    "en": "Add a site or paste a link",
+    "fr": "Ajoute un site ou un lien",
+    "description": "Placeholder of the fields adding a site (a domain or any full URL)."
+  },
+  "options_site_remove_aria": {
+    "en": "Remove {1}",
+    "fr": "Retirer {1}",
+    "description": "Label and tooltip of the remove button on a site chip. {1} is a domain."
+  },
+  "options_icon_users": {
+    "en": "People",
+    "fr": "Personnes",
+    "description": "Name of a group icon (two people), read by screen readers."
+  },
+  "options_icon_play": {
+    "en": "Play",
+    "fr": "Lecture",
+    "description": "Name of a group icon (play button in a circle), read by screen readers."
+  },
+  "options_icon_mail": {
+    "en": "Envelope",
+    "fr": "Enveloppe",
+    "description": "Name of a group icon (envelope), read by screen readers."
+  },
+  "options_icon_news": {
+    "en": "Newspaper",
+    "fr": "Journal",
+    "description": "Name of a group icon (newspaper), read by screen readers."
+  },
+  "options_icon_cart": {
+    "en": "Cart",
+    "fr": "Panier",
+    "description": "Name of a group icon (shopping cart), read by screen readers."
+  },
+  "options_icon_chat": {
+    "en": "Speech bubble",
+    "fr": "Bulle de discussion",
+    "description": "Name of a group icon (speech bubble), read by screen readers."
+  },
+  "options_icon_game": {
+    "en": "Game controller",
+    "fr": "Manette",
+    "description": "Name of a group icon (game controller), read by screen readers."
+  },
+  "options_icon_music": {
+    "en": "Music note",
+    "fr": "Note de musique",
+    "description": "Name of a group icon (music note), read by screen readers."
+  },
+  "options_icon_briefcase": {
+    "en": "Briefcase",
+    "fr": "Mallette",
+    "description": "Name of a group icon (briefcase), read by screen readers."
+  },
+  "options_icon_heart": {
+    "en": "Heart",
+    "fr": "Cœur",
+    "description": "Name of a group icon (heart), read by screen readers."
+  },
+  "options_icon_star": {
+    "en": "Star",
+    "fr": "Étoile",
+    "description": "Name of a group icon (star), read by screen readers."
+  },
+  "options_icon_globe": {
+    "en": "Globe",
+    "fr": "Globe",
+    "description": "Name of a group icon (globe), read by screen readers."
+  },
+  "options_icon_book": {
+    "en": "Book",
+    "fr": "Livre",
+    "description": "Name of a group icon (book), read by screen readers."
+  },
+  "options_icon_sparkles": {
+    "en": "Sparkles",
+    "fr": "Étincelles",
+    "description": "Name of a group icon (sparkles), read by screen readers."
+  },
+  "options_icon_target": {
+    "en": "Target",
+    "fr": "Cible",
+    "description": "Name of a group icon (target), read by screen readers."
+  },
+  "options_icon_coffee": {
+    "en": "Coffee cup",
+    "fr": "Tasse de café",
+    "description": "Name of a group icon (coffee cup), read by screen readers."
+  },
+  "options_sites_title": {
+    "en": "Your sites",
+    "fr": "Tes sites",
+    "description": "Section title for single sites added outside any group."
+  },
+  "options_sites_sub": {
+    "en": "Single sites, outside any group.",
+    "fr": "Des sites à part, hors des groupes.",
+    "description": "One short line under the Your sites title."
+  },
+  "options_schedules_title": {
+    "en": "When",
+    "fr": "Quand",
+    "description": "Section title for weekly time slots."
+  },
+  "options_schedules_sub": {
+    "en": "Blocks that start on their own.",
+    "fr": "Des blocages qui démarrent tout seuls.",
+    "description": "One short line under the When title: weekly time slots start a block automatically."
+  },
+  "options_schedule_add": {
+    "en": "Add a time slot",
+    "fr": "Ajouter un créneau",
+    "description": "Button adding a weekly time slot."
+  },
+  "options_schedule_to": {
+    "en": "to",
+    "fr": "à",
+    "description": "Word between start and end time, as in 09:00 to 12:00."
+  },
+  "options_schedule_start_aria": {
+    "en": "Start time",
+    "fr": "Heure de début",
+    "description": "Accessible label of the start time input."
+  },
+  "options_schedule_end_aria": {
+    "en": "End time",
+    "fr": "Heure de fin",
+    "description": "Accessible label of the end time input."
+  },
+  "options_schedule_next_day": {
+    "en": "next day",
+    "fr": "le lendemain",
+    "description": "Small tag when a slot ends after midnight, e.g. 22:00 to 02:00."
+  },
+  "options_schedule_days_aria": {
+    "en": "Days",
+    "fr": "Jours",
+    "description": "Accessible label of the weekday buttons group."
+  },
+  "options_schedule_enabled_aria": {
+    "en": "Turn this slot on or off",
+    "fr": "Activer ou désactiver ce créneau",
+    "description": "Accessible label of a time slot switch."
+  },
+  "options_schedule_delete_aria": {
+    "en": "Delete this slot",
+    "fr": "Supprimer ce créneau",
+    "description": "Label and tooltip of the delete button of a time slot."
+  },
+  "options_schedule_error_days": {
+    "en": "Pick at least one day.",
+    "fr": "Choisis au moins un jour.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_error_same": {
+    "en": "Start and end must differ.",
+    "fr": "Le début et la fin doivent être différents.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_error_time": {
+    "en": "Enter a valid time.",
+    "fr": "Entre une heure valide.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_confirm": {
+    "en": "This starts a block now, until {1}.",
+    "fr": "Ça lance un blocage maintenant, jusqu'à {1}.",
+    "description": "Confirmation when a time slot change would start a block immediately. {1} is the end time."
+  },
+  "options_schedule_confirm_yes": {
+    "en": "Start now",
+    "fr": "Lancer",
+    "description": "Button confirming a time slot change that starts a block immediately."
+  },
+  "options_schedule_confirm_extend": {
+    "en": "This keeps the block on until {1}.",
+    "fr": "Ça prolonge le blocage jusqu'à {1}.",
+    "description": "Confirmation when turning a time slot on during a block would make the block last longer. {1} is the new end time."
+  },
+  "options_schedule_confirm_on": {
+    "en": "Turn it on",
+    "fr": "L'activer",
+    "description": "Button confirming that a time slot is turned on even though it extends the current block."
+  },
+  "options_schedule_paused": {
+    "en": "Off for now: turning it on starts a block.",
+    "fr": "Désactivé pour l'instant : l'activer lance un blocage.",
+    "description": "Note on a newly added slot that was added switched off because it covers the current time."
+  },
+  "options_schedule_draft_note": {
+    "en": "Locked once added, until the block ends.",
+    "fr": "Verrouillé une fois ajouté, jusqu'à la fin du blocage.",
+    "description": "Note on the new slot editor shown during an active block."
+  },
+  "options_schedule_draft_save": {
+    "en": "Add this slot",
+    "fr": "Ajouter ce créneau",
+    "description": "Button saving a new time slot during an active block."
+  },
+  "options_schedule_enable_allowed": {
+    "en": "You can turn it on, not off",
+    "fr": "Tu peux l'activer, pas le désactiver",
+    "description": "Tooltip on the switch of a switched off time slot during an active block."
+  },
+  "options_goal_title": {
+    "en": "Your long-term goal",
+    "fr": "Ton objectif à long terme",
+    "description": "Section title (the user has a single goal). Also the accessible label of the goal field."
+  },
+  "options_goal_sub": {
+    "en": "Shown when a site is blocked.",
+    "fr": "Affiché quand un site est bloqué.",
+    "description": "One short line under the Your goal title."
+  },
+  "options_quote_toggle": {
+    "en": "Show a motivational line",
+    "fr": "Afficher une phrase de motivation",
+    "description": "Label of the switch for the motivational line on the blocked page."
+  },
+  "options_ending_title": {
+    "en": "Ending a session early",
+    "fr": "Arrêter une session plus tôt",
+    "description": "Settings section title: what it takes to end a focus session before its end (pay a chosen amount, or type a sentence for free)."
+  },
+  "options_ending_money": {
+    "en": "Accountability with money",
+    "fr": "Mettre de l'argent en jeu",
+    "description": "Choice card title: ending a session early asks to pay the amount the user chose (a free way out always exists). It is accountability, not a paywall."
+  },
+  "options_ending_money_sub": {
+    "en": "You can still skip for free.",
+    "fr": "Tu peux toujours passer sans payer.",
+    "description": "Line under the money choice: paying is never required, the user can skip it and type a sentence instead."
+  },
+  "options_ending_free": {
+    "en": "Free only",
+    "fr": "Gratuit uniquement",
+    "description": "Choice card title: ending a session early never involves money."
+  },
+  "options_ending_free_sub": {
+    "en": "Just type a sentence.",
+    "fr": "Juste une phrase à taper.",
+    "description": "Line under the free choice: ending a session early only asks to type a sentence."
+  },
+  "options_amount_label": {
+    "en": "Amount",
+    "fr": "Montant",
+    "description": "Accessible label of the row of amounts to pay when ending a session early."
+  },
+  "options_amount_other": {
+    "en": "Other",
+    "fr": "Autre",
+    "description": "Last button of the amount row: reveals a field to type any amount."
+  },
+  "options_amount_input_label": {
+    "en": "Other amount",
+    "fr": "Autre montant",
+    "description": "Accessible label of the field where the user types a custom amount."
+  },
+  "options_amount_placeholder": {
+    "en": "{1} to {2}",
+    "fr": "{1} à {2}",
+    "description": "Placeholder of the custom amount field, shown next to the currency sign. {1} and {2} are the limits (1 and 500)."
+  },
+  "options_amount_error": {
+    "en": "Choose a whole amount from {1} to {2}.",
+    "fr": "Choisis un montant entier entre {1} et {2}.",
+    "description": "Inline error for an invalid custom amount (not saved). {1} and {2} are formatted amounts, like €1 and €500."
+  },
+  "options_stripe": {
+    "en": "Paid securely with Stripe.",
+    "fr": "Paiement sécurisé par Stripe.",
+    "description": "Small line under the amounts: the payment happens on Stripe's secure page."
+  },
+  "options_phrase_title": {
+    "en": "Sentence to type",
+    "fr": "Phrase à taper",
+    "description": "Heading of the sentence typed by hand to end a session early for free. Also the accessible label of its field."
+  },
+  "options_phrase_counter": {
+    "en": "{1} / {2}",
+    "fr": "{1} / {2}",
+    "description": "Character counter of the sentence to type, e.g. 57 / 300. {1} is the current length, {2} the maximum."
+  },
+  "options_phrase_error_short": {
+    "en": "At least {1} characters, or leave it empty.",
+    "fr": "Au moins {1} caractères, ou laisse vide.",
+    "description": "Inline error when the sentence to type is too short (empty means the default sentence). Nothing is saved. {1} is the minimum length (40)."
+  },
+  "options_phrase_error_long": {
+    "en": "{1} characters max.",
+    "fr": "{1} caractères maximum.",
+    "description": "Inline error when the sentence to type is too long. Nothing is saved. {1} is the maximum length (300)."
+  },
+  "options_phrase_reset": {
+    "en": "Reset to default",
+    "fr": "Remettre par défaut",
+    "description": "Button that clears the custom sentence to type so the default one is used again."
+  },
+  "options_phrase_locked": {
+    "en": "Locked until the block ends.",
+    "fr": "Verrouillée jusqu'à la fin du blocage.",
+    "description": "Note under the sentence field while a block is active (the field is disabled, the choice cards above stay editable). French: agrees with la phrase."
+  },
+  "options_about_title": {
+    "en": "About",
+    "fr": "À propos",
+    "description": "Section title."
+  },
+  "options_incognito_on": {
+    "en": "Also works in incognito.",
+    "fr": "Marche aussi en navigation privée.",
+    "description": "Status when the extension is allowed in incognito."
+  },
+  "options_incognito_off": {
+    "en": "Off in incognito windows.",
+    "fr": "Inactif en navigation privée.",
+    "description": "Status when the extension is not allowed in incognito."
+  },
+  "options_incognito_button": {
+    "en": "Allow in incognito",
+    "fr": "Autoriser en privé",
+    "description": "Button opening the extension details page in Chrome."
+  },
+  "options_incognito_help": {
+    "en": "Opens the extension details: turn on \"Allow in Incognito\".",
+    "fr": "Ouvre les détails de l'extension : active « Autoriser en mode navigation privée ».",
+    "description": "Tooltip of the incognito button. Quote the Chrome setting name as Chrome shows it."
+  },
+  "options_version": {
+    "en": "Version {1}",
+    "fr": "Version {1}",
+    "description": "Extension version line. {1} is like 0.1.0."
+  },
+  "options_reset_title": {
+    "en": "Start over",
+    "fr": "Tout recommencer",
+    "description": "Title of the settings section with the Reset everything button."
+  },
+  "options_reset_sub": {
+    "en": "Erase all settings and run setup again.",
+    "fr": "Efface tous les réglages et refais la configuration.",
+    "description": "One short line under the Start over title."
+  },
+  "options_reset_button": {
+    "en": "Reset everything",
+    "fr": "Tout réinitialiser",
+    "description": "Button that asks to reset every setting (a confirmation follows)."
+  },
+  "options_reset_confirm": {
+    "en": "Erase everything on every synced device? This can't be undone.",
+    "fr": "Tout effacer sur tous tes appareils synchronisés ? C'est définitif.",
+    "description": "Confirmation shown after clicking Reset everything, when no block is running. Settings are removed from Chrome sync, so from every synced device."
+  },
+  "options_reset_confirm_block": {
+    "en": "This also ends the current block. Erase everything? This can't be undone.",
+    "fr": "Ça met aussi fin au blocage en cours. Tout effacer ? C'est définitif.",
+    "description": "Confirmation shown after clicking Reset everything while a block is running (the reset ends it)."
+  },
+  "options_reset_yes": {
+    "en": "Yes, erase",
+    "fr": "Oui, tout effacer",
+    "description": "Button that confirms the reset of every setting."
+  },
+  "options_reset_locked": {
+    "en": "Available once the block ends.",
+    "fr": "Disponible à la fin du blocage.",
+    "description": "Note under the Start over section when reset is locked during a block (only if the build locks it)."
+  }
+}

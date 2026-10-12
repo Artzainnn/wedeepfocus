@@ -1,0 +1,9 @@
+/* Home page. Tokens and base components come from ../ui/common.css */
+body { min-height: 100vh; }
+.page { max-width: 720px; display: flex; flex-direction: column; gap: 18px; padding-bottom: 80px; }
+.page[aria-busy="true"] { opacity: 0; }
+.page h1 { margin: 0 4px 6px; }
+.home-card { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 56px 24px; text-align: center; }
+.home-text { font-size: 22px; font-weight: 600; }
+.home-label { font-size: 15px; font-weight: 600; }
+.home-countdown { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }

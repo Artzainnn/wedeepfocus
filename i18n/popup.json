@@ -1,0 +1,182 @@
+{
+  "popup_finish_setup": {
+    "en": "Finish setup",
+    "fr": "Finir la configuration",
+    "description": "Popup button shown until onboarding is finished; reopens onboarding"
+  },
+  "popup_idle_title": {
+    "en": "No block right now",
+    "fr": "Aucun blocage en cours",
+    "description": "Popup status title when nothing is blocked"
+  },
+  "popup_next_block": {
+    "en": "Next block {1}",
+    "fr": "Prochain blocage {1}",
+    "description": "Popup idle sub line. {1} is a weekday and time, e.g. 'Monday 07:00'"
+  },
+  "popup_next_block_today": {
+    "en": "Next block at {1}",
+    "fr": "Prochain blocage à {1}",
+    "description": "Popup idle sub line when the next scheduled block starts today. {1} is a time"
+  },
+  "popup_title_session": {
+    "en": "Focus session",
+    "fr": "Session de focus",
+    "description": "Popup status title during a manual session"
+  },
+  "popup_title_schedule": {
+    "en": "Scheduled block",
+    "fr": "Blocage programmé",
+    "description": "Popup status title during a scheduled time slot"
+  },
+  "popup_until": {
+    "en": "Until {1}",
+    "fr": "Jusqu'à {1}",
+    "description": "Popup active sub line, first part: when the block ends. {1} is a time today ('14:00') or a weekday and time ('Monday 07:00')"
+  },
+  "popup_no_end": {
+    "en": "No end this week",
+    "fr": "Pas de fin cette semaine",
+    "description": "Popup active sub line, first part, when the block lasts more than 8 days"
+  },
+  "popup_sites_zero": {
+    "en": "no sites blocked",
+    "fr": "aucun site bloqué",
+    "description": "Popup active sub line, second part, when the block list is empty (or every listed site has a 10 minute pass)"
+  },
+  "popup_sites_one": {
+    "en": "1 site blocked",
+    "fr": "1 site bloqué",
+    "description": "Popup active sub line, second part, singular"
+  },
+  "popup_sites_many": {
+    "en": "{1} sites blocked",
+    "fr": "{1} sites bloqués",
+    "description": "Popup active sub line, second part. {1} is a number above 1"
+  },
+  "popup_meta_join": {
+    "en": "{1} · {2}",
+    "fr": "{1} · {2}",
+    "description": "Joins the two parts of the popup active sub line, e.g. 'Until 14:00' and '14 sites blocked'"
+  },
+  "popup_countdown_label": {
+    "en": "Time left",
+    "fr": "Temps restant",
+    "description": "Screen reader label before the popup countdown"
+  },
+  "popup_progress_label": {
+    "en": "Block progress",
+    "fr": "Progression du blocage",
+    "description": "Screen reader label of the popup progress bar"
+  },
+  "popup_extend": {
+    "en": "Add {1} min",
+    "fr": "Ajouter {1} min",
+    "description": "Popup button extending the block. {1} is a number of minutes"
+  },
+  "popup_quick_label": {
+    "en": "Block now for",
+    "fr": "Bloquer pendant",
+    "description": "Popup label above the quick session buttons (10 min, 20 min...)"
+  },
+  "popup_start_other": {
+    "en": "Other",
+    "fr": "Autre",
+    "description": "Popup button revealing a custom duration field"
+  },
+  "popup_custom_label": {
+    "en": "Session length in minutes",
+    "fr": "Durée de la session en minutes",
+    "description": "Screen reader label of the custom duration field"
+  },
+  "popup_custom_placeholder": {
+    "en": "{1} to {2} min",
+    "fr": "{1} à {2} min",
+    "description": "Placeholder of the custom duration field. {1} and {2} are the min and max minutes"
+  },
+  "popup_custom_start": {
+    "en": "Start",
+    "fr": "Lancer",
+    "description": "Popup button starting a session with a custom duration"
+  },
+  "popup_custom_error": {
+    "en": "Pick between {1} and {2} minutes.",
+    "fr": "Choisis entre {1} et {2} minutes.",
+    "description": "Popup validation error for the custom duration (whole minutes only). {1} and {2} are the min and max minutes"
+  },
+  "popup_block_site": {
+    "en": "Block this site",
+    "fr": "Bloquer ce site",
+    "description": "Popup button adding the current site to the block list"
+  },
+  "popup_already_blocked": {
+    "en": "Already blocked",
+    "fr": "Déjà bloqué",
+    "description": "Popup chip when the current site is already on the block list"
+  },
+  "popup_allow_site_title": {
+    "en": "Show your goal here instead of an error page",
+    "fr": "Affiche ton objectif ici au lieu d'une page d'erreur",
+    "description": "Tooltip of the Allow button next to the current site in the popup. The site is already blocked (with Chrome's error page); access upgrades it to the goal page"
+  },
+  "popup_site_fallback": {
+    "en": "Blocked with an error page",
+    "fr": "Bloqué avec une page d'erreur",
+    "description": "Small note under the current site's hostname when it is on the block list but the extension has no access to it: it is blocked with Chrome's error page instead of the goal page"
+  },
+  "popup_site_unsupported": {
+    "en": "Can't block this page",
+    "fr": "Page non bloquable",
+    "description": "Popup note when the current page (IP address, localhost, Chrome Web Store) cannot be blocked"
+  },
+  "popup_missing_one": {
+    "en": "{1} shows an error page instead of your goal.",
+    "fr": "{1} affiche une page d'erreur au lieu de ton objectif.",
+    "description": "Popup banner when one blocked site lacks host access: it is still blocked, but with Chrome's error page; the Allow button next to it upgrades it to the goal page. {1} is a domain, e.g. 'linkedin.com'"
+  },
+  "popup_missing_many": {
+    "en": "{1} sites show an error page instead of your goal.",
+    "fr": "{1} sites affichent une page d'erreur au lieu de ton objectif.",
+    "description": "Popup banner when several blocked sites lack host access: they are still blocked, but with Chrome's error page; the Allow button next to it upgrades them to the goal page. {1} is a number above 1"
+  },
+  "popup_load_error": {
+    "en": "Couldn't load your status",
+    "fr": "Impossible de charger ton statut",
+    "description": "Popup error when the background does not answer"
+  },
+  "popup_retry": {
+    "en": "Try again",
+    "fr": "Réessayer",
+    "description": "Popup button retrying after a load error"
+  },
+  "popup_error_generic": {
+    "en": "Something went wrong. Try again.",
+    "fr": "Quelque chose a coincé. Réessaie.",
+    "description": "Popup fallback error when no specific reason is available"
+  },
+  "popup_dismiss": {
+    "en": "Dismiss",
+    "fr": "Fermer",
+    "description": "Accessible label of the close button on a popup notice"
+  },
+  "popup_end_session": {
+    "en": "End session early",
+    "fr": "Arrêter la session",
+    "description": "Discreet link under the timer: opens the ritual to end the session early."
+  },
+  "popup_streak_one": {
+    "en": "1 day 🔥",
+    "fr": "1 jour 🔥",
+    "description": "Streak chip in the popup header (one day)."
+  },
+  "popup_streak_many": {
+    "en": "{1} days 🔥",
+    "fr": "{1} jours 🔥",
+    "description": "Streak chip in the popup header. {1} is a number of days."
+  },
+  "popup_stats": {
+    "en": "Your stats",
+    "fr": "Tes stats",
+    "description": "Accessible label and tooltip of the stats button."
+  }
+}

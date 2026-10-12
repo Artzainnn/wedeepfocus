@@ -1,0 +1,8 @@
+tests
+src
+build.mjs
+node_modules
+.vercel
+.env*
+.gitignore
+public-paid

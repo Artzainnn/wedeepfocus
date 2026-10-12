@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/js/script.js",
+      "destination": "https://datafa.st/js/script.js"
+    },
+    {
+      "source": "/api/events",
+      "destination": "https://datafa.st/api/events"
+    }
+  ]
+}

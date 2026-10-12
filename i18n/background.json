@@ -1,0 +1,17 @@
+{
+  "bg_title_next": {
+    "en": "Next block: {1}",
+    "fr": "Prochain blocage : {1}",
+    "description": "Toolbar icon tooltip, second line, when no block is active. {1} is a weekday and time, e.g. 'Monday 07:00'."
+  },
+  "bg_title_missing_one": {
+    "en": "1 site needs access. Click the icon to allow it.",
+    "fr": "1 site a besoin d'un accès. Clique sur l'icône pour l'autoriser.",
+    "description": "Toolbar icon tooltip, extra line when exactly one blocked site lacks the host permission. That site is still blocked during a block, with Chrome's error page; allowing access shows the goal page instead. Never say it is not blocked."
+  },
+  "bg_title_missing_other": {
+    "en": "{1} sites need access. Click the icon to allow them.",
+    "fr": "{1} sites ont besoin d'un accès. Clique sur l'icône pour les autoriser.",
+    "description": "Toolbar icon tooltip, extra line when several blocked sites lack the host permission. {1} is the number of sites (2 or more). They are still blocked during a block, with Chrome's error page; allowing access shows the goal page instead. Never say they are not blocked."
+  }
+}

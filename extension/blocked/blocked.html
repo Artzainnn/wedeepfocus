@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title data-i18n="appName">WeDeepFocus</title>
+  <link rel="icon" type="image/png" href="../assets/icon-32.png">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="blocked.css">
+  <script type="module" src="blocked.js"></script>
+</head>
+<body>
+  <main class="page" id="page" aria-busy="true">
+
+    <!-- Main blocked view -->
+    <section class="view view-main" data-testid="blocked-main" data-view="main" hidden>
+      <p class="host-pill" data-testid="blocked-host">
+        <span class="host-pill-icon" data-icon="shield" aria-hidden="true"></span>
+        <span class="host-pill-text" data-role="host-text"></span>
+      </p>
+
+      <div class="timer" data-role="timer">
+        <div class="countdown num" data-testid="blocked-countdown" role="timer" aria-atomic="true">0:00</div>
+        <p class="timer-label" data-i18n="blocked_focus_left">of focus left</p>
+        <p class="timer-until" data-role="until"></p>
+      </div>
+      <p class="timer-open" data-role="no-end" data-i18n="blocked_no_end" hidden>Focus time is on</p>
+
+      <section class="goal" data-testid="blocked-goals" aria-labelledby="goal-title">
+        <h2 class="eyebrow" id="goal-title" data-i18n="blocked_goal_title">Remember why</h2>
+        <div class="goal-card" data-role="goal-card" hidden>
+          <span class="goal-icon" data-icon="target" aria-hidden="true"></span>
+          <p class="goal-text" data-role="goal-text"></p>
+        </div>
+        <div class="goal-empty" data-role="goal-empty" hidden>
+          <p class="goal-empty-text" data-i18n="blocked_goal_empty">No goal yet.</p>
+          <a class="goal-empty-link" href="../options/options.html" data-role="open-options" data-i18n="blocked_goal_add">Add a goal</a>
+        </div>
+      </section>
+
+      <p class="quote" data-testid="blocked-quote" hidden></p>
+
+      <p class="stat" data-testid="blocked-stats" hidden>
+        <span class="stat-icon" data-icon="sparkles" aria-hidden="true"></span>
+        <span data-role="stat-text"></span>
+      </p>
+
+      <div class="actions">
+        <button type="button" class="btn btn-primary btn-lg btn-back" data-testid="blocked-back" data-role="back" data-i18n="blocked_back">Back to work</button>
+        <button type="button" class="link-btn" data-testid="blocked-need" data-i18n="blocked_need">I really need it</button>
+      </div>
+    </section>
+
+    <!-- Ending the session early -->
+    <section class="view view-friction" data-view="friction" hidden>
+      <div class="friction-card card">
+        <div class="stepper">
+          <span class="stepper-dots" data-role="dots" aria-hidden="true"></span>
+          <span class="sr-only" data-role="step-label"></span>
+        </div>
+
+        <div class="friction-step" data-testid="friction-step-1" data-step="question" hidden>
+          <span class="step-icon" data-icon="clock" aria-hidden="true"></span>
+          <h1 class="question" tabindex="-1" data-i18n="blocked_friction_question">Is it really worth breaking your focus?</h1>
+          <p class="question-hint" data-role="question-hint"></p>
+          <div class="choices">
+            <button type="button" class="btn btn-primary btn-lg" data-testid="friction-back-1" data-role="back" data-i18n="blocked_friction_no">No, back to work</button>
+            <button type="button" class="btn btn-lg" data-testid="friction-next-1" data-i18n="blocked_friction_yes">Yes, it's worth it</button>
+          </div>
+        </div>
+
+        <div class="friction-step friction-step-pay" data-testid="friction-step-pay" data-step="pay" hidden>
+          <h1 class="question" tabindex="-1" data-i18n="blocked_pay_title">End this session</h1>
+          <form class="pay-form" data-role="pay-form" novalidate>
+            <div class="amounts" role="group" data-role="amounts" data-i18n-aria-label="blocked_amount_label">
+              <button type="button" class="amount-chip" data-testid="friction-amount-other" aria-pressed="false" aria-expanded="false" aria-controls="friction-amount-field" data-i18n="common_other">Other</button>
+            </div>
+            <div class="amount-field" id="friction-amount-field" data-role="amount-field" hidden>
+              <span class="amount-affix" data-role="affix-before" aria-hidden="true"></span>
+              <input type="number" id="friction-amount-input" data-testid="friction-amount-input" inputmode="numeric" step="1" autocomplete="off"
+                data-i18n-aria-label="blocked_amount_label" aria-describedby="friction-amount-error">
+              <span class="amount-affix" data-role="affix-after" aria-hidden="true"></span>
+            </div>
+            <p class="error-text amount-error" id="friction-amount-error" data-testid="friction-amount-error" role="alert" hidden></p>
+            <button type="submit" class="btn btn-primary btn-lg pay-btn" data-testid="friction-pay">
+              <span class="pay-label" data-role="pay-label"></span>
+            </button>
+          </form>
+          <!-- Payment errors and "Skip for free" follow the payment steps (pay, then waiting). -->
+          <div class="pay-slot" data-role="pay-slot">
+            <div class="pay-extras" data-role="pay-extras">
+              <div class="pay-error" data-testid="friction-pay-error" role="alert" hidden>
+                <p class="error-text pay-error-text" data-role="pay-error-text"></p>
+                <button type="button" class="btn btn-sm" data-testid="friction-pay-retry" data-i18n="blocked_pay_retry">Try again</button>
+              </div>
+              <button type="button" class="btn btn-lg skip-btn" data-testid="friction-skip" data-i18n="blocked_pay_skip">Skip for free</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="friction-step friction-step-waiting" data-testid="friction-step-waiting" data-step="waiting" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <h1 class="question" tabindex="-1" data-role="waiting-title" aria-live="polite"></h1>
+          <p class="question-hint" data-role="waiting-sub" data-i18n="blocked_waiting_sub">Pay in the new tab. This page updates on its own.</p>
+          <button type="button" class="link-btn reopen-btn" data-testid="friction-reopen" data-i18n="blocked_waiting_reopen">Open the payment page again</button>
+          <div class="pay-slot" data-role="pay-slot"></div>
+          <button type="button" class="link-btn" data-testid="friction-confirm-back" data-i18n="common_back">Back</button>
+        </div>
+
+        <div class="friction-step friction-step-type" data-testid="friction-step-2" data-step="type" hidden>
+          <h1 class="question question-sm" tabindex="-1" data-i18n="blocked_friction_type">Type this sentence to end your session</h1>
+          <p class="phrase" id="friction-phrase" data-testid="friction-phrase"><span class="phrase-done" data-role="phrase-done"></span><span class="phrase-rest" data-role="phrase-rest"></span></p>
+          <p class="phrase-hint" id="friction-phrase-hint" data-role="phrase-hint" hidden></p>
+          <label class="sr-only" for="friction-input" data-i18n="blocked_friction_input_label">Type the sentence here</label>
+          <div class="typing-box" data-role="typing-box">
+            <textarea id="friction-input" class="typing-input" data-testid="friction-input" rows="3"
+              autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+              data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"
+              aria-describedby="friction-phrase friction-phrase-hint"
+              data-i18n-placeholder="blocked_friction_input_label"></textarea>
+          </div>
+          <div class="typing-meta">
+            <div class="meter" role="progressbar" aria-valuemin="0" data-role="meter" data-i18n-aria-label="blocked_friction_progress_label"><span class="meter-fill" data-role="meter-fill"></span></div>
+            <span class="counter num" data-testid="friction-progress" data-role="counter"></span>
+          </div>
+          <div class="typing-feedback" aria-live="polite">
+            <p class="error-text friction-error" data-testid="friction-error" hidden></p>
+          </div>
+          <div class="typing-actions">
+            <button type="button" class="btn btn-lg btn-unlock" data-testid="friction-unlock" disabled>
+              <span class="btn-icon" data-icon="unlock" aria-hidden="true"></span>
+              <span data-i18n="blocked_friction_end">End my session</span>
+            </button>
+            <button type="button" class="link-btn" data-testid="friction-cancel" data-i18n="blocked_friction_cancel">Never mind</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcome: the session was ended early (test id friction-ended), or nothing blocks here (blocked-free) -->
+    <section class="view view-free" data-testid="blocked-free" data-view="free" hidden>
+      <span class="free-icon" data-icon="unlock" aria-hidden="true"></span>
+      <h1 class="free-title" tabindex="-1" data-role="free-title"></h1>
+      <p class="free-sub" data-role="free-sub" hidden></p>
+      <button type="button" class="btn btn-primary btn-lg btn-continue" data-testid="blocked-continue" hidden>
+        <span class="btn-continue-text" data-role="continue-label"></span>
+        <span class="btn-icon" data-icon="arrow-right" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-lg" data-testid="friction-close" data-i18n="blocked_close_tab" hidden>Close this tab</button>
+    </section>
+
+  </main>
+
+  <footer class="brand" aria-hidden="true">
+    <img class="brand-mark" src="../assets/icon-32.png" alt="" width="16" height="16">
+    <span data-i18n="appName">WeDeepFocus</span>
+  </footer>
+</body>
+</html>

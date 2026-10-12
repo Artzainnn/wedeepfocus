@@ -1,0 +1,262 @@
+{
+  "onb_doc_title": {
+    "en": "Welcome to {1}",
+    "fr": "Bienvenue dans {1}",
+    "description": "Browser tab title of the onboarding page. {1} is the app name"
+  },
+  "onb_step_aria": {
+    "en": "Step {1} of {2}",
+    "fr": "Étape {1} sur {2}",
+    "description": "Screen reader text of the onboarding step dots. {1} is the current step, {2} the total (4)"
+  },
+  "onb_step1_title": {
+    "en": "What distracts you?",
+    "fr": "Qu'est-ce qui te distrait ?",
+    "description": "Onboarding step 1 heading: pick the groups of sites to block"
+  },
+  "onb_sites_zero": {
+    "en": "No sites",
+    "fr": "Aucun site",
+    "description": "Site count on an onboarding group card when every site of the group is turned off"
+  },
+  "onb_sites_one": {
+    "en": "1 site",
+    "fr": "1 site",
+    "description": "Site count on an onboarding group card, exactly one site"
+  },
+  "onb_sites_many": {
+    "en": "{1} sites",
+    "fr": "{1} sites",
+    "description": "Site count on an onboarding group card. {1} is the number of sites (2 or more)"
+  },
+  "onb_edit": {
+    "en": "Edit",
+    "fr": "Modifier",
+    "description": "Short button on a selected group card that shows its sites, so some can be turned off"
+  },
+  "onb_edit_label": {
+    "en": "Edit {1}",
+    "fr": "Modifier {1}",
+    "description": "Screen reader label of the Edit button of a group card. {1} is the group name, e.g. 'Social media'"
+  },
+  "onb_custom_placeholder": {
+    "en": "Add a site",
+    "fr": "Ajouter un site",
+    "description": "Placeholder and label of the input where the user types a site to block (a domain or a full URL)"
+  },
+  "onb_custom_remove": {
+    "en": "Remove {1}",
+    "fr": "Retirer {1}",
+    "description": "Screen reader label of the remove button on a site the user added. {1} is the domain"
+  },
+  "onb_privacy": {
+    "en": "Stays in your browser. Nothing is sent anywhere.",
+    "fr": "Reste dans ton navigateur. Rien n'est envoyé.",
+    "description": "Privacy line at the bottom of onboarding step 1: the choices are kept by Chrome, nothing is sent to any server"
+  },
+  "onb_pick_one": {
+    "en": "Pick a group or add a site.",
+    "fr": "Choisis un groupe ou ajoute un site.",
+    "description": "Error when continuing onboarding step 1 with nothing to block"
+  },
+  "onb_step2_title": {
+    "en": "When?",
+    "fr": "Quand ?",
+    "description": "Onboarding step 2 heading: when blocking happens"
+  },
+  "onb_when_manual": {
+    "en": "When I start a session",
+    "fr": "Quand je lance une session",
+    "description": "Onboarding step 2 choice (the default): sites are blocked only during sessions the user starts"
+  },
+  "onb_when_schedule": {
+    "en": "On a schedule",
+    "fr": "À heures fixes",
+    "description": "Onboarding step 2 choice: recurring weekly time slot"
+  },
+  "onb_days_label": {
+    "en": "Days",
+    "fr": "Jours",
+    "description": "Screen reader label of the weekday toggles in onboarding step 2"
+  },
+  "onb_from_label": {
+    "en": "From",
+    "fr": "De",
+    "description": "Screen reader label of the start time input in onboarding step 2"
+  },
+  "onb_to_label": {
+    "en": "To",
+    "fr": "À",
+    "description": "Screen reader label of the end time input in onboarding step 2"
+  },
+  "onb_next_day": {
+    "en": "Ends the next day",
+    "fr": "Se termine le lendemain",
+    "description": "Hint shown when the end time is earlier than the start time (overnight slot)"
+  },
+  "onb_error_no_day": {
+    "en": "Pick at least one day.",
+    "fr": "Choisis au moins un jour.",
+    "description": "Schedule validation error: no weekday selected"
+  },
+  "onb_error_same_time": {
+    "en": "Start and end must be different.",
+    "fr": "Le début et la fin doivent être différents.",
+    "description": "Schedule validation error: start time equals end time"
+  },
+  "onb_error_invalid_time": {
+    "en": "Enter a valid time.",
+    "fr": "Saisis une heure valide.",
+    "description": "Schedule validation error: empty or incomplete time"
+  },
+  "onb_strict_money": {
+    "en": "To end early: pay what you chose, or type a sentence.",
+    "fr": "Pour arrêter avant : paie ce que tu as choisi, ou tape une phrase.",
+    "description": "One line in onboarding step 2 stating the strict behavior for the money choice of step 4 (also the default before step 4): ending a session early means paying the chosen amount, or typing a sentence for free"
+  },
+  "onb_strict_free": {
+    "en": "To end early: type a sentence.",
+    "fr": "Pour arrêter avant : tape une phrase.",
+    "description": "Same line in onboarding step 2 once the user picked Free only in step 4: ending a session early means typing a sentence"
+  },
+  "onb_step3_title": {
+    "en": "Your long-term goal",
+    "fr": "Ton objectif à long terme",
+    "description": "Title of the goal step."
+  },
+  "onb_step3_sub": {
+    "en": "What you're building, not today's to-do. You'll see it when a site is blocked.",
+    "fr": "Ce que tu construis, pas ta liste du jour. Tu le verras quand un site est bloqué.",
+    "description": "Line under the goal step title."
+  },
+  "onb_goal_label": {
+    "en": "Your goal",
+    "fr": "Ton objectif",
+    "description": "Screen reader label of the goal input"
+  },
+  "onb_goal_placeholder": {
+    "en": "Launch my app this year",
+    "fr": "Lancer mon appli cette année",
+    "description": "Example in the custom goal field."
+  },
+  "onb_step4_title": {
+    "en": "If you want to stop early",
+    "fr": "Si tu veux arrêter avant la fin",
+    "description": "Title of the step about ending a session early."
+  },
+  "onb_step4_sub": {
+    "en": "Stopping should take a moment of thought. Choose what it takes.",
+    "fr": "Arrêter doit te demander un moment de réflexion. Choisis ce qu'il faudra.",
+    "description": "Line under the step 4 title."
+  },
+  "onb_mode_money": {
+    "en": "Put money on the line",
+    "fr": "Mettre de l'argent en jeu",
+    "description": "Money mode choice."
+  },
+  "onb_mode_money_sub": {
+    "en": "Ending a session early costs the amount you pick.",
+    "fr": "Arrêter une session avant la fin coûte le montant choisi.",
+    "description": "Money mode explanation."
+  },
+  "onb_mode_free": {
+    "en": "Free only",
+    "fr": "Gratuit uniquement",
+    "description": "Onboarding step 4 choice: ending a session early never involves money"
+  },
+  "onb_mode_free_sub": {
+    "en": "Type a sentence to end a session early.",
+    "fr": "Tu tapes une phrase pour arrêter une session avant la fin.",
+    "description": "Free mode explanation."
+  },
+  "onb_amount_label": {
+    "en": "Amount",
+    "fr": "Montant",
+    "description": "Screen reader label of the row of amounts in the money choice"
+  },
+  "onb_amount_other": {
+    "en": "Other",
+    "fr": "Autre",
+    "description": "Last button of the amount row: reveals a field to type any amount"
+  },
+  "onb_amount_input_label": {
+    "en": "Other amount",
+    "fr": "Autre montant",
+    "description": "Screen reader label of the field where the user types a custom amount"
+  },
+  "onb_amount_placeholder": {
+    "en": "{1} to {2}",
+    "fr": "{1} à {2}",
+    "description": "Placeholder of the custom amount field, shown next to the currency sign. {1} and {2} are the limits (1 and 500)"
+  },
+  "onb_amount_error": {
+    "en": "Choose a whole amount from {1} to {2}.",
+    "fr": "Choisis un montant entier entre {1} et {2}.",
+    "description": "Inline error for an invalid custom amount. {1} and {2} are formatted amounts, like €1 and €500"
+  },
+  "onb_stripe": {
+    "en": "Paid securely with Stripe.",
+    "fr": "Paiement sécurisé par Stripe.",
+    "description": "Small line under the amounts: the payment happens on Stripe's secure page"
+  },
+  "onb_finish": {
+    "en": "Finish",
+    "fr": "Terminer",
+    "description": "Button that completes onboarding (on step 4)"
+  },
+  "onb_done_title": {
+    "en": "You're all set",
+    "fr": "Tout est prêt",
+    "description": "Heading of the onboarding done screen"
+  },
+  "onb_pin_line": {
+    "en": "Pin the icon to start a session anytime.",
+    "fr": "Épingle l'icône pour lancer une session à tout moment.",
+    "description": "Done screen line: pin the extension icon in the Chrome toolbar to start focus sessions"
+  },
+  "onb_pin_hint": {
+    "en": "Puzzle icon, then the pin",
+    "fr": "Icône puzzle, puis l'épingle",
+    "description": "Screen reader text of the tiny drawing under the pin line: click Chrome's puzzle icon, then the pin next to the extension"
+  },
+  "onb_try_session": {
+    "en": "Start a {1} min session",
+    "fr": "Lancer une session de {1} min",
+    "description": "Done screen main button that starts a focus session. {1} is 10"
+  },
+  "onb_focus_until": {
+    "en": "Focusing until {1}",
+    "fr": "Focus jusqu'à {1}",
+    "description": "Done screen button label once the session has started. {1} is a time, e.g. 14:10"
+  },
+  "onb_missing_one": {
+    "en": "1 site won't show your goal.",
+    "fr": "1 site n'affichera pas ton objectif.",
+    "description": "Done screen line before an Allow link: one chosen site lacks access, so it is blocked with Chrome's error page instead of the goal page"
+  },
+  "onb_missing_many": {
+    "en": "{1} sites won't show your goal.",
+    "fr": "{1} sites n'afficheront pas ton objectif.",
+    "description": "Done screen line before an Allow link: {1} chosen sites (2 or more) lack access, so they are blocked with Chrome's error page instead of the goal page"
+  },
+  "onb_goal_custom": {
+    "en": "Write my own",
+    "fr": "Écrire le mien",
+    "description": "Last choice of the goal step: reveals a text field."
+  },
+  "onb_goal_empty": {
+    "en": "Write your goal, or pick one above.",
+    "fr": "Écris ton objectif, ou choisis-en un au-dessus.",
+    "description": "Error when the custom goal is empty."
+  },
+  "onb_money_why": {
+    "en": "A small price makes you pause and think twice.",
+    "fr": "Un petit prix pour marquer une pause et réfléchir.",
+    "description": "Explains why money helps (onboarding, money mode)."
+  },
+  "onb_money_skip": {
+    "en": "Skipping for free is always possible.",
+    "fr": "Passer gratuitement reste toujours possible.",
+    "description": "Says clearly that paying is never required."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "wedeepfocus-landing",
+  "private": true,
+  "type": "module",
+  "description": "WeDeepFocus website (prebuilt static pages in public/) and payment functions (api/). No dependencies."
+}

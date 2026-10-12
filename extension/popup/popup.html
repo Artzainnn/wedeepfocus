@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320">
+  <title data-i18n="appName">WeDeepFocus</title>
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body class="is-booting is-loading">
+  <div class="popup">
+    <header class="popup-header">
+      <div class="brand">
+        <img class="brand-icon" src="../assets/icon-32.png" alt="" width="20" height="20">
+        <span class="brand-name" data-i18n="appName">WeDeepFocus</span>
+      </div>
+      <button type="button" class="streak-chip" data-testid="popup-streak" hidden></button>
+      <button type="button" class="btn btn-ghost icon-btn" data-testid="popup-stats" data-i18n-aria-label="popup_stats" data-i18n-title="popup_stats" aria-label="Your stats">
+        <span data-icon="chart"></span>
+      </button>
+      <button type="button" class="btn btn-ghost icon-btn" data-testid="popup-settings" data-i18n-aria-label="common_settings" data-i18n-title="common_settings" aria-label="Settings">
+        <span data-icon="settings"></span>
+      </button>
+    </header>
+
+    <div class="skeleton" id="skeleton" aria-hidden="true">
+      <div class="card status sk-card">
+        <div class="status-head">
+          <span class="sk sk-bubble"></span>
+          <span class="sk sk-line sk-w60"></span>
+        </div>
+        <div class="quick-grid sk-grid">
+          <span class="sk sk-btn"></span>
+          <span class="sk sk-btn"></span>
+          <span class="sk sk-btn"></span>
+          <span class="sk sk-btn"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="load-error" id="load-error" hidden>
+      <div class="card load-error-card" role="alert">
+        <span data-icon="alert" class="icon icon-lg load-error-icon"></span>
+        <p class="load-error-text" data-i18n="popup_load_error">Couldn't load your status</p>
+        <button type="button" class="btn btn-sm" id="retry" data-i18n="popup_retry">Try again</button>
+      </div>
+    </div>
+
+    <main class="popup-main" id="main" hidden>
+      <button type="button" class="setup-link" data-testid="popup-finish-setup" hidden>
+        <span data-icon="sparkles" class="icon icon-sm"></span>
+        <span class="setup-text" data-i18n="popup_finish_setup">Finish setup</span>
+        <span data-icon="arrow-right" class="icon icon-sm setup-arrow"></span>
+      </button>
+
+      <div class="banner banner-warning missing-banner" id="missing-banner" data-testid="popup-missing-banner" hidden>
+        <span data-icon="alert" class="icon icon-sm banner-icon"></span>
+        <p class="banner-text" id="missing-text"></p>
+        <button type="button" class="btn btn-sm" data-testid="popup-grant-missing" data-i18n="common_allow">Allow</button>
+      </div>
+
+      <div class="banner notice" id="notice" data-testid="popup-error" role="status" aria-live="polite" hidden>
+        <p class="banner-text" id="notice-text"></p>
+        <button type="button" class="btn btn-ghost icon-btn icon-btn-sm notice-close" id="notice-close" data-i18n-aria-label="popup_dismiss" data-i18n-title="popup_dismiss" aria-label="Dismiss">
+          <span data-icon="x" class="icon icon-sm"></span>
+        </button>
+      </div>
+
+      <section class="card status" id="status" data-testid="popup-status" data-state="idle" tabindex="-1">
+        <div class="status-head">
+          <span class="status-bubble">
+            <span data-icon="unlock" class="icon when-idle"></span>
+            <span data-icon="lock" class="icon when-active"></span>
+          </span>
+          <div class="status-text" aria-live="polite">
+            <h1 class="status-title" id="status-title"></h1>
+            <p class="status-sub" id="status-sub" hidden></p>
+          </div>
+        </div>
+
+        <div class="status-body" id="status-body" hidden>
+          <span class="sr-only" data-i18n="popup_countdown_label">Time left</span>
+          <div class="countdown" id="countdown" data-testid="popup-countdown" role="timer" aria-atomic="true">0:00</div>
+          <div class="progress" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-i18n-aria-label="popup_progress_label" aria-label="Block progress">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <button type="button" class="btn btn-block extend-btn" data-testid="popup-extend">
+            <span data-icon="plus" class="icon icon-sm"></span>
+            <span id="extend-label"></span>
+          </button>
+          <button type="button" class="end-link" data-testid="popup-end-session" data-i18n="popup_end_session">End session early</button>
+        </div>
+
+        <div class="quick" id="quick" hidden>
+          <h2 class="quick-label" id="quick-label" data-i18n="popup_quick_label">Block now for</h2>
+          <div class="quick-grid" id="quick-grid" role="group" aria-labelledby="quick-label">
+            <button type="button" class="btn quick-btn" data-testid="popup-start-other" aria-expanded="false" aria-controls="custom-form" data-i18n="popup_start_other">Other</button>
+          </div>
+          <form class="custom" id="custom-form" novalidate hidden>
+            <label class="sr-only" for="custom-minutes" data-i18n="popup_custom_label">Session length in minutes</label>
+            <input type="number" id="custom-minutes" data-testid="popup-custom-minutes" inputmode="numeric" step="1" autocomplete="off" aria-describedby="custom-error">
+            <button type="submit" class="btn btn-primary" data-testid="popup-custom-start" data-i18n="popup_custom_start">Start</button>
+          </form>
+          <p class="error-text custom-error" id="custom-error" data-testid="popup-custom-error" role="alert" hidden></p>
+        </div>
+      </section>
+
+      <section class="site" id="site" data-testid="popup-current-site" hidden>
+        <div class="site-main">
+          <span class="site-icon"><span data-icon="globe" class="icon icon-sm"></span></span>
+          <div class="site-text">
+            <span class="site-host" id="site-host"></span>
+            <span class="site-note" id="site-note" data-testid="popup-site-fallback" data-i18n="popup_site_fallback" hidden>Blocked with an error page</span>
+          </div>
+        </div>
+        <div class="site-action">
+          <button type="button" class="btn btn-sm" data-testid="popup-block-site" hidden>
+            <span data-icon="plus" class="icon icon-sm"></span>
+            <span data-i18n="popup_block_site">Block this site</span>
+          </button>
+          <span class="chip chip-ok" data-testid="popup-already-blocked" aria-disabled="true" hidden>
+            <span data-icon="check" class="icon icon-sm"></span>
+            <span data-i18n="popup_already_blocked">Already blocked</span>
+          </span>
+          <button type="button" class="btn btn-sm btn-primary" data-testid="popup-allow-site" data-i18n-title="popup_allow_site_title" hidden>
+            <span data-i18n="common_allow">Allow</span>
+          </button>
+          <span class="site-unsupported" id="site-unsupported" data-i18n="popup_site_unsupported" hidden>Can't block this page</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="popup-footer">
+      <button type="button" class="footer-link" data-testid="popup-footer-settings">
+        <span data-icon="settings" class="icon icon-sm"></span>
+        <span data-i18n="common_settings">Settings</span>
+      </button>
+      <a href="#" class="link-coffee" data-testid="popup-coffee" id="footer-coffee">
+        <span data-icon="coffee" class="icon icon-sm"></span>
+        <span data-i18n="common_coffee">Buy a dev a coffee</span>
+      </a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+/* Popup (320 px wide). Tokens and base components come from ../ui/common.css */
+
+html, body { width: 320px; }
+body { overflow-x: hidden; }
+/* Hidden until i18n is applied (no flash of English); the delayed reveal is a safety net if scripts fail. */
+body.is-booting { visibility: hidden; animation: boot-reveal 0s linear 600ms forwards; }
+@keyframes boot-reveal { to { visibility: visible; } }
+@media (prefers-reduced-motion: reduce) { body.is-booting { visibility: visible; } }
+
+.popup { display: flex; flex-direction: column; }
+
+/* Header */
+.popup-header {
+  display: flex; align-items: center; justify-content: flex-start; gap: 6px;
+  padding: 14px 12px 6px 18px;
+}
+.brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.brand-icon { width: 20px; height: 20px; flex: none; border-radius: 6px; }
+.brand-name {
+  font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.icon-btn { width: 36px; height: 36px; padding: 0; }
+.icon-btn-sm { width: 28px; height: 28px; }
+
+/* Layout */
+.popup-main, .skeleton, .load-error {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 8px 16px 14px;
+}
+
+/* Setup reminder */
+.setup-link {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  height: 40px; padding: 0 16px;
+  font: inherit; font-size: 13px; font-weight: 600; text-align: left;
+  color: var(--accent-text); background: var(--accent-soft);
+  border: 0; border-radius: 999px; cursor: pointer;
+  transition: transform 80ms ease;
+}
+.setup-link:hover { background: color-mix(in srgb, var(--accent) 14%, var(--accent-soft)); }
+.setup-link:active { transform: scale(0.98); }
+.setup-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.setup-text { flex: 1; min-width: 0; }
+.setup-arrow { transition: transform 150ms ease; }
+.setup-link:hover .setup-arrow { transform: translateX(2px); }
+
+/* Banners */
+.banner { align-items: center; line-height: 1.4; }
+.banner-icon { flex: none; }
+.banner-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.banner .btn { flex: none; }
+.missing-banner .btn { border-color: transparent; }
+.notice { padding: 8px 6px 8px 14px; }
+.notice.is-error { background: var(--danger-soft); color: var(--danger); }
+.notice.is-warning { background: var(--warning-soft); color: var(--warning); }
+.notice-close { color: inherit; opacity: 0.75; }
+.notice-close:hover { background: transparent; color: inherit; opacity: 1; }
+
+/* Status card */
+.status { padding: 18px; }
+.status:focus { outline: none; }
+.status-head { display: flex; align-items: center; gap: 12px; }
+.status-bubble {
+  display: grid; place-items: center; flex: none;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface-2); color: var(--text-2);
+}
+.status .when-active { display: none; }
+.status[data-state="active"] .when-active { display: inline-block; }
+.status[data-state="active"] .when-idle { display: none; }
+.status[data-state="active"] .status-bubble { background: var(--accent-soft); color: var(--accent-text); }
+.status-text { min-width: 0; }
+.status-title { font-size: 17px; line-height: 1.25; }
+.status-sub { margin-top: 2px; font-size: 12.5px; line-height: 1.4; color: var(--text-2); }
+
+.status-body { margin-top: 18px; }
+.countdown {
+  font-family: var(--font-display); font-size: 56px; font-weight: 600; line-height: 1;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.progress {
+  height: 6px; margin-top: 16px; overflow: hidden;
+  background: var(--surface-2); border-radius: 999px;
+}
+.progress-fill {
+  width: 0; height: 100%;
+  background: var(--accent); border-radius: inherit;
+  transition: width 900ms linear;
+}
+.extend-btn { margin-top: 18px; }
+.status-note { margin-top: 10px; font-size: 12px; color: var(--text-3); text-align: center; }
+
+/* Quick start (idle only, inside the status card) */
+.quick { margin-top: 18px; }
+.quick-label { margin-bottom: 10px; font-family: var(--font); font-size: 12px; font-weight: 500; letter-spacing: 0; color: var(--text-2); }
+.quick-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.quick-btn {
+  padding: 0 4px;
+  font-family: var(--font-display); font-weight: 600; font-variant-numeric: tabular-nums;
+  background: var(--surface-2); border-color: transparent;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.quick-btn:hover { background: var(--accent-soft); color: var(--accent-text); }
+.quick-btn[aria-expanded="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-text); }
+.custom { display: flex; gap: 6px; margin-top: 10px; }
+.custom input { flex: 1; width: 100%; font-variant-numeric: tabular-nums; }
+.custom input::-webkit-inner-spin-button, .custom input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.custom input[aria-invalid="true"] { border-color: var(--danger); }
+.custom input[aria-invalid="true"]:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 28%, transparent); }
+.custom .btn { flex: none; }
+.custom-error { margin-top: 6px; font-size: 12px; }
+
+/* Current site. The action moves under the hostname when both don't fit on one line
+   (.site-main's flex basis is its unwrapped width), then a long hostname wraps between labels. */
+.site {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 8px 8px 8px 10px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+}
+.site-main { display: flex; align-items: center; gap: 10px; flex: 1 1 auto; min-width: 0; }
+.site-icon {
+  display: grid; place-items: center; flex: none;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--surface-2); color: var(--text-2);
+}
+.site-text { display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; }
+.site-host { font-size: 13px; font-weight: 500; line-height: 1.35; overflow-wrap: anywhere; }
+.site-host.is-long { font-size: 12px; }
+/* contain: its length never pushes the action to the next line, it wraps inside the text column. */
+.site-note { contain: inline-size; margin-top: 1px; font-size: 11.5px; line-height: 1.35; color: var(--warning); text-wrap: balance; }
+.site-action { flex: none; display: flex; align-items: center; margin-left: auto; }
+/* A little tighter than the defaults so common hostnames keep one line next to the action. */
+.site-action .btn-sm, .site-action .chip { padding: 0 11px; }
+.site-action .chip { height: 32px; }
+.chip-ok { background: var(--accent-soft); color: var(--accent-text); border-color: transparent; cursor: default; }
+.site-unsupported { padding-right: 6px; font-size: 12px; color: var(--text-3); }
+
+/* Load error */
+.load-error-card { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 22px 16px; text-align: center; }
+.load-error-icon { color: var(--danger); }
+.load-error-text { font-size: 13px; color: var(--text-2); }
+
+/* Footer */
+.popup-footer { display: flex; justify-content: space-between; align-items: center; padding: 2px 12px 14px; font-size: 12.5px; }
+.footer-link { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font: inherit; font-weight: 500; color: var(--text-2); background: none; border: 0; border-radius: 999px; cursor: pointer; }
+.footer-link:hover { color: var(--text); background: var(--surface-2); }
+.footer-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.popup-footer .link-coffee { padding: 4px 10px; border-radius: 999px; }
+.popup-footer .link-coffee:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* Skeleton: fades in only if loading takes a moment, so fast loads never flash it */
+.skeleton { animation: sk-in 200ms ease 150ms both; }
+.sk-card { padding: 18px; }
+.sk { display: block; position: relative; overflow: hidden; background: var(--surface-2); border-radius: 999px; }
+.sk::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 55%, transparent), transparent);
+  transform: translateX(-100%);
+  animation: sk-shimmer 1.2s ease-in-out infinite;
+}
+.sk-bubble { width: 40px; height: 40px; border-radius: 50%; flex: none; }
+.sk-line { height: 12px; }
+.sk-w60 { width: 60%; }
+.sk-grid { margin-top: 18px; }
+.sk-btn { height: 40px; }
+@keyframes sk-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sk-shimmer { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .skeleton { opacity: 1; } }
+
+.end-link {
+  display: block; margin: 12px auto 0; padding: 4px 8px;
+  font: inherit; font-size: 12px; color: var(--text-3);
+  background: none; border: 0; border-radius: 8px; cursor: pointer;
+  text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px;
+}
+.end-link:hover { color: var(--text-2); text-decoration-color: currentColor; }
+.end-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.streak-chip {
+  height: 28px; padding: 0 10px;
+  font: inherit; font-size: 12px; font-weight: 700; color: var(--coffee-text);
+  background: var(--coffee-soft); border: 0; border-radius: 999px; cursor: pointer; white-space: nowrap;
+}
+.streak-chip:hover { filter: brightness(0.97); }
+.streak-chip:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.popup-header .brand { margin-right: auto; }

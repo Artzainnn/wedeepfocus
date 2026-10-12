@@ -1,0 +1,23 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.zip
+landing/public/
+store/upload/
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Secrets and local deployment state: never commit
+landing/site.local.mjs
+.env*
+.vercel/
+*.pem
+*.key
+
+# OS and editor files
+.DS_Store
+.claude/
+.idea/
+.vscode/

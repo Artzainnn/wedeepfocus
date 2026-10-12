@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>WeDeepFocus</title>
+  <link rel="icon" type="image/png" href="../assets/icon-32.png">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="home.css">
+  <script type="module" src="home.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <nav class="side-nav" aria-label="WeDeepFocus">
+      <div class="side-nav-brand"><img src="../assets/icon-32.png" alt="" width="28" height="28"><span data-i18n="appName">WeDeepFocus</span></div>
+      <a class="side-nav-link" href="../home/home.html" data-testid="nav-home" aria-current="page"><span data-icon="home"></span><span data-i18n="nav_home">Home</span></a>
+      <a class="side-nav-link" href="../options/options.html" data-testid="nav-settings"><span data-icon="settings"></span><span data-i18n="common_settings">Settings</span></a>
+      <a class="side-nav-link" href="../stats/stats.html" data-testid="nav-stats"><span data-icon="chart"></span><span data-i18n="nav_stats">Stats</span></a>
+    </nav>
+    <main class="page" aria-busy="true">
+      <h1 data-i18n="home_title">Home</h1>
+
+      <section class="card home-card" data-testid="home-idle" hidden>
+        <p class="home-text display" data-i18n="home_idle">No current session.</p>
+        <button type="button" class="btn btn-primary btn-lg" data-testid="home-start"></button>
+        <p class="error-text" data-role="error" role="alert" hidden></p>
+      </section>
+
+      <section class="card home-card" data-testid="home-active" hidden>
+        <p class="home-label muted" data-i18n="home_active">Session in progress</p>
+        <p class="home-countdown display num" data-role="countdown"></p>
+        <p class="faint" data-role="until"></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

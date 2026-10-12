@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>WeDeepFocus settings</title>
+  <link rel="icon" href="../assets/icon-32.png">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="options.css">
+  <script type="module" src="options.js"></script>
+</head>
+<body>
+  <div class="save-status" data-testid="options-saved" data-state="idle" role="status" aria-live="polite"></div>
+
+  <div class="app-layout">
+    <nav class="side-nav" aria-label="WeDeepFocus">
+      <div class="side-nav-brand"><img src="../assets/icon-32.png" alt="" width="28" height="28"><span data-i18n="appName">WeDeepFocus</span></div>
+      <a class="side-nav-link" href="../home/home.html" data-testid="nav-home"><span data-icon="home"></span><span data-i18n="nav_home">Home</span></a>
+      <a class="side-nav-link" href="../options/options.html" data-testid="nav-settings" aria-current="page"><span data-icon="settings"></span><span data-i18n="common_settings">Settings</span></a>
+      <a class="side-nav-link" href="../stats/stats.html" data-testid="nav-stats"><span data-icon="chart"></span><span data-i18n="nav_stats">Stats</span></a>
+    </nav>
+  <main class="page" aria-busy="true">
+    <header class="page-header">
+      <h1 data-i18n="common_settings">Settings</h1>
+    </header>
+
+    <div class="banner banner-danger load-error" data-testid="options-load-error" role="alert" hidden>
+      <span class="banner-icon" data-icon="alert"></span>
+      <p class="banner-text" data-i18n="options_load_error">Couldn't load your settings.</p>
+      <button type="button" class="btn btn-sm load-error-reload" data-i18n="options_reload">Reload</button>
+    </div>
+
+    <div class="banner banner-info lock-banner" data-testid="options-lock-banner" role="status" hidden>
+      <span class="banner-icon" data-icon="lock"></span>
+      <p class="banner-text lock-banner-text"></p>
+    </div>
+
+    <div class="banner banner-warning missing-banner" data-testid="options-missing-banner" hidden>
+      <span class="banner-icon" data-icon="alert"></span>
+      <p class="banner-text missing-text"></p>
+      <button type="button" class="btn btn-sm missing-allow" data-testid="options-grant-missing" data-i18n="common_allow">Allow</button>
+    </div>
+
+    <section class="card section" id="groups" data-testid="options-groups" aria-labelledby="groups-title">
+      <div class="section-head">
+        <h2 id="groups-title" data-i18n="options_groups_title">Groups</h2>
+        <p class="section-sub" data-i18n="options_groups_sub">Turn on what distracts you.</p>
+      </div>
+      <div class="groups" role="list" aria-labelledby="groups-title"></div>
+      <div class="section-foot">
+        <button type="button" class="btn group-new" data-testid="group-new"><span class="btn-icon" data-icon="plus"></span><span data-i18n="options_group_new">New group</span></button>
+      </div>
+    </section>
+
+    <section class="card section" id="sites" data-testid="options-sites" aria-labelledby="sites-title">
+      <div class="section-head">
+        <h2 id="sites-title" data-i18n="options_sites_title">Your sites</h2>
+        <p class="section-sub" data-i18n="options_sites_sub">Single sites, outside any group.</p>
+      </div>
+      <form class="add-form custom-form" novalidate>
+        <label for="custom-input" class="sr-only" data-i18n="options_site_input_label">Site to block</label>
+        <input id="custom-input" type="text" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" data-testid="custom-input" data-i18n-placeholder="options_site_placeholder" placeholder="Add a site or paste a link" aria-describedby="custom-error">
+        <button type="submit" class="btn custom-add" data-testid="custom-add" data-i18n="common_add">Add</button>
+      </form>
+      <p id="custom-error" class="error-text field-error custom-error" data-testid="custom-error" aria-live="polite" hidden></p>
+      <div class="chips custom-list" role="list" aria-labelledby="sites-title"></div>
+    </section>
+
+    <section class="card section" id="schedules" data-testid="options-schedules" aria-labelledby="schedules-title">
+      <div class="section-head">
+        <h2 id="schedules-title" data-i18n="options_schedules_title">When</h2>
+        <p class="section-sub" data-i18n="options_schedules_sub">Blocks that start on their own.</p>
+      </div>
+      <div class="slots"></div>
+      <div class="new-slot-host"></div>
+      <div class="section-foot">
+        <button type="button" class="btn schedule-add" data-testid="schedule-add"><span class="btn-icon" data-icon="plus"></span><span data-i18n="options_schedule_add">Add a time slot</span></button>
+      </div>
+    </section>
+
+    <section class="card section" id="goals" data-testid="options-goals" aria-labelledby="goals-title">
+      <div class="section-head">
+        <h2 id="goals-title" data-i18n="options_goal_title">Your goal</h2>
+        <p class="section-sub" data-i18n="options_goal_sub">Shown when a site is blocked.</p>
+      </div>
+      <div class="goal-field">
+        <input type="text" class="goal-input" autocomplete="off" data-testid="goal-0" aria-labelledby="goals-title" data-i18n-placeholder="goal_option_projects" placeholder="Finish my thesis">
+        <span class="goal-counter num" aria-hidden="true"></span>
+      </div>
+      <div class="setting-row">
+        <label for="quote-toggle" class="setting-label" data-i18n="options_quote_toggle">Show a motivational line</label>
+        <label class="toggle">
+          <input id="quote-toggle" type="checkbox" data-testid="quote-toggle">
+          <span></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card section" id="ending" data-testid="options-ending" aria-labelledby="ending-title">
+      <div class="section-head">
+        <h2 id="ending-title" data-i18n="options_ending_title">Ending a session early</h2>
+      </div>
+      <div class="modes" role="radiogroup" aria-labelledby="ending-title">
+        <div class="mode mode-money">
+          <label class="mode-choice" data-testid="ending-mode-money">
+            <input type="radio" name="ending-mode" value="money" class="mode-input">
+            <span class="mode-bubble">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.5"/>
+                <circle cx="6.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="17.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <span class="mode-text">
+              <span class="mode-title" data-i18n="options_ending_money">Accountability with money</span>
+              <span class="mode-sub" data-i18n="options_ending_money_sub">You can still skip for free.</span>
+            </span>
+            <span class="mode-radio" aria-hidden="true"></span>
+          </label>
+          <div class="mode-body amount-box" hidden>
+            <div class="amount-chips" role="group" data-i18n-aria-label="options_amount_label" aria-label="Amount"></div>
+            <div class="amount-custom" id="ending-amount-custom" hidden>
+              <span class="amount-affix amount-prefix"></span>
+              <input type="text" id="ending-amount-input" class="amount-input num" inputmode="numeric" autocomplete="off" enterkeyhint="done" data-testid="ending-amount-input" data-i18n-aria-label="options_amount_input_label" aria-label="Other amount" aria-describedby="ending-amount-error">
+              <span class="amount-affix amount-suffix"></span>
+            </div>
+            <p id="ending-amount-error" class="error-text amount-error" data-testid="ending-amount-error" aria-live="polite" hidden></p>
+            <p class="mode-note small">
+              <span class="mode-note-icon" data-icon="lock"></span>
+              <span data-i18n="options_stripe">Paid securely with Stripe.</span>
+            </p>
+          </div>
+        </div>
+        <div class="mode mode-free">
+          <label class="mode-choice" data-testid="ending-mode-free">
+            <input type="radio" name="ending-mode" value="free" class="mode-input">
+            <span class="mode-bubble"><span class="mode-icon" data-icon="pencil"></span></span>
+            <span class="mode-text">
+              <span class="mode-title" data-i18n="options_ending_free">Free only</span>
+              <span class="mode-sub" data-i18n="options_ending_free_sub">Just type a sentence.</span>
+            </span>
+            <span class="mode-radio" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="phrase-block" data-testid="options-phrase">
+        <h3 id="phrase-title" class="phrase-title" data-i18n="options_phrase_title">Sentence to type</h3>
+        <div class="phrase-field">
+          <textarea id="phrase-input" class="phrase-input" rows="3" autocomplete="off" enterkeyhint="done" data-testid="phrase-input" aria-labelledby="phrase-title" aria-describedby="phrase-error"></textarea>
+          <div class="phrase-meta">
+            <p id="phrase-error" class="error-text phrase-error" data-testid="phrase-error" aria-live="polite" hidden></p>
+            <span class="phrase-counter num" data-testid="phrase-counter"></span>
+          </div>
+        </div>
+        <p class="lock-note phrase-lock-note small" data-testid="phrase-lock-note" hidden>
+          <span class="lock-note-icon" data-icon="lock"></span>
+          <span data-i18n="options_phrase_locked">Locked until the block ends.</span>
+        </p>
+        <div class="section-foot phrase-foot">
+          <button type="button" class="btn btn-sm phrase-reset" data-testid="phrase-reset" data-i18n="options_phrase_reset">Reset to default</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section about" id="about" data-testid="options-about" aria-labelledby="about-title">
+      <div class="section-head">
+        <h2 id="about-title" data-i18n="options_about_title">About</h2>
+      </div>
+      <ul class="about-list">
+        <li>
+          <span class="about-icon" data-icon="shield"></span>
+          <span data-i18n="privacy_line">Nothing is ever sent to us or anyone else. No account, no tracking.</span>
+        </li>
+        <li class="incognito-row" hidden>
+          <span class="about-icon incognito-icon"></span>
+          <span class="incognito-text" data-testid="options-incognito-status"></span>
+          <button type="button" class="btn btn-sm incognito-button" data-testid="options-incognito" data-i18n="options_incognito_button" hidden>Allow in incognito</button>
+        </li>
+        <li>
+          <span class="about-icon" data-icon="sparkles"></span>
+          <span class="version-text num" data-testid="options-version"></span>
+        </li>
+      </ul>
+      <div class="section-foot">
+        <a class="link-coffee coffee-link" data-testid="options-coffee" target="_blank" rel="noopener noreferrer"><span class="coffee-icon" data-icon="coffee"></span><span data-i18n="common_coffee">Buy a dev a coffee</span></a>
+      </div>
+    </section>
+
+    <section class="card section reset" id="reset" data-testid="options-reset" aria-labelledby="reset-title">
+      <div class="section-head">
+        <h2 id="reset-title" data-i18n="options_reset_title">Start over</h2>
+        <p class="section-sub" data-i18n="options_reset_sub">Erase all settings and run setup again.</p>
+      </div>
+      <p class="lock-note reset-lock-note small" data-testid="reset-lock-note" hidden>
+        <span class="lock-note-icon" data-icon="lock"></span>
+        <span data-i18n="options_reset_locked">Available once the block ends.</span>
+      </p>
+      <div class="banner banner-danger reset-confirm" data-testid="options-reset-confirm" role="alert" hidden>
+        <span class="banner-icon" data-icon="alert"></span>
+        <p class="reset-confirm-text" data-testid="options-reset-confirm-text"></p>
+        <div class="reset-confirm-actions">
+          <button type="button" class="btn btn-sm reset-yes" data-testid="options-reset-yes" data-i18n="options_reset_yes">Yes, erase</button>
+          <button type="button" class="btn btn-sm reset-no" data-testid="options-reset-no" data-i18n="common_cancel">Cancel</button>
+        </div>
+      </div>
+      <div class="section-foot reset-foot">
+        <button type="button" class="btn btn-sm reset-all" data-testid="options-reset-all" data-i18n="options_reset_button">Reset everything</button>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <div class="toast-region" aria-live="polite">
+    <div class="toast banner" data-testid="options-toast" data-kind="">
+      <span class="banner-icon toast-icon"></span>
+      <p class="banner-text toast-text"></p>
+      <button type="button" class="btn btn-sm toast-action" data-testid="options-toast-action" hidden></button>
+      <button type="button" class="toast-close" data-i18n-aria-label="options_dismiss" aria-label="Dismiss"><span data-icon="x"></span></button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>WeDeepFocus stats</title>
+  <link rel="icon" type="image/png" href="../assets/icon-32.png">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="stats.css">
+  <script type="module" src="stats.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <nav class="side-nav" aria-label="WeDeepFocus">
+      <div class="side-nav-brand"><img src="../assets/icon-32.png" alt="" width="28" height="28"><span data-i18n="appName">WeDeepFocus</span></div>
+      <a class="side-nav-link" href="../home/home.html" data-testid="nav-home"><span data-icon="home"></span><span data-i18n="nav_home">Home</span></a>
+      <a class="side-nav-link" href="../options/options.html" data-testid="nav-settings"><span data-icon="settings"></span><span data-i18n="common_settings">Settings</span></a>
+      <a class="side-nav-link" href="../stats/stats.html" data-testid="nav-stats" aria-current="page"><span data-icon="chart"></span><span data-i18n="nav_stats">Stats</span></a>
+    </nav>
+  <main class="page" aria-busy="true">
+    <header class="page-header">
+      <h1 data-i18n="stats_title">Your stats</h1>
+    </header>
+
+    <section class="card streak" data-testid="stats-streak">
+      <span class="streak-flame" aria-hidden="true">🔥</span>
+      <div class="streak-text">
+        <p class="streak-value display" data-role="streak-value"></p>
+        <p class="streak-best muted" data-role="streak-best"></p>
+      </div>
+    </section>
+
+
+
+    <section class="card days" data-testid="stats-days" aria-labelledby="days-title">
+      <h2 class="section-title" id="days-title" data-i18n="stats_grid_label">Focus per day, last 20 weeks</h2>
+      <div class="days-scroll"><div class="daymap" data-role="daymap" role="img"></div></div>
+      <div class="legend" aria-hidden="true"><span data-i18n="stats_less">Less</span><i class="lv0"></i><i class="lv1"></i><i class="lv2"></i><i class="lv3"></i><i class="lv4"></i><span data-i18n="stats_more">More</span></div>
+      <p class="hint faint small" data-i18n="stats_streak_hint">A day counts once a block protects at least a minute of focus.</p>
+    </section>
+
+    <div class="periods" role="radiogroup" data-i18n-aria-label="stats_period_label">
+      <button type="button" class="chip-btn" data-period="7" data-testid="stats-period-7" data-i18n="stats_period_7">7 days</button>
+      <button type="button" class="chip-btn" data-period="30" data-testid="stats-period-30" data-i18n="stats_period_30">30 days</button>
+      <button type="button" class="chip-btn" data-period="all" data-testid="stats-period-all" data-i18n="stats_period_all">All time</button>
+    </div>
+
+    <section class="cards">
+      <article class="card metric" data-testid="stats-focus">
+        <p class="metric-label" data-i18n="stats_focus">Focus time protected</p>
+        <p class="metric-value display num" data-role="focus-value">0</p>
+        <p class="metric-sub faint small" data-role="focus-sub"></p>
+      </article>
+      <article class="card metric" data-testid="stats-blocked">
+        <p class="metric-label" data-i18n="stats_blocked">Sites blocked</p>
+        <p class="metric-value display num" data-role="blocked-value">0</p>
+        <p class="metric-sub faint small" data-role="blocked-sub"></p>
+      </article>
+      <article class="card metric" data-testid="stats-completed">
+        <p class="metric-label" data-i18n="stats_completed">Sessions completed</p>
+        <p class="metric-value display num" data-role="completed-value">0</p>
+        <p class="metric-sub faint small" data-role="completed-sub"></p>
+      </article>
+      <article class="card metric" data-testid="stats-ended">
+        <p class="metric-label" data-i18n="stats_ended">Sessions ended early</p>
+        <p class="metric-value display num" data-role="ended-value">0</p>
+        <p class="metric-sub faint small" data-role="ended-sub"></p>
+      </article>
+      <article class="card metric" data-testid="stats-paid">
+        <p class="metric-label" data-i18n="stats_paid">Accountability paid</p>
+        <p class="metric-value display num" data-role="paid-value">0</p>
+        <p class="metric-sub faint small" data-role="paid-sub"></p>
+      </article>
+    </section>
+
+    <p class="privacy faint small" data-i18n="stats_privacy">Your stats stay in your browser. Nothing is sent.</p>
+  </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>WeDeepFocus</title>
+  <link rel="icon" href="../assets/icon-32.png">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="onboarding.css">
+  <script type="module" src="onboarding.js"></script>
+</head>
+<body>
+  <div class="onb-shell">
+    <header class="onb-brand">
+      <img class="onb-brand-icon" src="../assets/icon-32.png" width="24" height="24" alt="">
+      <span data-i18n="appName">WeDeepFocus</span>
+    </header>
+
+    <main id="main" aria-busy="true">
+      <div class="onb-dots" id="dots" data-testid="onb-step-indicator" hidden>
+        <span class="onb-dot" aria-hidden="true"></span>
+        <span class="onb-dot" aria-hidden="true"></span>
+        <span class="onb-dot" aria-hidden="true"></span>
+        <span class="onb-dot" aria-hidden="true"></span>
+        <span class="sr-only" id="dots-label"></span>
+      </div>
+
+      <!-- Step 1: groups and sites -->
+      <section class="onb-step" id="step-1" data-testid="onb-step-1" aria-labelledby="step-1-title" hidden>
+        <h1 class="onb-title" id="step-1-title" tabindex="-1" data-i18n="onb_step1_title">What distracts you?</h1>
+
+        <div class="onb-groups" id="groups" role="group" aria-labelledby="step-1-title"></div>
+
+        <div class="onb-add">
+          <input type="text" id="custom-input" data-testid="onb-custom-input"
+            data-i18n-placeholder="onb_custom_placeholder" placeholder="Add a site"
+            data-i18n-aria-label="onb_custom_placeholder" aria-label="Add a site"
+            autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="url" enterkeyhint="done"
+            aria-describedby="custom-error">
+          <button type="button" class="btn btn-lg" id="custom-add" data-testid="onb-custom-add">
+            <span class="icon icon-sm" data-icon="plus"></span>
+            <span data-i18n="common_add">Add</span>
+          </button>
+        </div>
+        <p class="error-text onb-error" id="custom-error" data-testid="onb-custom-error" aria-live="polite"></p>
+        <ul class="onb-custom" id="custom-list" hidden></ul>
+
+        <p class="onb-line onb-privacy" data-testid="onb-privacy">
+          <span class="icon icon-sm" data-icon="shield"></span>
+          <span data-i18n="onb_privacy">Stays in your browser. Nothing is sent anywhere.</span>
+        </p>
+      </section>
+
+      <!-- Step 2: when -->
+      <section class="onb-step" id="step-2" data-testid="onb-step-2" aria-labelledby="step-2-title" hidden>
+        <h1 class="onb-title" id="step-2-title" tabindex="-1" data-i18n="onb_step2_title">When?</h1>
+
+        <div class="onb-choices" role="radiogroup" aria-labelledby="step-2-title">
+          <label class="onb-choice" data-testid="onb-when-manual">
+            <input type="radio" name="when" value="manual" id="when-manual">
+            <span class="onb-bubble"><span class="icon" data-icon="clock"></span></span>
+            <span class="onb-choice-title" data-i18n="onb_when_manual">When I start a session</span>
+            <span class="onb-radio" aria-hidden="true"></span>
+          </label>
+          <label class="onb-choice" data-testid="onb-when-schedule">
+            <input type="radio" name="when" value="schedule" id="when-schedule">
+            <span class="onb-bubble"><span class="icon" data-icon="calendar"></span></span>
+            <span class="onb-choice-title" data-i18n="onb_when_schedule">On a schedule</span>
+            <span class="onb-radio" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <div class="onb-slot" id="slot" data-testid="onb-slot" hidden>
+          <div class="onb-days" id="days" role="group" data-i18n-aria-label="onb_days_label" aria-label="Days"></div>
+          <div class="onb-times">
+            <input type="time" id="slot-start" data-testid="onb-slot-start" required
+              data-i18n-aria-label="onb_from_label" aria-label="From">
+            <span class="onb-times-arrow" aria-hidden="true"><span class="icon icon-sm" data-icon="arrow-right"></span></span>
+            <input type="time" id="slot-end" data-testid="onb-slot-end" required
+              data-i18n-aria-label="onb_to_label" aria-label="To">
+          </div>
+          <p class="onb-next-day" id="next-day" hidden>
+            <span class="icon icon-sm" data-icon="clock"></span>
+            <span data-i18n="onb_next_day">Ends the next day</span>
+          </p>
+          <p class="error-text onb-error" id="slot-error" data-testid="onb-slot-error" aria-live="polite"></p>
+        </div>
+
+        <p class="onb-line onb-strict" data-testid="onb-strict">
+          <span class="icon icon-sm" data-icon="lock"></span>
+          <span id="strict-text"></span>
+        </p>
+      </section>
+
+      <!-- Step 3: goal -->
+      <section class="onb-step" id="step-3" data-testid="onb-step-3" aria-labelledby="step-3-title" hidden>
+        <h1 class="onb-title" id="step-3-title" tabindex="-1" data-i18n="onb_step3_title">Your long-term goal</h1>
+        <p class="onb-sub" data-i18n="onb_step3_sub">What you're building, not today's to-do.</p>
+        <div class="onb-goals" id="goal-options" role="radiogroup" aria-labelledby="step-3-title"></div>
+        <input type="text" class="onb-goal" id="goal" data-testid="onb-goal" maxlength="140" autocomplete="off"
+          enterkeyhint="done" data-i18n-aria-label="onb_goal_label" aria-label="Your goal" aria-describedby="goal-error"
+          data-i18n-placeholder="onb_goal_placeholder" placeholder="Launch my app this year" hidden>
+        <p class="error-text onb-error" id="goal-error" data-testid="onb-goal-error" aria-live="polite"></p>
+      </section>
+
+      <!-- Step 4: ending a session early -->
+      <section class="onb-step" id="step-4" data-testid="onb-step-4" aria-labelledby="step-4-title" hidden>
+        <h1 class="onb-title" id="step-4-title" tabindex="-1" data-i18n="onb_step4_title">If you break focus</h1>
+        <p class="onb-sub" data-i18n="onb_step4_sub">Choose what it takes to end a session early.</p>
+
+        <div class="onb-modes" role="radiogroup" aria-labelledby="step-4-title">
+          <div class="onb-mode">
+            <label class="onb-mode-toggle" data-testid="onb-mode-money">
+              <input type="radio" name="mode" value="money" class="onb-mode-input" id="mode-money">
+              <span class="onb-bubble">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.5"/>
+                  <circle cx="6.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="17.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+              <span class="onb-mode-text">
+                <span class="onb-mode-title" data-i18n="onb_mode_money">Accountability with money</span>
+                <span class="onb-mode-sub" data-i18n="onb_mode_money_sub">You can still skip for free.</span>
+              </span>
+              <span class="onb-radio" aria-hidden="true"></span>
+            </label>
+            <div class="onb-amount" id="amount" hidden>
+              <div class="onb-amounts" id="amounts" role="group" data-i18n-aria-label="onb_amount_label" aria-label="Amount"></div>
+              <div class="onb-amount-custom" id="amount-custom" hidden>
+                <span class="onb-amount-affix" id="amount-prefix"></span>
+                <input type="text" id="amount-input" data-testid="onb-amount-input" inputmode="numeric" autocomplete="off"
+                  enterkeyhint="done" data-i18n-aria-label="onb_amount_input_label" aria-label="Other amount"
+                  aria-describedby="amount-error">
+                <span class="onb-amount-affix" id="amount-suffix"></span>
+              </div>
+              <p class="error-text onb-error" id="amount-error" data-testid="onb-amount-error" aria-live="polite"></p>
+              <ul class="onb-points">
+                <li data-testid="onb-money-why"><span class="icon icon-sm" data-icon="clock"></span><span data-i18n="onb_money_why">A small price makes you pause.</span></li>
+                <li class="onb-point-strong" data-testid="onb-money-skip"><span class="icon icon-sm" data-icon="check"></span><span data-i18n="onb_money_skip">Skipping for free is always possible.</span></li>
+                <li><span class="icon icon-sm" data-icon="lock"></span><span data-i18n="onb_stripe">Paid securely with Stripe.</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="onb-mode">
+            <label class="onb-mode-toggle" data-testid="onb-mode-free">
+              <input type="radio" name="mode" value="free" class="onb-mode-input" id="mode-free">
+              <span class="onb-bubble"><span class="icon" data-icon="pencil"></span></span>
+              <span class="onb-mode-text">
+                <span class="onb-mode-title" data-i18n="onb_mode_free">Free only</span>
+                <span class="onb-mode-sub" data-i18n="onb_mode_free_sub">Just type a sentence.</span>
+              </span>
+              <span class="onb-radio" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Done -->
+      <section class="onb-step onb-done" id="done" data-testid="onb-done" aria-labelledby="done-title" hidden>
+        <svg class="onb-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+          <circle class="onb-art-halo" cx="60" cy="60" r="56"/>
+          <circle class="onb-art-ring" cx="60" cy="60" r="44"/>
+          <circle class="onb-art-disk" cx="60" cy="60" r="31"/>
+          <path class="onb-art-check" pathLength="1" d="M46.5 60.5l9 9 18-18.5"/>
+          <circle class="onb-art-dot" cx="14" cy="30" r="3"/>
+          <circle class="onb-art-dot" cx="107" cy="22" r="2.5"/>
+          <circle class="onb-art-dot" cx="110" cy="90" r="3.5"/>
+          <circle class="onb-art-dot" cx="20" cy="98" r="2"/>
+        </svg>
+        <h1 class="onb-title" id="done-title" tabindex="-1" data-i18n="onb_done_title">You're all set</h1>
+        <p class="onb-sub" data-i18n="onb_pin_line">Pin the icon to start a session anytime.</p>
+        <span class="onb-pin-hint" role="img" data-testid="onb-pin-hint"
+          data-i18n-aria-label="onb_pin_hint" aria-label="Puzzle icon, then the pin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M5 9.5a1.5 1.5 0 0 1 1.5-1.5H9V7a2 2 0 1 1 4 0v1h2.5A1.5 1.5 0 0 1 17 9.5V12h1a2 2 0 1 1 0 4h-1v2.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5 18.5z"/>
+          </svg>
+          <svg class="onb-pin-sep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M9.5 6l6 6-6 6"/>
+          </svg>
+          <svg class="onb-pin-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M9 3.5h6"/><path d="M10 3.5v5.5l-3 3.5h10l-3-3.5V3.5"/><path d="M12 12.5v8"/>
+          </svg>
+        </span>
+
+        <div class="onb-actions">
+          <button type="button" class="btn btn-primary btn-lg onb-try" id="try-session" data-testid="onb-try-session">
+            <span class="onb-try-icon" id="try-icon" hidden><span class="icon icon-sm" data-icon="check"></span></span>
+            <span id="try-label">Start a 10 min session</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="open-settings" data-testid="onb-open-settings">
+            <span data-i18n="common_settings">Settings</span>
+          </button>
+        </div>
+        <p class="sr-only" id="try-status" aria-live="polite"></p>
+        <p class="error-text onb-error" id="try-error" data-testid="onb-try-error" role="alert"></p>
+
+        <p class="onb-missing" id="missing" data-testid="onb-missing" hidden>
+          <span class="icon icon-sm" data-icon="alert"></span>
+          <span id="missing-text"></span>
+          <button type="button" class="onb-link" id="grant-missing" data-testid="onb-grant-missing">
+            <span data-i18n="common_allow">Allow</span>
+          </button>
+        </p>
+      </section>
+
+      <p class="error-text onb-error onb-nav-error" id="nav-error" data-testid="onb-error" role="alert"></p>
+      <footer class="onb-nav" id="nav" hidden>
+        <button type="button" class="btn btn-primary btn-lg" id="next" data-testid="onb-next">
+          <span data-i18n="common_continue">Continue</span>
+          <span class="icon icon-sm" data-icon="arrow-right"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" id="finish" data-testid="onb-finish" hidden>
+          <span data-i18n="onb_finish">Finish</span>
+        </button>
+        <button type="button" class="btn btn-ghost" id="back" data-testid="onb-back">
+          <span data-i18n="common_back">Back</span>
+        </button>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

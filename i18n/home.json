@@ -1,0 +1,27 @@
+{
+  "home_page_title": {
+    "en": "{1}",
+    "fr": "{1}",
+    "description": "Browser tab title of the home page. {1} is the app name."
+  },
+  "home_title": {
+    "en": "Home",
+    "fr": "Accueil",
+    "description": "Home page title."
+  },
+  "home_idle": {
+    "en": "No current session.",
+    "fr": "Aucune session en cours.",
+    "description": "Home page, when no block is active."
+  },
+  "home_start": {
+    "en": "Start with {1} minutes",
+    "fr": "Lancer {1} minutes",
+    "description": "Home page button that starts a session. {1} is a number of minutes (15)."
+  },
+  "home_active": {
+    "en": "Session in progress",
+    "fr": "Session en cours",
+    "description": "Home page, while a block is active."
+  }
+}

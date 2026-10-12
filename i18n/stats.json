@@ -1,0 +1,147 @@
+{
+  "stats_page_title": {
+    "en": "{1} stats",
+    "fr": "Stats de {1}",
+    "description": "Browser tab title of the stats page. {1} is the app name."
+  },
+  "stats_title": {
+    "en": "Your stats",
+    "fr": "Tes stats",
+    "description": "Stats page title."
+  },
+  "stats_streak_one": {
+    "en": "1 day in a row",
+    "fr": "1 jour d'affilée",
+    "description": "Current streak of one day."
+  },
+  "stats_streak_many": {
+    "en": "{1} days in a row",
+    "fr": "{1} jours d'affilée",
+    "description": "Current streak. {1} is a number of days."
+  },
+  "stats_streak_best": {
+    "en": "Best: {1} days",
+    "fr": "Record : {1} jours",
+    "description": "Longest streak so far."
+  },
+  "stats_streak_none": {
+    "en": "Start a session to begin your streak.",
+    "fr": "Lance une session pour démarrer ta série.",
+    "description": "Shown when the streak is 0."
+  },
+  "stats_streak_hint": {
+    "en": "A day counts once a block protects at least a minute of focus.",
+    "fr": "Un jour compte dès qu'un blocage protège au moins une minute de focus.",
+    "description": "Explains what makes a day count."
+  },
+  "stats_grid_label": {
+    "en": "Focus per day, last 30 weeks",
+    "fr": "Focus par jour, 30 dernières semaines",
+    "description": "Accessible label and caption of the day grid."
+  },
+  "stats_grid_day": {
+    "en": "{1}: {2} of focus",
+    "fr": "{1} : {2} de focus",
+    "description": "Tooltip of a day square. {1} is a date, {2} a duration."
+  },
+  "stats_grid_day_none": {
+    "en": "{1}: no focus",
+    "fr": "{1} : pas de focus",
+    "description": "Tooltip of an empty day square. {1} is a date."
+  },
+  "stats_less": {
+    "en": "Less",
+    "fr": "Moins",
+    "description": "Grid legend, low end."
+  },
+  "stats_more": {
+    "en": "More",
+    "fr": "Plus",
+    "description": "Grid legend, high end."
+  },
+  "stats_period_label": {
+    "en": "Period",
+    "fr": "Période",
+    "description": "Accessible label of the period choice."
+  },
+  "stats_period_7": {
+    "en": "7 days",
+    "fr": "7 jours",
+    "description": "Period choice."
+  },
+  "stats_period_30": {
+    "en": "30 days",
+    "fr": "30 jours",
+    "description": "Period choice."
+  },
+  "stats_period_all": {
+    "en": "All time",
+    "fr": "Depuis le début",
+    "description": "Period choice."
+  },
+  "stats_focus": {
+    "en": "Focus time protected",
+    "fr": "Temps de focus protégé",
+    "description": "Card title: time spent inside a block."
+  },
+  "stats_focus_sub": {
+    "en": "Time spent with your sites blocked",
+    "fr": "Temps passé avec tes sites bloqués",
+    "description": "Card subtitle."
+  },
+  "stats_blocked": {
+    "en": "Sites blocked",
+    "fr": "Sites bloqués",
+    "description": "Card title."
+  },
+  "stats_blocked_sub": {
+    "en": "Times a blocked site showed your goal",
+    "fr": "Fois où un site bloqué a affiché ton objectif",
+    "description": "Card subtitle."
+  },
+  "stats_completed": {
+    "en": "Sessions completed",
+    "fr": "Sessions menées au bout",
+    "description": "Card title: blocks that ran to their end."
+  },
+  "stats_completed_sub": {
+    "en": "Blocks that ran to the end",
+    "fr": "Blocages allés jusqu'au bout",
+    "description": "Card subtitle."
+  },
+  "stats_ended": {
+    "en": "Sessions ended early",
+    "fr": "Sessions arrêtées avant la fin",
+    "description": "Card title."
+  },
+  "stats_ended_sub": {
+    "en": "Free: {1}, paid: {2}",
+    "fr": "Gratuites : {1}, payées : {2}",
+    "description": "Card subtitle. {1} and {2} are numbers."
+  },
+  "stats_paid": {
+    "en": "Accountability paid",
+    "fr": "Engagement payé",
+    "description": "Card title: total paid to end sessions early."
+  },
+  "stats_paid_one": {
+    "en": "1 payment",
+    "fr": "1 paiement",
+    "description": "Card subtitle."
+  },
+  "stats_paid_many": {
+    "en": "{1} payments",
+    "fr": "{1} paiements",
+    "description": "Card subtitle. {1} is a number."
+  },
+  "stats_paid_none": {
+    "en": "No payment",
+    "fr": "Aucun paiement",
+    "description": "Card subtitle when nothing was paid."
+  },
+  "stats_privacy": {
+    "en": "Your stats stay in your browser. Nothing is sent.",
+    "fr": "Tes stats restent dans ton navigateur. Rien n'est envoyé.",
+    "description": "Footer line of the stats page."
+  }
+}

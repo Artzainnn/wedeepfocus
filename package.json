@@ -1,0 +1,29 @@
+{
+  "name": "wedeepfocus",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "WeDeepFocus: a free, private Chrome extension that blocks distracting sites during focus time and shows your goal instead.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"tests/unit/*.test.js\"",
+    "pretest:e2e": "node scripts/build-locales.mjs",
+    "test:e2e": "node --test --test-concurrency=1 --test-timeout=180000 \"tests/e2e/*.test.js\"",
+    "test:all": "npm test && npm run test:e2e",
+    "zip": "node scripts/zip.mjs",
+    "build:locales": "node scripts/build-locales.mjs",
+    "icons": "python3 scripts/make-icons.py",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/nunito": "^5.3.0",
+    "playwright": "1.60.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artzainnn/wedeepfocus.git"
+  }
+}

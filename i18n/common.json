@@ -1,0 +1,287 @@
+{
+  "appName": {
+    "en": "WeDeepFocus",
+    "fr": "WeDeepFocus",
+    "description": "Extension name shown in the Chrome Web Store, the toolbar and every page header."
+  },
+  "appShortName": {
+    "en": "WeDeepFocus",
+    "fr": "WeDeepFocus",
+    "description": "Short extension name (12 characters or fewer)."
+  },
+  "appDescription": {
+    "en": "Block distracting sites while you focus and see your goal instead. No account, no tracking.",
+    "fr": "Bloque les sites qui te distraient pendant tes heures de focus et affiche ton objectif à la place. Sans compte, sans pistage.",
+    "description": "Chrome Web Store short description, 132 characters max."
+  },
+  "category_social": {
+    "en": "Social media",
+    "fr": "Réseaux sociaux",
+    "description": "Preset group name: Facebook, Instagram, X, TikTok, LinkedIn..."
+  },
+  "category_video": {
+    "en": "Video and streaming",
+    "fr": "Vidéo et streaming",
+    "description": "Preset group name: YouTube, Netflix, Twitch..."
+  },
+  "category_messaging": {
+    "en": "Email and messaging",
+    "fr": "Mails et messageries",
+    "description": "Preset group name: Gmail, Outlook, WhatsApp Web, Messenger..."
+  },
+  "category_news": {
+    "en": "News",
+    "fr": "Actualités",
+    "description": "Preset group name: news and sports sites."
+  },
+  "category_shopping": {
+    "en": "Shopping",
+    "fr": "Shopping",
+    "description": "Preset group name: Amazon, eBay, Vinted..."
+  },
+  "common_save": {
+    "en": "Save",
+    "fr": "Enregistrer",
+    "description": "Generic button to save a change."
+  },
+  "common_saved": {
+    "en": "Saved",
+    "fr": "Enregistré",
+    "description": "Short status shown after an automatic save."
+  },
+  "common_cancel": {
+    "en": "Cancel",
+    "fr": "Annuler",
+    "description": "Generic button to cancel an action."
+  },
+  "common_add": {
+    "en": "Add",
+    "fr": "Ajouter",
+    "description": "Generic button to add an item (site, time slot)."
+  },
+  "common_remove": {
+    "en": "Remove",
+    "fr": "Retirer",
+    "description": "Generic button to remove an item from a list."
+  },
+  "common_delete": {
+    "en": "Delete",
+    "fr": "Supprimer",
+    "description": "Generic button to delete an item for good (for example a time slot)."
+  },
+  "common_allow": {
+    "en": "Allow",
+    "fr": "Autoriser",
+    "description": "Button that asks Chrome for access to the listed sites. They are blocked either way; with access they show the goals page instead of Chrome's error page."
+  },
+  "common_settings": {
+    "en": "Settings",
+    "fr": "Réglages",
+    "description": "Link or button that opens the settings page."
+  },
+  "common_open_settings": {
+    "en": "Open settings",
+    "fr": "Ouvrir les réglages",
+    "description": "Button that opens the settings page."
+  },
+  "common_coffee": {
+    "en": "Buy a dev a coffee",
+    "fr": "Offrir un café au dev",
+    "description": "Link to the optional tip page (Stripe), shown in the popup footer and the settings page."
+  },
+  "common_back": {
+    "en": "Back",
+    "fr": "Retour",
+    "description": "Button to go back to the previous step."
+  },
+  "common_continue": {
+    "en": "Continue",
+    "fr": "Continuer",
+    "description": "Button to go to the next step."
+  },
+  "common_start": {
+    "en": "Start",
+    "fr": "Lancer",
+    "description": "Button that starts a focus session."
+  },
+  "common_other": {
+    "en": "Other",
+    "fr": "Autre",
+    "description": "Button to pick a custom value (for example a custom number of minutes)."
+  },
+  "common_close": {
+    "en": "Close",
+    "fr": "Fermer",
+    "description": "Generic button to close a notice or a panel."
+  },
+  "common_done": {
+    "en": "Done",
+    "fr": "Terminé",
+    "description": "Generic button to confirm and close."
+  },
+  "common_loading": {
+    "en": "Loading",
+    "fr": "Chargement",
+    "description": "Accessible label shown while data loads."
+  },
+  "common_version": {
+    "en": "Version {1}",
+    "fr": "Version {1}",
+    "description": "Extension version line. {1} is the version number, like 1.0.0."
+  },
+  "common_minutes_short": {
+    "en": "{1} min",
+    "fr": "{1} min",
+    "description": "A number of minutes, short form. {1} is the number."
+  },
+  "reason_lock_custom": {
+    "en": "During a block, you can add sites, not remove them.",
+    "fr": "Pendant un blocage, tu peux ajouter des sites, pas en retirer.",
+    "description": "Refusal: the user tried to remove one of their own sites (\"Your sites\") during an active block."
+  },
+  "reason_lock_group": {
+    "en": "During a block, active groups can't be turned off or deleted.",
+    "fr": "Pendant un blocage, tu ne peux ni désactiver ni supprimer un groupe actif.",
+    "description": "Refusal: the user tried to turn off or delete a group that is on, during an active block. Turning groups on, adding groups and sites stays allowed."
+  },
+  "reason_lock_group_site": {
+    "en": "During a block, you can add sites to an active group, not remove them.",
+    "fr": "Pendant un blocage, tu peux ajouter des sites à un groupe actif, pas en retirer.",
+    "description": "Refusal: the user tried to remove a site from a group that is on, during an active block."
+  },
+  "reason_lock_schedule": {
+    "en": "During a block, you can add or turn on time slots, not change them.",
+    "fr": "Pendant un blocage, tu peux ajouter ou activer des créneaux, pas les modifier.",
+    "description": "Refusal: the user tried to edit, disable or delete an existing time slot during an active block (adding a slot or turning a disabled one on stays allowed)."
+  },
+  "reason_lock_phrase": {
+    "en": "You can change your sentence once the block ends.",
+    "fr": "Tu pourras changer ta phrase à la fin du blocage.",
+    "description": "Refusal: the user tried to change or reset the custom unlock sentence during an active block."
+  },
+  "reason_invalid_minutes": {
+    "en": "Pick 1 to 480 minutes.",
+    "fr": "Choisis entre 1 et 480 minutes.",
+    "description": "Validation error for a custom session length."
+  },
+  "reason_not_blocked": {
+    "en": "Nothing is blocked right now.",
+    "fr": "Rien n'est bloqué en ce moment.",
+    "description": "Refusal: ending a session early (or a 10 minute pass, no longer offered) was asked while no block is active."
+  },
+  "reason_invalid_domain": {
+    "en": "That doesn't look like a site. Try example.com.",
+    "fr": "Ça ne ressemble pas à un site. Essaie exemple.fr.",
+    "description": "Validation error when adding a site to a group or to the user's own sites."
+  },
+  "reason_duplicate_domain": {
+    "en": "Already on the list.",
+    "fr": "Déjà dans la liste.",
+    "description": "Validation error when adding a site that is already in this list."
+  },
+  "reason_too_many_domains": {
+    "en": "You've reached the limit of 200 sites.",
+    "fr": "Tu as atteint la limite de 200 sites.",
+    "description": "Validation error when the user's own site list (\"Your sites\") is full."
+  },
+  "reason_invalid_schedule": {
+    "en": "Pick a day and an end time different from the start.",
+    "fr": "Choisis un jour et une heure de fin différente du début.",
+    "description": "Validation error for a time slot: at least one day, and the end time must differ from the start time."
+  },
+  "reason_invalid_phrase": {
+    "en": "Between 40 and 300 characters on one line, or leave it empty.",
+    "fr": "Entre 40 et 300 caractères sur une ligne, ou laisse vide.",
+    "description": "Validation error for the custom sentence typed to end a session early (40 to 300 characters, one line, or empty for the default sentence)."
+  },
+  "reason_invalid_unlock": {
+    "en": "Pick an amount from 1 to 500.",
+    "fr": "Choisis un montant entre 1 et 500.",
+    "description": "Validation error when the way to end a session early can't be saved: the amount must be a whole number from 1 to 500 (currency not shown)."
+  },
+  "reason_payment_not_verified": {
+    "en": "Your payment isn't confirmed yet.",
+    "fr": "Ton paiement n'est pas encore confirmé.",
+    "description": "Refusal: the user asked to end the session with a payment, but the payment server says this Stripe payment is not paid (yet)."
+  },
+  "reason_payment_unavailable": {
+    "en": "Payment is unavailable right now. Try again.",
+    "fr": "Le paiement est indisponible pour le moment. Réessaie.",
+    "description": "Error when the payment server can't be reached or gives an unexpected answer (offline, timeout, server error)."
+  },
+  "reason_invalid_groups": {
+    "en": "Couldn't save this group. Check its name and sites.",
+    "fr": "Impossible d'enregistrer ce groupe. Vérifie son nom et ses sites.",
+    "description": "Error when a group can't be saved: empty or too long name, invalid site, too many groups or sites."
+  },
+  "reason_invalid_request": {
+    "en": "That didn't work. Reload and try again.",
+    "fr": "Ça n'a pas marché. Recharge et réessaie.",
+    "description": "Generic refusal for a malformed request."
+  },
+  "reason_storage_error": {
+    "en": "Couldn't save. Try again in a moment.",
+    "fr": "Échec de l'enregistrement. Réessaie dans un instant.",
+    "description": "Error when Chrome refused to write the settings (for example too many saves in a short time)."
+  },
+  "reason_no_response": {
+    "en": "Couldn't reach the extension. Try again.",
+    "fr": "Impossible de joindre l'extension. Réessaie.",
+    "description": "Error when the background service worker did not answer."
+  },
+  "reason_unknown": {
+    "en": "Something went wrong. Try again.",
+    "fr": "Un souci est survenu. Réessaie.",
+    "description": "Fallback error message for an unexpected problem."
+  },
+  "badge_title_active": {
+    "en": "Blocking until {1}",
+    "fr": "Blocage actif jusqu'à {1}",
+    "description": "Toolbar icon tooltip during a block. {1} is a clock time like 14:00."
+  },
+  "privacy_line": {
+    "en": "Nothing is sent to us or anyone. No account, no tracking.",
+    "fr": "Rien n'est envoyé, ni à nous ni à personne. Pas de compte, pas de pistage.",
+    "description": "Privacy promise shown on the settings page. Settings can sync through the user's own Chrome sync, so it must not claim that nothing leaves the browser."
+  },
+  "reason_lock_reset": {
+    "en": "You can reset everything once the block ends.",
+    "fr": "Tu pourras tout réinitialiser à la fin du blocage.",
+    "description": "Refusal: the user tried to reset every setting during an active block (only when the build locks reset during blocks)."
+  },
+  "goal_option_focus": {
+    "en": "Sharpen my focus and get more done",
+    "fr": "Améliorer mon focus et ma productivité",
+    "description": "Suggested long-term goal."
+  },
+  "goal_option_projects": {
+    "en": "Go all in on my projects",
+    "fr": "Avancer à fond sur mes projets",
+    "description": "Suggested long-term goal, the default one."
+  },
+  "goal_option_deep": {
+    "en": "Do deep work, every day",
+    "fr": "Travailler en profondeur, chaque jour",
+    "description": "Suggested long-term goal."
+  },
+  "goal_option_finish": {
+    "en": "Finish what I start",
+    "fr": "Finir ce que je commence",
+    "description": "Suggested long-term goal."
+  },
+  "nav_stats": {
+    "en": "Stats",
+    "fr": "Stats",
+    "description": "Left menu tab to the stats page."
+  },
+  "common_hours_short": {
+    "en": "{1} h",
+    "fr": "{1} h",
+    "description": "Short duration in whole hours, e.g. 1 h. {1} is a number."
+  },
+  "nav_home": {
+    "en": "Home",
+    "fr": "Accueil",
+    "description": "Left menu tab to the home page (current session)."
+  }
+}

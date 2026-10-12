@@ -1,0 +1,1746 @@
+{
+  "appDescription": {
+    "message": "Bloque les sites qui te distraient pendant tes heures de focus et affiche ton objectif à la place. Sans compte, sans pistage.",
+    "description": "Chrome Web Store short description, 132 characters max."
+  },
+  "appName": {
+    "message": "WeDeepFocus",
+    "description": "Extension name shown in the Chrome Web Store, the toolbar and every page header."
+  },
+  "appShortName": {
+    "message": "WeDeepFocus",
+    "description": "Short extension name (12 characters or fewer)."
+  },
+  "badge_title_active": {
+    "message": "Blocage actif jusqu'à $p1$",
+    "description": "Toolbar icon tooltip during a block. {1} is a clock time like 14:00.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "bg_title_missing_one": {
+    "message": "1 site a besoin d'un accès. Clique sur l'icône pour l'autoriser.",
+    "description": "Toolbar icon tooltip, extra line when exactly one blocked site lacks the host permission. That site is still blocked during a block, with Chrome's error page; allowing access shows the goal page instead. Never say it is not blocked."
+  },
+  "bg_title_missing_other": {
+    "message": "$p1$ sites ont besoin d'un accès. Clique sur l'icône pour les autoriser.",
+    "description": "Toolbar icon tooltip, extra line when several blocked sites lack the host permission. {1} is the number of sites (2 or more). They are still blocked during a block, with Chrome's error page; allowing access shows the goal page instead. Never say they are not blocked.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "bg_title_next": {
+    "message": "Prochain blocage : $p1$",
+    "description": "Toolbar icon tooltip, second line, when no block is active. {1} is a weekday and time, e.g. 'Monday 07:00'.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_amount_error": {
+    "message": "Entre un montant entier entre $p1$ et $p2$.",
+    "description": "Error for an invalid custom amount. {1} and {2} are formatted amounts.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "blocked_amount_label": {
+    "message": "Montant",
+    "description": "Accessible label of the amount choice and input."
+  },
+  "blocked_back": {
+    "message": "Retour au travail",
+    "description": "Blocked page: primary button, closes the tab"
+  },
+  "blocked_close_tab": {
+    "message": "Fermer cet onglet",
+    "description": "Blocked page: button that closes the tab"
+  },
+  "blocked_continue": {
+    "message": "Continuer vers $p1$",
+    "description": "Blocked page: button that opens the original page. {1} is the site host",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_ended_next": {
+    "message": "Prochain blocage : $p1$",
+    "description": "Shown when a scheduled block starts later. {1} is a day and time.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_ended_sub": {
+    "message": "Ton objectif t'attendra la prochaine fois.",
+    "description": "Line under Session ended."
+  },
+  "blocked_ended_title": {
+    "message": "Session arrêtée",
+    "description": "Title once the session was ended early."
+  },
+  "blocked_focus_left": {
+    "message": "de focus restant",
+    "description": "Blocked page: label under the big countdown (reads like '42:17 of focus left')"
+  },
+  "blocked_free_ended": {
+    "message": "Ton temps de focus est terminé. Bien joué.",
+    "description": "Blocked page: sub line when the block ended"
+  },
+  "blocked_free_generic_sub": {
+    "message": "Tu peux fermer cet onglet.",
+    "description": "Blocked page: sub line when nothing is blocked and the original address is unknown"
+  },
+  "blocked_free_open": {
+    "message": "Tu peux l'ouvrir normalement.",
+    "description": "Blocked page: sub line when the site is no longer part of what is blocked"
+  },
+  "blocked_free_title": {
+    "message": "Ce site n'est plus bloqué",
+    "description": "Blocked page: title when the block ended or a pass is active"
+  },
+  "blocked_free_title_generic": {
+    "message": "Rien n'est bloqué pour l'instant",
+    "description": "Blocked page: title when no block is active and the original address is unknown"
+  },
+  "blocked_friction_accents_hint": {
+    "message": "Pas besoin de taper les accents.",
+    "description": "Unlock flow: small line under the sentence to type, only shown when it contains accented letters (they are optional)"
+  },
+  "blocked_friction_cancel": {
+    "message": "Finalement, non",
+    "description": "Unlock flow: link that leaves the flow and goes back to the blocked page"
+  },
+  "blocked_friction_end": {
+    "message": "Arrêter ma session",
+    "description": "Button that ends the whole session once the sentence is typed."
+  },
+  "blocked_friction_failed": {
+    "message": "Impossible d'arrêter la session. Réessaie.",
+    "description": "Generic error when ending the session fails."
+  },
+  "blocked_friction_hint": {
+    "message": "Ton focus se termine dans $p1$. Ça peut attendre ?",
+    "description": "Unlock flow, step 1: line under the question. {1} is the time left in the block, like '45 min' or '1 h 05'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_friction_hint_generic": {
+    "message": "Se reconcentrer prend plus de temps qu'on croit.",
+    "description": "Unlock flow, step 1: line under the question when the end of the block is unknown"
+  },
+  "blocked_friction_input_label": {
+    "message": "Tape la phrase ici",
+    "description": "Unlock flow: label and placeholder of the typing field"
+  },
+  "blocked_friction_no": {
+    "message": "Non, je retourne au travail",
+    "description": "Unlock flow, step 1: answer that goes back to work (closes the tab like 'Back to work')"
+  },
+  "blocked_friction_paste": {
+    "message": "Le copier-coller est désactivé. Tape-la toi-même.",
+    "description": "Unlock flow: shown when the user tries to paste or drop text ('it' is the sentence)"
+  },
+  "blocked_friction_phrase": {
+    "message": "Je choisis de renoncer à mes objectifs. J'échange mes aspirations et mes engagements contre quelques minutes de distraction.",
+    "description": "Unlock flow: default sentence the user must type by hand, used unless they wrote their own in the settings. Keep straight apostrophes, no characters that are hard to type"
+  },
+  "blocked_friction_progress": {
+    "message": "$p1$ / $p2$",
+    "description": "Unlock flow: typed characters counter, e.g. '42 / 150'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "blocked_friction_progress_label": {
+    "message": "Progression de la saisie",
+    "description": "Unlock flow: accessible name of the progress bar"
+  },
+  "blocked_friction_question": {
+    "message": "Ça vaut vraiment le coup d'interrompre ton focus ?",
+    "description": "Unlock flow, step 1: the only question before typing the sentence"
+  },
+  "blocked_friction_type": {
+    "message": "Tape cette phrase pour arrêter ta session",
+    "description": "Title of the typing step (free way to end the session early)."
+  },
+  "blocked_friction_typo": {
+    "message": "Faute de frappe. Reprends là où ça s'est arrêté.",
+    "description": "Unlock flow: shown when a wrong character is typed (it gets removed)"
+  },
+  "blocked_friction_yes": {
+    "message": "Oui, ça vaut le coup",
+    "description": "Unlock flow, step 1: answer that continues to the typing step"
+  },
+  "blocked_goal_add": {
+    "message": "Ajouter un objectif",
+    "description": "Blocked page: link to the settings page to write a goal"
+  },
+  "blocked_goal_empty": {
+    "message": "Pas encore d'objectif.",
+    "description": "Blocked page: shown under 'Remember why' when the user has not written a goal"
+  },
+  "blocked_goal_title": {
+    "message": "Rappelle-toi pourquoi",
+    "description": "Blocked page: small heading above the user's goal"
+  },
+  "blocked_host": {
+    "message": "$p1$ est bloqué",
+    "description": "Blocked page: small top line and tab title. {1} is the site host, e.g. linkedin.com",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_host_generic": {
+    "message": "Cette page est bloquée",
+    "description": "Blocked page: top line and tab title when the original address is unknown"
+  },
+  "blocked_need": {
+    "message": "J'en ai vraiment besoin",
+    "description": "Blocked page: discreet button that starts the unlock flow"
+  },
+  "blocked_no_end": {
+    "message": "Temps de focus en cours",
+    "description": "Blocked page: shown instead of the countdown when the block has no end in the next days"
+  },
+  "blocked_no_session_sub": {
+    "message": "Il n'y a rien à arrêter pour l'instant.",
+    "description": "Line under No session running."
+  },
+  "blocked_no_session_title": {
+    "message": "Aucune session en cours",
+    "description": "End-session page opened when nothing is blocked."
+  },
+  "blocked_pay_button": {
+    "message": "Payer $p1$ et arrêter la session",
+    "description": "Pay button. {1} is a formatted amount like 5 €.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_pay_retry": {
+    "message": "Réessayer",
+    "description": "Retry button after a payment error."
+  },
+  "blocked_pay_skip": {
+    "message": "Passer gratuitement",
+    "description": "Secondary button: end the session for free by typing the sentence instead."
+  },
+  "blocked_pay_timeout": {
+    "message": "Aucun paiement reçu pour l'instant. Réessaie quand tu es prêt.",
+    "description": "Shown after waiting a long time for a payment."
+  },
+  "blocked_pay_title": {
+    "message": "Arrêter cette session",
+    "description": "Title of the step where the user pays to end the session early."
+  },
+  "blocked_pay_unavailable": {
+    "message": "Le paiement n'est pas disponible pour l'instant. Tu peux toujours passer gratuitement.",
+    "description": "Error when the payment server can't be reached."
+  },
+  "blocked_resisted_many": {
+    "message": "Tu as résisté $p1$ fois aujourd'hui",
+    "description": "Blocked page: stat line. {1} is a number of 2 or more",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_resisted_one": {
+    "message": "Tu as résisté une fois aujourd'hui",
+    "description": "Blocked page: stat line when the user went back to work once today"
+  },
+  "blocked_step": {
+    "message": "Étape $p1$ sur $p2$",
+    "description": "Blocked page: unlock flow step, read by screen readers (the page shows dots)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "blocked_until": {
+    "message": "jusqu'à $p1$",
+    "description": "Blocked page: end time of the block under the countdown. {1} is a clock time",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "blocked_waiting_reopen": {
+    "message": "Rouvrir la page de paiement",
+    "description": "Link that reopens the Stripe page."
+  },
+  "blocked_waiting_sub": {
+    "message": "Paie dans le nouvel onglet. Cette page se met à jour toute seule.",
+    "description": "Hint under the waiting title."
+  },
+  "blocked_waiting_title": {
+    "message": "En attente de ton paiement de $p1$",
+    "description": "Title while the Stripe page is open. {1} is the formatted amount.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "category_messaging": {
+    "message": "Mails et messageries",
+    "description": "Preset group name: Gmail, Outlook, WhatsApp Web, Messenger..."
+  },
+  "category_news": {
+    "message": "Actualités",
+    "description": "Preset group name: news and sports sites."
+  },
+  "category_shopping": {
+    "message": "Shopping",
+    "description": "Preset group name: Amazon, eBay, Vinted..."
+  },
+  "category_social": {
+    "message": "Réseaux sociaux",
+    "description": "Preset group name: Facebook, Instagram, X, TikTok, LinkedIn..."
+  },
+  "category_video": {
+    "message": "Vidéo et streaming",
+    "description": "Preset group name: YouTube, Netflix, Twitch..."
+  },
+  "common_add": {
+    "message": "Ajouter",
+    "description": "Generic button to add an item (site, time slot)."
+  },
+  "common_allow": {
+    "message": "Autoriser",
+    "description": "Button that asks Chrome for access to the listed sites. They are blocked either way; with access they show the goals page instead of Chrome's error page."
+  },
+  "common_back": {
+    "message": "Retour",
+    "description": "Button to go back to the previous step."
+  },
+  "common_cancel": {
+    "message": "Annuler",
+    "description": "Generic button to cancel an action."
+  },
+  "common_close": {
+    "message": "Fermer",
+    "description": "Generic button to close a notice or a panel."
+  },
+  "common_coffee": {
+    "message": "Offrir un café au dev",
+    "description": "Link to the optional tip page (Stripe), shown in the popup footer and the settings page."
+  },
+  "common_continue": {
+    "message": "Continuer",
+    "description": "Button to go to the next step."
+  },
+  "common_delete": {
+    "message": "Supprimer",
+    "description": "Generic button to delete an item for good (for example a time slot)."
+  },
+  "common_done": {
+    "message": "Terminé",
+    "description": "Generic button to confirm and close."
+  },
+  "common_hours_short": {
+    "message": "$p1$ h",
+    "description": "Short duration in whole hours, e.g. 1 h. {1} is a number.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "common_loading": {
+    "message": "Chargement",
+    "description": "Accessible label shown while data loads."
+  },
+  "common_minutes_short": {
+    "message": "$p1$ min",
+    "description": "A number of minutes, short form. {1} is the number.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "common_open_settings": {
+    "message": "Ouvrir les réglages",
+    "description": "Button that opens the settings page."
+  },
+  "common_other": {
+    "message": "Autre",
+    "description": "Button to pick a custom value (for example a custom number of minutes)."
+  },
+  "common_remove": {
+    "message": "Retirer",
+    "description": "Generic button to remove an item from a list."
+  },
+  "common_save": {
+    "message": "Enregistrer",
+    "description": "Generic button to save a change."
+  },
+  "common_saved": {
+    "message": "Enregistré",
+    "description": "Short status shown after an automatic save."
+  },
+  "common_settings": {
+    "message": "Réglages",
+    "description": "Link or button that opens the settings page."
+  },
+  "common_start": {
+    "message": "Lancer",
+    "description": "Button that starts a focus session."
+  },
+  "common_version": {
+    "message": "Version $p1$",
+    "description": "Extension version line. {1} is the version number, like 1.0.0.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "goal_option_deep": {
+    "message": "Travailler en profondeur, chaque jour",
+    "description": "Suggested long-term goal."
+  },
+  "goal_option_finish": {
+    "message": "Finir ce que je commence",
+    "description": "Suggested long-term goal."
+  },
+  "goal_option_focus": {
+    "message": "Améliorer mon focus et ma productivité",
+    "description": "Suggested long-term goal."
+  },
+  "goal_option_projects": {
+    "message": "Avancer à fond sur mes projets",
+    "description": "Suggested long-term goal, the default one."
+  },
+  "home_active": {
+    "message": "Session en cours",
+    "description": "Home page, while a block is active."
+  },
+  "home_idle": {
+    "message": "Aucune session en cours.",
+    "description": "Home page, when no block is active."
+  },
+  "home_page_title": {
+    "message": "$p1$",
+    "description": "Browser tab title of the home page. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "home_start": {
+    "message": "Lancer $p1$ minutes",
+    "description": "Home page button that starts a session. {1} is a number of minutes (15).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "home_title": {
+    "message": "Accueil",
+    "description": "Home page title."
+  },
+  "nav_home": {
+    "message": "Accueil",
+    "description": "Left menu tab to the home page (current session)."
+  },
+  "nav_stats": {
+    "message": "Stats",
+    "description": "Left menu tab to the stats page."
+  },
+  "onb_amount_error": {
+    "message": "Choisis un montant entier entre $p1$ et $p2$.",
+    "description": "Inline error for an invalid custom amount. {1} and {2} are formatted amounts, like €1 and €500",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "onb_amount_input_label": {
+    "message": "Autre montant",
+    "description": "Screen reader label of the field where the user types a custom amount"
+  },
+  "onb_amount_label": {
+    "message": "Montant",
+    "description": "Screen reader label of the row of amounts in the money choice"
+  },
+  "onb_amount_other": {
+    "message": "Autre",
+    "description": "Last button of the amount row: reveals a field to type any amount"
+  },
+  "onb_amount_placeholder": {
+    "message": "$p1$ à $p2$",
+    "description": "Placeholder of the custom amount field, shown next to the currency sign. {1} and {2} are the limits (1 and 500)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "onb_custom_placeholder": {
+    "message": "Ajouter un site",
+    "description": "Placeholder and label of the input where the user types a site to block (a domain or a full URL)"
+  },
+  "onb_custom_remove": {
+    "message": "Retirer $p1$",
+    "description": "Screen reader label of the remove button on a site the user added. {1} is the domain",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_days_label": {
+    "message": "Jours",
+    "description": "Screen reader label of the weekday toggles in onboarding step 2"
+  },
+  "onb_doc_title": {
+    "message": "Bienvenue dans $p1$",
+    "description": "Browser tab title of the onboarding page. {1} is the app name",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_done_title": {
+    "message": "Tout est prêt",
+    "description": "Heading of the onboarding done screen"
+  },
+  "onb_edit": {
+    "message": "Modifier",
+    "description": "Short button on a selected group card that shows its sites, so some can be turned off"
+  },
+  "onb_edit_label": {
+    "message": "Modifier $p1$",
+    "description": "Screen reader label of the Edit button of a group card. {1} is the group name, e.g. 'Social media'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_error_invalid_time": {
+    "message": "Saisis une heure valide.",
+    "description": "Schedule validation error: empty or incomplete time"
+  },
+  "onb_error_no_day": {
+    "message": "Choisis au moins un jour.",
+    "description": "Schedule validation error: no weekday selected"
+  },
+  "onb_error_same_time": {
+    "message": "Le début et la fin doivent être différents.",
+    "description": "Schedule validation error: start time equals end time"
+  },
+  "onb_finish": {
+    "message": "Terminer",
+    "description": "Button that completes onboarding (on step 4)"
+  },
+  "onb_focus_until": {
+    "message": "Focus jusqu'à $p1$",
+    "description": "Done screen button label once the session has started. {1} is a time, e.g. 14:10",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_from_label": {
+    "message": "De",
+    "description": "Screen reader label of the start time input in onboarding step 2"
+  },
+  "onb_goal_custom": {
+    "message": "Écrire le mien",
+    "description": "Last choice of the goal step: reveals a text field."
+  },
+  "onb_goal_empty": {
+    "message": "Écris ton objectif, ou choisis-en un au-dessus.",
+    "description": "Error when the custom goal is empty."
+  },
+  "onb_goal_label": {
+    "message": "Ton objectif",
+    "description": "Screen reader label of the goal input"
+  },
+  "onb_goal_placeholder": {
+    "message": "Lancer mon appli cette année",
+    "description": "Example in the custom goal field."
+  },
+  "onb_missing_many": {
+    "message": "$p1$ sites n'afficheront pas ton objectif.",
+    "description": "Done screen line before an Allow link: {1} chosen sites (2 or more) lack access, so they are blocked with Chrome's error page instead of the goal page",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_missing_one": {
+    "message": "1 site n'affichera pas ton objectif.",
+    "description": "Done screen line before an Allow link: one chosen site lacks access, so it is blocked with Chrome's error page instead of the goal page"
+  },
+  "onb_mode_free": {
+    "message": "Gratuit uniquement",
+    "description": "Onboarding step 4 choice: ending a session early never involves money"
+  },
+  "onb_mode_free_sub": {
+    "message": "Tu tapes une phrase pour arrêter une session avant la fin.",
+    "description": "Free mode explanation."
+  },
+  "onb_mode_money": {
+    "message": "Mettre de l'argent en jeu",
+    "description": "Money mode choice."
+  },
+  "onb_mode_money_sub": {
+    "message": "Arrêter une session avant la fin coûte le montant choisi.",
+    "description": "Money mode explanation."
+  },
+  "onb_money_skip": {
+    "message": "Passer gratuitement reste toujours possible.",
+    "description": "Says clearly that paying is never required."
+  },
+  "onb_money_why": {
+    "message": "Un petit prix pour marquer une pause et réfléchir.",
+    "description": "Explains why money helps (onboarding, money mode)."
+  },
+  "onb_next_day": {
+    "message": "Se termine le lendemain",
+    "description": "Hint shown when the end time is earlier than the start time (overnight slot)"
+  },
+  "onb_pick_one": {
+    "message": "Choisis un groupe ou ajoute un site.",
+    "description": "Error when continuing onboarding step 1 with nothing to block"
+  },
+  "onb_pin_hint": {
+    "message": "Icône puzzle, puis l'épingle",
+    "description": "Screen reader text of the tiny drawing under the pin line: click Chrome's puzzle icon, then the pin next to the extension"
+  },
+  "onb_pin_line": {
+    "message": "Épingle l'icône pour lancer une session à tout moment.",
+    "description": "Done screen line: pin the extension icon in the Chrome toolbar to start focus sessions"
+  },
+  "onb_privacy": {
+    "message": "Reste dans ton navigateur. Rien n'est envoyé.",
+    "description": "Privacy line at the bottom of onboarding step 1: the choices are kept by Chrome, nothing is sent to any server"
+  },
+  "onb_sites_many": {
+    "message": "$p1$ sites",
+    "description": "Site count on an onboarding group card. {1} is the number of sites (2 or more)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_sites_one": {
+    "message": "1 site",
+    "description": "Site count on an onboarding group card, exactly one site"
+  },
+  "onb_sites_zero": {
+    "message": "Aucun site",
+    "description": "Site count on an onboarding group card when every site of the group is turned off"
+  },
+  "onb_step1_title": {
+    "message": "Qu'est-ce qui te distrait ?",
+    "description": "Onboarding step 1 heading: pick the groups of sites to block"
+  },
+  "onb_step2_title": {
+    "message": "Quand ?",
+    "description": "Onboarding step 2 heading: when blocking happens"
+  },
+  "onb_step3_sub": {
+    "message": "Ce que tu construis, pas ta liste du jour. Tu le verras quand un site est bloqué.",
+    "description": "Line under the goal step title."
+  },
+  "onb_step3_title": {
+    "message": "Ton objectif à long terme",
+    "description": "Title of the goal step."
+  },
+  "onb_step4_sub": {
+    "message": "Arrêter doit te demander un moment de réflexion. Choisis ce qu'il faudra.",
+    "description": "Line under the step 4 title."
+  },
+  "onb_step4_title": {
+    "message": "Si tu veux arrêter avant la fin",
+    "description": "Title of the step about ending a session early."
+  },
+  "onb_step_aria": {
+    "message": "Étape $p1$ sur $p2$",
+    "description": "Screen reader text of the onboarding step dots. {1} is the current step, {2} the total (4)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "onb_strict_free": {
+    "message": "Pour arrêter avant : tape une phrase.",
+    "description": "Same line in onboarding step 2 once the user picked Free only in step 4: ending a session early means typing a sentence"
+  },
+  "onb_strict_money": {
+    "message": "Pour arrêter avant : paie ce que tu as choisi, ou tape une phrase.",
+    "description": "One line in onboarding step 2 stating the strict behavior for the money choice of step 4 (also the default before step 4): ending a session early means paying the chosen amount, or typing a sentence for free"
+  },
+  "onb_stripe": {
+    "message": "Paiement sécurisé par Stripe.",
+    "description": "Small line under the amounts: the payment happens on Stripe's secure page"
+  },
+  "onb_to_label": {
+    "message": "À",
+    "description": "Screen reader label of the end time input in onboarding step 2"
+  },
+  "onb_try_session": {
+    "message": "Lancer une session de $p1$ min",
+    "description": "Done screen main button that starts a focus session. {1} is 10",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_when_manual": {
+    "message": "Quand je lance une session",
+    "description": "Onboarding step 2 choice (the default): sites are blocked only during sessions the user starts"
+  },
+  "onb_when_schedule": {
+    "message": "À heures fixes",
+    "description": "Onboarding step 2 choice: recurring weekly time slot"
+  },
+  "options_about_title": {
+    "message": "À propos",
+    "description": "Section title."
+  },
+  "options_amount_error": {
+    "message": "Choisis un montant entier entre $p1$ et $p2$.",
+    "description": "Inline error for an invalid custom amount (not saved). {1} and {2} are formatted amounts, like €1 and €500.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "options_amount_input_label": {
+    "message": "Autre montant",
+    "description": "Accessible label of the field where the user types a custom amount."
+  },
+  "options_amount_label": {
+    "message": "Montant",
+    "description": "Accessible label of the row of amounts to pay when ending a session early."
+  },
+  "options_amount_other": {
+    "message": "Autre",
+    "description": "Last button of the amount row: reveals a field to type any amount."
+  },
+  "options_amount_placeholder": {
+    "message": "$p1$ à $p2$",
+    "description": "Placeholder of the custom amount field, shown next to the currency sign. {1} and {2} are the limits (1 and 500).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "options_chip_missing": {
+    "message": "Page d'erreur de Chrome tant que tu n'autorises pas l'accès",
+    "description": "Tooltip on a site chip that lacks host permission (still blocked, with Chrome's error page)."
+  },
+  "options_custom_in_group": {
+    "message": "Déjà dans $p1$.",
+    "description": "Inline error when adding one of Your sites that an active group already blocks. {1} is the group name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_dismiss": {
+    "message": "Fermer",
+    "description": "Accessible label of the button closing a notification."
+  },
+  "options_ending_free": {
+    "message": "Gratuit uniquement",
+    "description": "Choice card title: ending a session early never involves money."
+  },
+  "options_ending_free_sub": {
+    "message": "Juste une phrase à taper.",
+    "description": "Line under the free choice: ending a session early only asks to type a sentence."
+  },
+  "options_ending_money": {
+    "message": "Mettre de l'argent en jeu",
+    "description": "Choice card title: ending a session early asks to pay the amount the user chose (a free way out always exists). It is accountability, not a paywall."
+  },
+  "options_ending_money_sub": {
+    "message": "Tu peux toujours passer sans payer.",
+    "description": "Line under the money choice: paying is never required, the user can skip it and type a sentence instead."
+  },
+  "options_ending_title": {
+    "message": "Arrêter une session plus tôt",
+    "description": "Settings section title: what it takes to end a focus session before its end (pay a chosen amount, or type a sentence for free)."
+  },
+  "options_goal_sub": {
+    "message": "Affiché quand un site est bloqué.",
+    "description": "One short line under the Your goal title."
+  },
+  "options_goal_title": {
+    "message": "Ton objectif à long terme",
+    "description": "Section title (the user has a single goal). Also the accessible label of the goal field."
+  },
+  "options_group_count": {
+    "message": "$p1$ sites",
+    "description": "Under a group name. {1} is the number of sites (2 or more).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_group_count_one": {
+    "message": "1 site",
+    "description": "Under a group name when the group has one site."
+  },
+  "options_group_count_zero": {
+    "message": "Aucun site",
+    "description": "Under a group name when the group has no site."
+  },
+  "options_group_default_name": {
+    "message": "Mon groupe",
+    "description": "Name given to a group the user left unnamed (max 30 characters)."
+  },
+  "options_group_delete": {
+    "message": "Supprimer le groupe",
+    "description": "Button deleting a group and its list of sites."
+  },
+  "options_group_deleted": {
+    "message": "Groupe supprimé.",
+    "description": "Notification after deleting a group, next to an Undo button."
+  },
+  "options_group_full": {
+    "message": "$p1$ sites maximum par groupe.",
+    "description": "Inline error when a group already has the maximum number of sites. {1} is the limit (100).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_group_icon_label": {
+    "message": "Icône",
+    "description": "Accessible label of the row of icons to pick from for a group."
+  },
+  "options_group_limit": {
+    "message": "$p1$ groupes maximum",
+    "description": "Tooltip on the disabled New group button when the limit is reached. {1} is the limit (20).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_group_missing": {
+    "message": "Accès à autoriser",
+    "description": "Tooltip and screen reader text of the small warning icon on a group with sites lacking host permission."
+  },
+  "options_group_name_label": {
+    "message": "Nom du groupe",
+    "description": "Accessible label of the group name field."
+  },
+  "options_group_new": {
+    "message": "Nouveau groupe",
+    "description": "Button creating an empty group of sites."
+  },
+  "options_group_no_room": {
+    "message": "Plus de place pour enregistrer d'autres sites.",
+    "description": "Inline error when the groups no longer fit in Chrome's sync storage."
+  },
+  "options_group_sites_aria": {
+    "message": "Sites de $p1$",
+    "description": "Accessible label of the list of sites of a group. {1} is the group name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_group_toggle_aria": {
+    "message": "Bloquer : $p1$",
+    "description": "Accessible label of a group switch. {1} is the group name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_groups_sub": {
+    "message": "Active ce qui te distrait.",
+    "description": "One short line under the Groups title."
+  },
+  "options_groups_title": {
+    "message": "Groupes",
+    "description": "Section title: groups of sites that can be switched on and off."
+  },
+  "options_icon_book": {
+    "message": "Livre",
+    "description": "Name of a group icon (book), read by screen readers."
+  },
+  "options_icon_briefcase": {
+    "message": "Mallette",
+    "description": "Name of a group icon (briefcase), read by screen readers."
+  },
+  "options_icon_cart": {
+    "message": "Panier",
+    "description": "Name of a group icon (shopping cart), read by screen readers."
+  },
+  "options_icon_chat": {
+    "message": "Bulle de discussion",
+    "description": "Name of a group icon (speech bubble), read by screen readers."
+  },
+  "options_icon_coffee": {
+    "message": "Tasse de café",
+    "description": "Name of a group icon (coffee cup), read by screen readers."
+  },
+  "options_icon_game": {
+    "message": "Manette",
+    "description": "Name of a group icon (game controller), read by screen readers."
+  },
+  "options_icon_globe": {
+    "message": "Globe",
+    "description": "Name of a group icon (globe), read by screen readers."
+  },
+  "options_icon_heart": {
+    "message": "Cœur",
+    "description": "Name of a group icon (heart), read by screen readers."
+  },
+  "options_icon_mail": {
+    "message": "Enveloppe",
+    "description": "Name of a group icon (envelope), read by screen readers."
+  },
+  "options_icon_music": {
+    "message": "Note de musique",
+    "description": "Name of a group icon (music note), read by screen readers."
+  },
+  "options_icon_news": {
+    "message": "Journal",
+    "description": "Name of a group icon (newspaper), read by screen readers."
+  },
+  "options_icon_play": {
+    "message": "Lecture",
+    "description": "Name of a group icon (play button in a circle), read by screen readers."
+  },
+  "options_icon_sparkles": {
+    "message": "Étincelles",
+    "description": "Name of a group icon (sparkles), read by screen readers."
+  },
+  "options_icon_star": {
+    "message": "Étoile",
+    "description": "Name of a group icon (star), read by screen readers."
+  },
+  "options_icon_target": {
+    "message": "Cible",
+    "description": "Name of a group icon (target), read by screen readers."
+  },
+  "options_icon_users": {
+    "message": "Personnes",
+    "description": "Name of a group icon (two people), read by screen readers."
+  },
+  "options_incognito_button": {
+    "message": "Autoriser en privé",
+    "description": "Button opening the extension details page in Chrome."
+  },
+  "options_incognito_help": {
+    "message": "Ouvre les détails de l'extension : active « Autoriser en mode navigation privée ».",
+    "description": "Tooltip of the incognito button. Quote the Chrome setting name as Chrome shows it."
+  },
+  "options_incognito_off": {
+    "message": "Inactif en navigation privée.",
+    "description": "Status when the extension is not allowed in incognito."
+  },
+  "options_incognito_on": {
+    "message": "Marche aussi en navigation privée.",
+    "description": "Status when the extension is allowed in incognito."
+  },
+  "options_load_error": {
+    "message": "Impossible de charger tes réglages.",
+    "description": "Error banner if the settings could not be read."
+  },
+  "options_lock_banner": {
+    "message": "Blocage actif jusqu'à $p1$. Tu peux ajouter, pas retirer.",
+    "description": "Banner shown while a block is active. {1} is a time like 14:00 (or weekday and time).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_lock_banner_plain": {
+    "message": "Blocage actif. Tu peux ajouter, pas retirer.",
+    "description": "Same banner when the end time is unknown."
+  },
+  "options_locked_tooltip": {
+    "message": "Verrouillé jusqu'à la fin du blocage",
+    "description": "Tooltip on controls disabled during an active block."
+  },
+  "options_missing_one": {
+    "message": "1 site affiche la page d'erreur de Chrome au lieu de ton objectif.",
+    "description": "Banner when one blocked site lacks host permission. It is still blocked, with Chrome's own error page instead of the page showing the goal. Next to an Allow button."
+  },
+  "options_missing_other": {
+    "message": "$p1$ sites affichent la page d'erreur de Chrome au lieu de ton objectif.",
+    "description": "Same banner for several sites. {1} is the number of sites (2 or more). Never say the sites are not blocked.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_page_title": {
+    "message": "Réglages de $p1$",
+    "description": "Browser tab title of the settings page. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_permission_denied": {
+    "message": "Accès refusé : ces sites affichent la page d'erreur de Chrome.",
+    "description": "Notice after the user declined the Chrome permission prompt. Never say the sites are not blocked."
+  },
+  "options_phrase_counter": {
+    "message": "$p1$ / $p2$",
+    "description": "Character counter of the sentence to type, e.g. 57 / 300. {1} is the current length, {2} the maximum.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "options_phrase_error_long": {
+    "message": "$p1$ caractères maximum.",
+    "description": "Inline error when the sentence to type is too long. Nothing is saved. {1} is the maximum length (300).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_phrase_error_short": {
+    "message": "Au moins $p1$ caractères, ou laisse vide.",
+    "description": "Inline error when the sentence to type is too short (empty means the default sentence). Nothing is saved. {1} is the minimum length (40).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_phrase_locked": {
+    "message": "Verrouillée jusqu'à la fin du blocage.",
+    "description": "Note under the sentence field while a block is active (the field is disabled, the choice cards above stay editable). French: agrees with la phrase."
+  },
+  "options_phrase_reset": {
+    "message": "Remettre par défaut",
+    "description": "Button that clears the custom sentence to type so the default one is used again."
+  },
+  "options_phrase_title": {
+    "message": "Phrase à taper",
+    "description": "Heading of the sentence typed by hand to end a session early for free. Also the accessible label of its field."
+  },
+  "options_quote_toggle": {
+    "message": "Afficher une phrase de motivation",
+    "description": "Label of the switch for the motivational line on the blocked page."
+  },
+  "options_reload": {
+    "message": "Recharger",
+    "description": "Button that reloads the settings page."
+  },
+  "options_reset_button": {
+    "message": "Tout réinitialiser",
+    "description": "Button that asks to reset every setting (a confirmation follows)."
+  },
+  "options_reset_confirm": {
+    "message": "Tout effacer sur tous tes appareils synchronisés ? C'est définitif.",
+    "description": "Confirmation shown after clicking Reset everything, when no block is running. Settings are removed from Chrome sync, so from every synced device."
+  },
+  "options_reset_confirm_block": {
+    "message": "Ça met aussi fin au blocage en cours. Tout effacer ? C'est définitif.",
+    "description": "Confirmation shown after clicking Reset everything while a block is running (the reset ends it)."
+  },
+  "options_reset_locked": {
+    "message": "Disponible à la fin du blocage.",
+    "description": "Note under the Start over section when reset is locked during a block (only if the build locks it)."
+  },
+  "options_reset_sub": {
+    "message": "Efface tous les réglages et refais la configuration.",
+    "description": "One short line under the Start over title."
+  },
+  "options_reset_title": {
+    "message": "Tout recommencer",
+    "description": "Title of the settings section with the Reset everything button."
+  },
+  "options_reset_yes": {
+    "message": "Oui, tout effacer",
+    "description": "Button that confirms the reset of every setting."
+  },
+  "options_schedule_add": {
+    "message": "Ajouter un créneau",
+    "description": "Button adding a weekly time slot."
+  },
+  "options_schedule_confirm": {
+    "message": "Ça lance un blocage maintenant, jusqu'à $p1$.",
+    "description": "Confirmation when a time slot change would start a block immediately. {1} is the end time.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_schedule_confirm_extend": {
+    "message": "Ça prolonge le blocage jusqu'à $p1$.",
+    "description": "Confirmation when turning a time slot on during a block would make the block last longer. {1} is the new end time.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_schedule_confirm_on": {
+    "message": "L'activer",
+    "description": "Button confirming that a time slot is turned on even though it extends the current block."
+  },
+  "options_schedule_confirm_yes": {
+    "message": "Lancer",
+    "description": "Button confirming a time slot change that starts a block immediately."
+  },
+  "options_schedule_days_aria": {
+    "message": "Jours",
+    "description": "Accessible label of the weekday buttons group."
+  },
+  "options_schedule_delete_aria": {
+    "message": "Supprimer ce créneau",
+    "description": "Label and tooltip of the delete button of a time slot."
+  },
+  "options_schedule_draft_note": {
+    "message": "Verrouillé une fois ajouté, jusqu'à la fin du blocage.",
+    "description": "Note on the new slot editor shown during an active block."
+  },
+  "options_schedule_draft_save": {
+    "message": "Ajouter ce créneau",
+    "description": "Button saving a new time slot during an active block."
+  },
+  "options_schedule_enable_allowed": {
+    "message": "Tu peux l'activer, pas le désactiver",
+    "description": "Tooltip on the switch of a switched off time slot during an active block."
+  },
+  "options_schedule_enabled_aria": {
+    "message": "Activer ou désactiver ce créneau",
+    "description": "Accessible label of a time slot switch."
+  },
+  "options_schedule_end_aria": {
+    "message": "Heure de fin",
+    "description": "Accessible label of the end time input."
+  },
+  "options_schedule_error_days": {
+    "message": "Choisis au moins un jour.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_error_same": {
+    "message": "Le début et la fin doivent être différents.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_error_time": {
+    "message": "Entre une heure valide.",
+    "description": "Inline validation error on a time slot."
+  },
+  "options_schedule_next_day": {
+    "message": "le lendemain",
+    "description": "Small tag when a slot ends after midnight, e.g. 22:00 to 02:00."
+  },
+  "options_schedule_paused": {
+    "message": "Désactivé pour l'instant : l'activer lance un blocage.",
+    "description": "Note on a newly added slot that was added switched off because it covers the current time."
+  },
+  "options_schedule_start_aria": {
+    "message": "Heure de début",
+    "description": "Accessible label of the start time input."
+  },
+  "options_schedule_to": {
+    "message": "à",
+    "description": "Word between start and end time, as in 09:00 to 12:00."
+  },
+  "options_schedules_sub": {
+    "message": "Des blocages qui démarrent tout seuls.",
+    "description": "One short line under the When title: weekly time slots start a block automatically."
+  },
+  "options_schedules_title": {
+    "message": "Quand",
+    "description": "Section title for weekly time slots."
+  },
+  "options_site_covered": {
+    "message": "Déjà couvert par $p1$.",
+    "description": "Inline error when a parent domain in the same list already covers the site. {1} is that domain.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_site_in_group": {
+    "message": "Déjà dans ce groupe.",
+    "description": "Inline error when adding a site the group already has."
+  },
+  "options_site_input_label": {
+    "message": "Site à bloquer",
+    "description": "Accessible label of the fields adding a site."
+  },
+  "options_site_placeholder": {
+    "message": "Ajoute un site ou un lien",
+    "description": "Placeholder of the fields adding a site (a domain or any full URL)."
+  },
+  "options_site_remove_aria": {
+    "message": "Retirer $p1$",
+    "description": "Label and tooltip of the remove button on a site chip. {1} is a domain.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "options_sites_sub": {
+    "message": "Des sites à part, hors des groupes.",
+    "description": "One short line under the Your sites title."
+  },
+  "options_sites_title": {
+    "message": "Tes sites",
+    "description": "Section title for single sites added outside any group."
+  },
+  "options_status_error": {
+    "message": "Non enregistré",
+    "description": "Discreet status pill when a change was refused or failed."
+  },
+  "options_status_saving": {
+    "message": "Enregistrement",
+    "description": "Discreet status pill while a change is being saved."
+  },
+  "options_stripe": {
+    "message": "Paiement sécurisé par Stripe.",
+    "description": "Small line under the amounts: the payment happens on Stripe's secure page."
+  },
+  "options_undo": {
+    "message": "Annuler",
+    "description": "Button in a notification that brings back what was just deleted."
+  },
+  "options_version": {
+    "message": "Version $p1$",
+    "description": "Extension version line. {1} is like 0.1.0.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_allow_site_title": {
+    "message": "Affiche ton objectif ici au lieu d'une page d'erreur",
+    "description": "Tooltip of the Allow button next to the current site in the popup. The site is already blocked (with Chrome's error page); access upgrades it to the goal page"
+  },
+  "popup_already_blocked": {
+    "message": "Déjà bloqué",
+    "description": "Popup chip when the current site is already on the block list"
+  },
+  "popup_block_site": {
+    "message": "Bloquer ce site",
+    "description": "Popup button adding the current site to the block list"
+  },
+  "popup_countdown_label": {
+    "message": "Temps restant",
+    "description": "Screen reader label before the popup countdown"
+  },
+  "popup_custom_error": {
+    "message": "Choisis entre $p1$ et $p2$ minutes.",
+    "description": "Popup validation error for the custom duration (whole minutes only). {1} and {2} are the min and max minutes",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popup_custom_label": {
+    "message": "Durée de la session en minutes",
+    "description": "Screen reader label of the custom duration field"
+  },
+  "popup_custom_placeholder": {
+    "message": "$p1$ à $p2$ min",
+    "description": "Placeholder of the custom duration field. {1} and {2} are the min and max minutes",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popup_custom_start": {
+    "message": "Lancer",
+    "description": "Popup button starting a session with a custom duration"
+  },
+  "popup_dismiss": {
+    "message": "Fermer",
+    "description": "Accessible label of the close button on a popup notice"
+  },
+  "popup_end_session": {
+    "message": "Arrêter la session",
+    "description": "Discreet link under the timer: opens the ritual to end the session early."
+  },
+  "popup_error_generic": {
+    "message": "Quelque chose a coincé. Réessaie.",
+    "description": "Popup fallback error when no specific reason is available"
+  },
+  "popup_extend": {
+    "message": "Ajouter $p1$ min",
+    "description": "Popup button extending the block. {1} is a number of minutes",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_finish_setup": {
+    "message": "Finir la configuration",
+    "description": "Popup button shown until onboarding is finished; reopens onboarding"
+  },
+  "popup_idle_title": {
+    "message": "Aucun blocage en cours",
+    "description": "Popup status title when nothing is blocked"
+  },
+  "popup_load_error": {
+    "message": "Impossible de charger ton statut",
+    "description": "Popup error when the background does not answer"
+  },
+  "popup_meta_join": {
+    "message": "$p1$ · $p2$",
+    "description": "Joins the two parts of the popup active sub line, e.g. 'Until 14:00' and '14 sites blocked'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popup_missing_many": {
+    "message": "$p1$ sites affichent une page d'erreur au lieu de ton objectif.",
+    "description": "Popup banner when several blocked sites lack host access: they are still blocked, but with Chrome's error page; the Allow button next to it upgrades them to the goal page. {1} is a number above 1",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_missing_one": {
+    "message": "$p1$ affiche une page d'erreur au lieu de ton objectif.",
+    "description": "Popup banner when one blocked site lacks host access: it is still blocked, but with Chrome's error page; the Allow button next to it upgrades it to the goal page. {1} is a domain, e.g. 'linkedin.com'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_next_block": {
+    "message": "Prochain blocage $p1$",
+    "description": "Popup idle sub line. {1} is a weekday and time, e.g. 'Monday 07:00'",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_next_block_today": {
+    "message": "Prochain blocage à $p1$",
+    "description": "Popup idle sub line when the next scheduled block starts today. {1} is a time",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_no_end": {
+    "message": "Pas de fin cette semaine",
+    "description": "Popup active sub line, first part, when the block lasts more than 8 days"
+  },
+  "popup_progress_label": {
+    "message": "Progression du blocage",
+    "description": "Screen reader label of the popup progress bar"
+  },
+  "popup_quick_label": {
+    "message": "Bloquer pendant",
+    "description": "Popup label above the quick session buttons (10 min, 20 min...)"
+  },
+  "popup_retry": {
+    "message": "Réessayer",
+    "description": "Popup button retrying after a load error"
+  },
+  "popup_site_fallback": {
+    "message": "Bloqué avec une page d'erreur",
+    "description": "Small note under the current site's hostname when it is on the block list but the extension has no access to it: it is blocked with Chrome's error page instead of the goal page"
+  },
+  "popup_site_unsupported": {
+    "message": "Page non bloquable",
+    "description": "Popup note when the current page (IP address, localhost, Chrome Web Store) cannot be blocked"
+  },
+  "popup_sites_many": {
+    "message": "$p1$ sites bloqués",
+    "description": "Popup active sub line, second part. {1} is a number above 1",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_sites_one": {
+    "message": "1 site bloqué",
+    "description": "Popup active sub line, second part, singular"
+  },
+  "popup_sites_zero": {
+    "message": "aucun site bloqué",
+    "description": "Popup active sub line, second part, when the block list is empty (or every listed site has a 10 minute pass)"
+  },
+  "popup_start_other": {
+    "message": "Autre",
+    "description": "Popup button revealing a custom duration field"
+  },
+  "popup_stats": {
+    "message": "Tes stats",
+    "description": "Accessible label and tooltip of the stats button."
+  },
+  "popup_streak_many": {
+    "message": "$p1$ jours 🔥",
+    "description": "Streak chip in the popup header. {1} is a number of days.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popup_streak_one": {
+    "message": "1 jour 🔥",
+    "description": "Streak chip in the popup header (one day)."
+  },
+  "popup_title_schedule": {
+    "message": "Blocage programmé",
+    "description": "Popup status title during a scheduled time slot"
+  },
+  "popup_title_session": {
+    "message": "Session de focus",
+    "description": "Popup status title during a manual session"
+  },
+  "popup_until": {
+    "message": "Jusqu'à $p1$",
+    "description": "Popup active sub line, first part: when the block ends. {1} is a time today ('14:00') or a weekday and time ('Monday 07:00')",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "privacy_line": {
+    "message": "Rien n'est envoyé, ni à nous ni à personne. Pas de compte, pas de pistage.",
+    "description": "Privacy promise shown on the settings page. Settings can sync through the user's own Chrome sync, so it must not claim that nothing leaves the browser."
+  },
+  "reason_duplicate_domain": {
+    "message": "Déjà dans la liste.",
+    "description": "Validation error when adding a site that is already in this list."
+  },
+  "reason_invalid_domain": {
+    "message": "Ça ne ressemble pas à un site. Essaie exemple.fr.",
+    "description": "Validation error when adding a site to a group or to the user's own sites."
+  },
+  "reason_invalid_groups": {
+    "message": "Impossible d'enregistrer ce groupe. Vérifie son nom et ses sites.",
+    "description": "Error when a group can't be saved: empty or too long name, invalid site, too many groups or sites."
+  },
+  "reason_invalid_minutes": {
+    "message": "Choisis entre 1 et 480 minutes.",
+    "description": "Validation error for a custom session length."
+  },
+  "reason_invalid_phrase": {
+    "message": "Entre 40 et 300 caractères sur une ligne, ou laisse vide.",
+    "description": "Validation error for the custom sentence typed to end a session early (40 to 300 characters, one line, or empty for the default sentence)."
+  },
+  "reason_invalid_request": {
+    "message": "Ça n'a pas marché. Recharge et réessaie.",
+    "description": "Generic refusal for a malformed request."
+  },
+  "reason_invalid_schedule": {
+    "message": "Choisis un jour et une heure de fin différente du début.",
+    "description": "Validation error for a time slot: at least one day, and the end time must differ from the start time."
+  },
+  "reason_invalid_unlock": {
+    "message": "Choisis un montant entre 1 et 500.",
+    "description": "Validation error when the way to end a session early can't be saved: the amount must be a whole number from 1 to 500 (currency not shown)."
+  },
+  "reason_lock_custom": {
+    "message": "Pendant un blocage, tu peux ajouter des sites, pas en retirer.",
+    "description": "Refusal: the user tried to remove one of their own sites (\"Your sites\") during an active block."
+  },
+  "reason_lock_group": {
+    "message": "Pendant un blocage, tu ne peux ni désactiver ni supprimer un groupe actif.",
+    "description": "Refusal: the user tried to turn off or delete a group that is on, during an active block. Turning groups on, adding groups and sites stays allowed."
+  },
+  "reason_lock_group_site": {
+    "message": "Pendant un blocage, tu peux ajouter des sites à un groupe actif, pas en retirer.",
+    "description": "Refusal: the user tried to remove a site from a group that is on, during an active block."
+  },
+  "reason_lock_phrase": {
+    "message": "Tu pourras changer ta phrase à la fin du blocage.",
+    "description": "Refusal: the user tried to change or reset the custom unlock sentence during an active block."
+  },
+  "reason_lock_reset": {
+    "message": "Tu pourras tout réinitialiser à la fin du blocage.",
+    "description": "Refusal: the user tried to reset every setting during an active block (only when the build locks reset during blocks)."
+  },
+  "reason_lock_schedule": {
+    "message": "Pendant un blocage, tu peux ajouter ou activer des créneaux, pas les modifier.",
+    "description": "Refusal: the user tried to edit, disable or delete an existing time slot during an active block (adding a slot or turning a disabled one on stays allowed)."
+  },
+  "reason_no_response": {
+    "message": "Impossible de joindre l'extension. Réessaie.",
+    "description": "Error when the background service worker did not answer."
+  },
+  "reason_not_blocked": {
+    "message": "Rien n'est bloqué en ce moment.",
+    "description": "Refusal: ending a session early (or a 10 minute pass, no longer offered) was asked while no block is active."
+  },
+  "reason_payment_not_verified": {
+    "message": "Ton paiement n'est pas encore confirmé.",
+    "description": "Refusal: the user asked to end the session with a payment, but the payment server says this Stripe payment is not paid (yet)."
+  },
+  "reason_payment_unavailable": {
+    "message": "Le paiement est indisponible pour le moment. Réessaie.",
+    "description": "Error when the payment server can't be reached or gives an unexpected answer (offline, timeout, server error)."
+  },
+  "reason_storage_error": {
+    "message": "Échec de l'enregistrement. Réessaie dans un instant.",
+    "description": "Error when Chrome refused to write the settings (for example too many saves in a short time)."
+  },
+  "reason_too_many_domains": {
+    "message": "Tu as atteint la limite de 200 sites.",
+    "description": "Validation error when the user's own site list (\"Your sites\") is full."
+  },
+  "reason_unknown": {
+    "message": "Un souci est survenu. Réessaie.",
+    "description": "Fallback error message for an unexpected problem."
+  },
+  "stats_blocked": {
+    "message": "Sites bloqués",
+    "description": "Card title."
+  },
+  "stats_blocked_sub": {
+    "message": "Fois où un site bloqué a affiché ton objectif",
+    "description": "Card subtitle."
+  },
+  "stats_completed": {
+    "message": "Sessions menées au bout",
+    "description": "Card title: blocks that ran to their end."
+  },
+  "stats_completed_sub": {
+    "message": "Blocages allés jusqu'au bout",
+    "description": "Card subtitle."
+  },
+  "stats_ended": {
+    "message": "Sessions arrêtées avant la fin",
+    "description": "Card title."
+  },
+  "stats_ended_sub": {
+    "message": "Gratuites : $p1$, payées : $p2$",
+    "description": "Card subtitle. {1} and {2} are numbers.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "stats_focus": {
+    "message": "Temps de focus protégé",
+    "description": "Card title: time spent inside a block."
+  },
+  "stats_focus_sub": {
+    "message": "Temps passé avec tes sites bloqués",
+    "description": "Card subtitle."
+  },
+  "stats_grid_day": {
+    "message": "$p1$ : $p2$ de focus",
+    "description": "Tooltip of a day square. {1} is a date, {2} a duration.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "stats_grid_day_none": {
+    "message": "$p1$ : pas de focus",
+    "description": "Tooltip of an empty day square. {1} is a date.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_grid_label": {
+    "message": "Focus par jour, 30 dernières semaines",
+    "description": "Accessible label and caption of the day grid."
+  },
+  "stats_less": {
+    "message": "Moins",
+    "description": "Grid legend, low end."
+  },
+  "stats_more": {
+    "message": "Plus",
+    "description": "Grid legend, high end."
+  },
+  "stats_page_title": {
+    "message": "Stats de $p1$",
+    "description": "Browser tab title of the stats page. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_paid": {
+    "message": "Engagement payé",
+    "description": "Card title: total paid to end sessions early."
+  },
+  "stats_paid_many": {
+    "message": "$p1$ paiements",
+    "description": "Card subtitle. {1} is a number.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_paid_none": {
+    "message": "Aucun paiement",
+    "description": "Card subtitle when nothing was paid."
+  },
+  "stats_paid_one": {
+    "message": "1 paiement",
+    "description": "Card subtitle."
+  },
+  "stats_period_30": {
+    "message": "30 jours",
+    "description": "Period choice."
+  },
+  "stats_period_7": {
+    "message": "7 jours",
+    "description": "Period choice."
+  },
+  "stats_period_all": {
+    "message": "Depuis le début",
+    "description": "Period choice."
+  },
+  "stats_period_label": {
+    "message": "Période",
+    "description": "Accessible label of the period choice."
+  },
+  "stats_privacy": {
+    "message": "Tes stats restent dans ton navigateur. Rien n'est envoyé.",
+    "description": "Footer line of the stats page."
+  },
+  "stats_streak_best": {
+    "message": "Record : $p1$ jours",
+    "description": "Longest streak so far.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_streak_hint": {
+    "message": "Un jour compte dès qu'un blocage protège au moins une minute de focus.",
+    "description": "Explains what makes a day count."
+  },
+  "stats_streak_many": {
+    "message": "$p1$ jours d'affilée",
+    "description": "Current streak. {1} is a number of days.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_streak_none": {
+    "message": "Lance une session pour démarrer ta série.",
+    "description": "Shown when the streak is 0."
+  },
+  "stats_streak_one": {
+    "message": "1 jour d'affilée",
+    "description": "Current streak of one day."
+  },
+  "stats_title": {
+    "message": "Tes stats",
+    "description": "Stats page title."
+  }
+}

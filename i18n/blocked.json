@@ -1,0 +1,262 @@
+{
+  "blocked_host": {
+    "en": "{1} is blocked",
+    "fr": "{1} est bloqué",
+    "description": "Blocked page: small top line and tab title. {1} is the site host, e.g. linkedin.com"
+  },
+  "blocked_host_generic": {
+    "en": "This page is blocked",
+    "fr": "Cette page est bloquée",
+    "description": "Blocked page: top line and tab title when the original address is unknown"
+  },
+  "blocked_focus_left": {
+    "en": "of focus left",
+    "fr": "de focus restant",
+    "description": "Blocked page: label under the big countdown (reads like '42:17 of focus left')"
+  },
+  "blocked_until": {
+    "en": "until {1}",
+    "fr": "jusqu'à {1}",
+    "description": "Blocked page: end time of the block under the countdown. {1} is a clock time"
+  },
+  "blocked_no_end": {
+    "en": "Focus time is on",
+    "fr": "Temps de focus en cours",
+    "description": "Blocked page: shown instead of the countdown when the block has no end in the next days"
+  },
+  "blocked_goal_title": {
+    "en": "Remember why",
+    "fr": "Rappelle-toi pourquoi",
+    "description": "Blocked page: small heading above the user's goal"
+  },
+  "blocked_goal_empty": {
+    "en": "No goal yet.",
+    "fr": "Pas encore d'objectif.",
+    "description": "Blocked page: shown under 'Remember why' when the user has not written a goal"
+  },
+  "blocked_goal_add": {
+    "en": "Add a goal",
+    "fr": "Ajouter un objectif",
+    "description": "Blocked page: link to the settings page to write a goal"
+  },
+  "blocked_resisted_one": {
+    "en": "You've resisted once today",
+    "fr": "Tu as résisté une fois aujourd'hui",
+    "description": "Blocked page: stat line when the user went back to work once today"
+  },
+  "blocked_resisted_many": {
+    "en": "You've resisted {1} times today",
+    "fr": "Tu as résisté {1} fois aujourd'hui",
+    "description": "Blocked page: stat line. {1} is a number of 2 or more"
+  },
+  "blocked_back": {
+    "en": "Back to work",
+    "fr": "Retour au travail",
+    "description": "Blocked page: primary button, closes the tab"
+  },
+  "blocked_need": {
+    "en": "I really need it",
+    "fr": "J'en ai vraiment besoin",
+    "description": "Blocked page: discreet button that starts the unlock flow"
+  },
+  "blocked_free_title": {
+    "en": "This site isn't blocked anymore",
+    "fr": "Ce site n'est plus bloqué",
+    "description": "Blocked page: title when the block ended or a pass is active"
+  },
+  "blocked_free_title_generic": {
+    "en": "Nothing is blocked right now",
+    "fr": "Rien n'est bloqué pour l'instant",
+    "description": "Blocked page: title when no block is active and the original address is unknown"
+  },
+  "blocked_free_ended": {
+    "en": "Focus time is over. Nice work.",
+    "fr": "Ton temps de focus est terminé. Bien joué.",
+    "description": "Blocked page: sub line when the block ended"
+  },
+  "blocked_free_open": {
+    "en": "You can open it normally.",
+    "fr": "Tu peux l'ouvrir normalement.",
+    "description": "Blocked page: sub line when the site is no longer part of what is blocked"
+  },
+  "blocked_free_generic_sub": {
+    "en": "You can close this tab.",
+    "fr": "Tu peux fermer cet onglet.",
+    "description": "Blocked page: sub line when nothing is blocked and the original address is unknown"
+  },
+  "blocked_continue": {
+    "en": "Continue to {1}",
+    "fr": "Continuer vers {1}",
+    "description": "Blocked page: button that opens the original page. {1} is the site host"
+  },
+  "blocked_close_tab": {
+    "en": "Close this tab",
+    "fr": "Fermer cet onglet",
+    "description": "Blocked page: button that closes the tab"
+  },
+  "blocked_step": {
+    "en": "Step {1} of {2}",
+    "fr": "Étape {1} sur {2}",
+    "description": "Blocked page: unlock flow step, read by screen readers (the page shows dots)"
+  },
+  "blocked_friction_question": {
+    "en": "Is it really worth breaking your focus?",
+    "fr": "Ça vaut vraiment le coup d'interrompre ton focus ?",
+    "description": "Unlock flow, step 1: the only question before typing the sentence"
+  },
+  "blocked_friction_hint": {
+    "en": "Your focus ends in {1}. Can it wait?",
+    "fr": "Ton focus se termine dans {1}. Ça peut attendre ?",
+    "description": "Unlock flow, step 1: line under the question. {1} is the time left in the block, like '45 min' or '1 h 05'"
+  },
+  "blocked_friction_hint_generic": {
+    "en": "Refocusing takes longer than it seems.",
+    "fr": "Se reconcentrer prend plus de temps qu'on croit.",
+    "description": "Unlock flow, step 1: line under the question when the end of the block is unknown"
+  },
+  "blocked_friction_no": {
+    "en": "No, back to work",
+    "fr": "Non, je retourne au travail",
+    "description": "Unlock flow, step 1: answer that goes back to work (closes the tab like 'Back to work')"
+  },
+  "blocked_friction_yes": {
+    "en": "Yes, it's worth it",
+    "fr": "Oui, ça vaut le coup",
+    "description": "Unlock flow, step 1: answer that continues to the typing step"
+  },
+  "blocked_friction_type": {
+    "en": "Type this sentence to end your session",
+    "fr": "Tape cette phrase pour arrêter ta session",
+    "description": "Title of the typing step (free way to end the session early)."
+  },
+  "blocked_friction_phrase": {
+    "en": "I am choosing to give up on my goals. I am trading my aspirations and commitments for a few minutes of distractions.",
+    "fr": "Je choisis de renoncer à mes objectifs. J'échange mes aspirations et mes engagements contre quelques minutes de distraction.",
+    "description": "Unlock flow: default sentence the user must type by hand, used unless they wrote their own in the settings. Keep straight apostrophes, no characters that are hard to type"
+  },
+  "blocked_friction_accents_hint": {
+    "en": "No need to type the accents.",
+    "fr": "Pas besoin de taper les accents.",
+    "description": "Unlock flow: small line under the sentence to type, only shown when it contains accented letters (they are optional)"
+  },
+  "blocked_friction_input_label": {
+    "en": "Type the sentence here",
+    "fr": "Tape la phrase ici",
+    "description": "Unlock flow: label and placeholder of the typing field"
+  },
+  "blocked_friction_progress": {
+    "en": "{1} / {2}",
+    "fr": "{1} / {2}",
+    "description": "Unlock flow: typed characters counter, e.g. '42 / 150'"
+  },
+  "blocked_friction_progress_label": {
+    "en": "Typing progress",
+    "fr": "Progression de la saisie",
+    "description": "Unlock flow: accessible name of the progress bar"
+  },
+  "blocked_friction_typo": {
+    "en": "Typo. Keep going from where it stopped.",
+    "fr": "Faute de frappe. Reprends là où ça s'est arrêté.",
+    "description": "Unlock flow: shown when a wrong character is typed (it gets removed)"
+  },
+  "blocked_friction_paste": {
+    "en": "Pasting is disabled. Type it.",
+    "fr": "Le copier-coller est désactivé. Tape-la toi-même.",
+    "description": "Unlock flow: shown when the user tries to paste or drop text ('it' is the sentence)"
+  },
+  "blocked_friction_cancel": {
+    "en": "Never mind",
+    "fr": "Finalement, non",
+    "description": "Unlock flow: link that leaves the flow and goes back to the blocked page"
+  },
+  "blocked_friction_failed": {
+    "en": "Couldn't end the session. Try again.",
+    "fr": "Impossible d'arrêter la session. Réessaie.",
+    "description": "Generic error when ending the session fails."
+  },
+  "blocked_friction_end": {
+    "en": "End my session",
+    "fr": "Arrêter ma session",
+    "description": "Button that ends the whole session once the sentence is typed."
+  },
+  "blocked_pay_title": {
+    "en": "End this session",
+    "fr": "Arrêter cette session",
+    "description": "Title of the step where the user pays to end the session early."
+  },
+  "blocked_amount_label": {
+    "en": "Amount",
+    "fr": "Montant",
+    "description": "Accessible label of the amount choice and input."
+  },
+  "blocked_pay_button": {
+    "en": "Pay {1} and end the session",
+    "fr": "Payer {1} et arrêter la session",
+    "description": "Pay button. {1} is a formatted amount like 5 €."
+  },
+  "blocked_pay_skip": {
+    "en": "Skip for free",
+    "fr": "Passer gratuitement",
+    "description": "Secondary button: end the session for free by typing the sentence instead."
+  },
+  "blocked_pay_retry": {
+    "en": "Try again",
+    "fr": "Réessayer",
+    "description": "Retry button after a payment error."
+  },
+  "blocked_amount_error": {
+    "en": "Enter a whole amount from {1} to {2}.",
+    "fr": "Entre un montant entier entre {1} et {2}.",
+    "description": "Error for an invalid custom amount. {1} and {2} are formatted amounts."
+  },
+  "blocked_pay_unavailable": {
+    "en": "Payment isn't available right now. You can still skip for free.",
+    "fr": "Le paiement n'est pas disponible pour l'instant. Tu peux toujours passer gratuitement.",
+    "description": "Error when the payment server can't be reached."
+  },
+  "blocked_pay_timeout": {
+    "en": "No payment received yet. Try again when you're ready.",
+    "fr": "Aucun paiement reçu pour l'instant. Réessaie quand tu es prêt.",
+    "description": "Shown after waiting a long time for a payment."
+  },
+  "blocked_waiting_title": {
+    "en": "Waiting for your payment of {1}",
+    "fr": "En attente de ton paiement de {1}",
+    "description": "Title while the Stripe page is open. {1} is the formatted amount."
+  },
+  "blocked_waiting_sub": {
+    "en": "Pay in the new tab. This page updates on its own.",
+    "fr": "Paie dans le nouvel onglet. Cette page se met à jour toute seule.",
+    "description": "Hint under the waiting title."
+  },
+  "blocked_waiting_reopen": {
+    "en": "Open the payment page again",
+    "fr": "Rouvrir la page de paiement",
+    "description": "Link that reopens the Stripe page."
+  },
+  "blocked_ended_title": {
+    "en": "Session ended",
+    "fr": "Session arrêtée",
+    "description": "Title once the session was ended early."
+  },
+  "blocked_ended_sub": {
+    "en": "Your goal will still be here next time.",
+    "fr": "Ton objectif t'attendra la prochaine fois.",
+    "description": "Line under Session ended."
+  },
+  "blocked_ended_next": {
+    "en": "Next block: {1}",
+    "fr": "Prochain blocage : {1}",
+    "description": "Shown when a scheduled block starts later. {1} is a day and time."
+  },
+  "blocked_no_session_title": {
+    "en": "No session running",
+    "fr": "Aucune session en cours",
+    "description": "End-session page opened when nothing is blocked."
+  },
+  "blocked_no_session_sub": {
+    "en": "There's nothing to end right now.",
+    "fr": "Il n'y a rien à arrêter pour l'instant.",
+    "description": "Line under No session running."
+  }
+}
