@@ -7,3 +7,11 @@ body { min-height: 100vh; }
 .home-text { font-size: 22px; font-weight: 600; }
 .home-label { font-size: 15px; font-weight: 600; }
 .home-countdown { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+.pin-tip { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 8px 10px 14px; border-radius: var(--radius); background: var(--accent-soft); color: var(--accent-text); font-size: 14px; }
+.pin-tip-icon { display: inline-flex; }
+.pin-tip-icon .icon, .pin-tip-hide .icon { width: 16px; height: 16px; }
+.pin-tip-text { flex: 1; }
+.pin-tip-link { font-weight: 600; color: inherit; white-space: nowrap; }
+.pin-tip-hide { width: 30px; height: 30px; display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; }
+.pin-tip-hide:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.pin-tip-hide:focus-visible, .pin-tip-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }

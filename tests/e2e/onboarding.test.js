@@ -192,10 +192,10 @@ describe("onboarding", { timeout: SUITE_TIMEOUT }, () => {
     });
   });
 
-  test("step 3 offers 4 long-term goals with Go all in on my projects preselected, or your own", { timeout: 30_000 }, async () => {
-    for (const id of ["focus", "projects", "deep", "finish", "custom"]) {
+  test("step 3 asks why, with 4 sentences (the first preselected) or your own", { timeout: 30_000 }, async () => {
+    for (const id of ["finish", "future", "proud", "time", "custom"]) {
       assert.ok(await isShown(page.getByTestId(`onb-goal-option-${id}`)), `onb-goal-option-${id}`);
-      assert.equal(await isSelected(page.getByTestId(`onb-goal-option-${id}`)), id === "projects", `${id} selected state`);
+      assert.equal(await isSelected(page.getByTestId(`onb-goal-option-${id}`)), id === "finish", `${id} selected state`);
     }
     assert.equal(await isShown(page.getByTestId("onb-goal")), false, "no text field until Write my own");
     // An empty own goal is refused, then a typed one is kept.
@@ -239,7 +239,34 @@ describe("onboarding", { timeout: SUITE_TIMEOUT }, () => {
     assert.deepEqual(await findRawI18nKeys(page), [], "no untranslated i18n keys on the done screen");
   });
 
-  test("the done screen is minimal: no coffee, no missing permission line when all is granted", async () => {
+  test("the done screen first asks to pin the extension, shows how and waits", async () => {
+    // A fresh profile never has the icon pinned, and no extension can pin itself.
+    assert.ok(await isShown(page.getByTestId("onb-pin-step")), "the pin step comes first");
+    assert.ok(((await page.getByTestId("onb-pin-how").innerText()) ?? "").trim().length > 10, "how to pin, for this browser");
+    assert.ok(await isShown(page.getByTestId("onb-pin-waiting")));
+    assert.equal(await isShown(page.getByTestId("onb-final")), false, "the summary waits for the pin or Skip");
+    assert.deepEqual(await findRawI18nKeys(page), [], "no untranslated i18n keys on the pin step");
+  });
+
+  test("once pinned the done screen moves on by itself and lists what pinning gives", { timeout: 20_000 }, async () => {
+    // Stand in for the user pinning the icon: the page polls chrome.action.getUserSettings.
+    await page.evaluate(() => {
+      chrome.action.getUserSettings = async () => ({ isOnToolbar: true });
+    });
+    await page.getByTestId("onb-benefits").waitFor({ state: "visible", timeout: 10_000 });
+    assert.equal(await isShown(page.getByTestId("onb-pin-step")), false);
+    assert.equal(await isShown(page.getByTestId("onb-pin-hint")), false, "no pin reminder once pinned");
+    const title = await page.evaluate(() => chrome.i18n.getMessage("onb_pinned_title"));
+    assert.equal((await page.locator("#done-title").innerText()).trim(), title);
+    await page.reload();
+    await page.getByTestId("onb-pin-step").waitFor({ state: "visible" });
+  });
+
+  test("Skip shows the summary: no coffee, no missing permission line when all is granted", async () => {
+    await page.getByTestId("onb-pin-skip").click();
+    await page.getByTestId("onb-final").waitFor({ state: "visible" });
+    assert.ok(await isShown(page.getByTestId("onb-pin-hint")), "skipped: the short pin reminder stays");
+    assert.equal(await isShown(page.getByTestId("onb-benefits")), false);
     assert.ok(await isShown(page.getByTestId("onb-try-session")));
     assert.ok(await isShown(page.getByTestId("onb-open-settings")));
     assert.equal(await isShown(page.getByTestId("onb-grant-missing")), false, "every chosen site has access in this run");
@@ -253,19 +280,20 @@ describe("onboarding", { timeout: SUITE_TIMEOUT }, () => {
     assert.equal(await page.getByTestId("onb-step-1").isVisible(), false);
   });
 
-  test("the done screen can start a 10 minute session", { timeout: 30_000 }, async () => {
+  test("the done screen can start a 15 minute session", { timeout: 30_000 }, async () => {
+    await page.getByTestId("onb-pin-skip").click();
     const clickedAt = Date.now();
     await page.getByTestId("onb-try-session").click();
     const { session } = await waitForValue(() => ctx.getLocal("session"), ({ session: s }) => Boolean(s?.endsAt), {
       message: "a session in chrome.storage.local",
     });
     const length = session.endsAt - clickedAt;
-    assert.ok(length > 9.5 * MINUTE && length <= 10 * MINUTE + 5_000, `session should last about 10 min, got ${length} ms`);
+    assert.ok(length > 14.5 * MINUTE && length <= 15 * MINUTE + 5_000, `session should last about 15 min, got ${length} ms`);
     const badge = await waitForValue(() => ctx.getBadge(), (text) => BADGE_PATTERN.test(text), { message: "the badge countdown" });
     const { block } = await ctx.getState();
     assert.equal(block.active, true);
     assert.equal(block.source, "session", "manual mode: the block comes from the session only");
-    assert.match(badge, /^(10|9)m$/);
+    assert.match(badge, /^(15|14)m$/);
   });
 
   test("settings synced from another device while onboarding is open show the done screen", { timeout: 30_000 }, async () => {

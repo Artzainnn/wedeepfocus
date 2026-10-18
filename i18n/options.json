@@ -50,13 +50,13 @@
     "description": "Tooltip on controls disabled during an active block."
   },
   "options_missing_one": {
-    "en": "1 site shows Chrome's error page instead of your goal.",
-    "fr": "1 site affiche la page d'erreur de Chrome au lieu de ton objectif.",
+    "en": "1 site shows Chrome's error page instead of your why.",
+    "fr": "1 site affiche la page d'erreur de Chrome au lieu de ton pourquoi.",
     "description": "Banner when one blocked site lacks host permission. It is still blocked, with Chrome's own error page instead of the page showing the goal. Next to an Allow button."
   },
   "options_missing_other": {
-    "en": "{1} sites show Chrome's error page instead of your goal.",
-    "fr": "{1} sites affichent la page d'erreur de Chrome au lieu de ton objectif.",
+    "en": "{1} sites show Chrome's error page instead of your why.",
+    "fr": "{1} sites affichent la page d'erreur de Chrome au lieu de ton pourquoi.",
     "description": "Same banner for several sites. {1} is the number of sites (2 or more). Never say the sites are not blocked."
   },
   "options_chip_missing": {
@@ -380,19 +380,14 @@
     "description": "Tooltip on the switch of a switched off time slot during an active block."
   },
   "options_goal_title": {
-    "en": "Your long-term goal",
-    "fr": "Ton objectif à long terme",
+    "en": "Your why",
+    "fr": "Ton pourquoi",
     "description": "Section title (the user has a single goal). Also the accessible label of the goal field."
   },
   "options_goal_sub": {
-    "en": "Shown when a site is blocked.",
-    "fr": "Affiché quand un site est bloqué.",
+    "en": "One sentence, shown when a site is blocked.",
+    "fr": "Une phrase, affichée quand un site est bloqué.",
     "description": "One short line under the Your goal title."
-  },
-  "options_quote_toggle": {
-    "en": "Show a motivational line",
-    "fr": "Afficher une phrase de motivation",
-    "description": "Label of the switch for the motivational line on the blocked page."
   },
   "options_ending_title": {
     "en": "Ending a session early",

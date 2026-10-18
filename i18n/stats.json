@@ -95,8 +95,8 @@
     "description": "Card title."
   },
   "stats_blocked_sub": {
-    "en": "Times a blocked site showed your goal",
-    "fr": "Fois où un site bloqué a affiché ton objectif",
+    "en": "Times a blocked site showed your why",
+    "fr": "Fois où un site bloqué a affiché ton pourquoi",
     "description": "Card subtitle."
   },
   "stats_completed": {

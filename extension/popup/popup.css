@@ -185,3 +185,5 @@ body.is-booting { visibility: hidden; animation: boot-reveal 0s linear 600ms for
 .streak-chip:hover { filter: brightness(0.97); }
 .streak-chip:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .popup-header .brand { margin-right: auto; }
+.feedback-btn { gap: 6px; padding: 0 10px; color: var(--text-2); font-weight: 600; }
+.feedback-btn:hover { color: var(--text); }

@@ -120,23 +120,23 @@
     "description": "Same line in onboarding step 2 once the user picked Free only in step 4: ending a session early means typing a sentence"
   },
   "onb_step3_title": {
-    "en": "Your long-term goal",
-    "fr": "Ton objectif à long terme",
+    "en": "Why are you doing this?",
+    "fr": "Pourquoi tu fais ça ?",
     "description": "Title of the goal step."
   },
   "onb_step3_sub": {
-    "en": "What you're building, not today's to-do. You'll see it when a site is blocked.",
-    "fr": "Ce que tu construis, pas ta liste du jour. Tu le verras quand un site est bloqué.",
+    "en": "One sentence for yourself. You'll see it when a site is blocked.",
+    "fr": "Une phrase pour toi. Tu la verras quand un site est bloqué.",
     "description": "Line under the goal step title."
   },
   "onb_goal_label": {
-    "en": "Your goal",
-    "fr": "Ton objectif",
+    "en": "Your why",
+    "fr": "Ton pourquoi",
     "description": "Screen reader label of the goal input"
   },
   "onb_goal_placeholder": {
-    "en": "Launch my app this year",
-    "fr": "Lancer mon appli cette année",
+    "en": "I want to…",
+    "fr": "Je veux…",
     "description": "Example in the custom goal field."
   },
   "onb_step4_title": {
@@ -230,23 +230,23 @@
     "description": "Done screen button label once the session has started. {1} is a time, e.g. 14:10"
   },
   "onb_missing_one": {
-    "en": "1 site won't show your goal.",
-    "fr": "1 site n'affichera pas ton objectif.",
+    "en": "1 site won't show your why.",
+    "fr": "1 site n'affichera pas ton pourquoi.",
     "description": "Done screen line before an Allow link: one chosen site lacks access, so it is blocked with Chrome's error page instead of the goal page"
   },
   "onb_missing_many": {
-    "en": "{1} sites won't show your goal.",
-    "fr": "{1} sites n'afficheront pas ton objectif.",
+    "en": "{1} sites won't show your why.",
+    "fr": "{1} sites n'afficheront pas ton pourquoi.",
     "description": "Done screen line before an Allow link: {1} chosen sites (2 or more) lack access, so they are blocked with Chrome's error page instead of the goal page"
   },
   "onb_goal_custom": {
     "en": "Write my own",
-    "fr": "Écrire le mien",
+    "fr": "Écrire la mienne",
     "description": "Last choice of the goal step: reveals a text field."
   },
   "onb_goal_empty": {
-    "en": "Write your goal, or pick one above.",
-    "fr": "Écris ton objectif, ou choisis-en un au-dessus.",
+    "en": "Write your sentence, or pick one above.",
+    "fr": "Écris ta phrase, ou choisis-en une au-dessus.",
     "description": "Error when the custom goal is empty."
   },
   "onb_money_why": {
@@ -258,5 +258,80 @@
     "en": "Skipping for free is always possible.",
     "fr": "Passer gratuitement reste toujours possible.",
     "description": "Says clearly that paying is never required."
+  },
+  "onb_pin_title": {
+    "en": "One last step: pin {1}",
+    "fr": "Dernière étape : épingle {1}",
+    "description": "Last onboarding screen, until the extension is pinned to the toolbar. {1} is the app name."
+  },
+  "onb_pin_sub": {
+    "en": "So a session is always one click away.",
+    "fr": "Pour qu'une session soit toujours à un clic.",
+    "description": "Line under onb_pin_title."
+  },
+  "onb_pin_how_chrome": {
+    "en": "Top right of Chrome: click the puzzle icon, then the pin next to {1}.",
+    "fr": "En haut à droite de Chrome : clique sur l'icône puzzle, puis sur l'épingle à côté de {1}.",
+    "description": "How to pin in Chrome. {1} is the app name."
+  },
+  "onb_pin_how_edge": {
+    "en": "Top right of Edge: click the puzzle icon, then the eye next to {1}.",
+    "fr": "En haut à droite d'Edge : clique sur l'icône puzzle, puis sur l'œil à côté de {1}.",
+    "description": "How to pin in Microsoft Edge (its button is an eye, 'Show in toolbar'). {1} is the app name."
+  },
+  "onb_pin_how_brave": {
+    "en": "Top right of Brave: click the puzzle icon, then the pin next to {1}.",
+    "fr": "En haut à droite de Brave : clique sur l'icône puzzle, puis sur l'épingle à côté de {1}.",
+    "description": "How to pin in Brave. {1} is the app name."
+  },
+  "onb_pin_how_arc": {
+    "en": "In Arc's sidebar: click the site controls icon next to the address, then the little pin on {1}.",
+    "fr": "Dans la barre latérale d'Arc : clique sur l'icône des réglages du site à côté de l'adresse, puis sur la petite épingle de {1}.",
+    "description": "How to pin in Arc. {1} is the app name."
+  },
+  "onb_pin_how_other": {
+    "en": "In your browser's toolbar: open the extensions menu, then pin {1}.",
+    "fr": "Dans la barre d'outils de ton navigateur : ouvre le menu des extensions, puis épingle {1}.",
+    "description": "How to pin in another Chromium browser. {1} is the app name."
+  },
+  "onb_pin_waiting": {
+    "en": "Waiting for the pin",
+    "fr": "En attente de l'épingle",
+    "description": "Status while the onboarding waits for the user to pin the extension; it moves on by itself."
+  },
+  "onb_pin_skip": {
+    "en": "Skip",
+    "fr": "Passer",
+    "description": "Link that leaves the pin step without pinning."
+  },
+  "onb_pinned_title": {
+    "en": "Pinned. You're all set.",
+    "fr": "Épinglée. Tout est prêt.",
+    "description": "Title once the extension is pinned."
+  },
+  "onb_pin_benefit_start": {
+    "en": "Start a {1} min session in one click",
+    "fr": "Lance une session de {1} min en un clic",
+    "description": "Benefit of pinning, shown once pinned. {1} is a number of minutes (15)."
+  },
+  "onb_pin_benefit_add": {
+    "en": "Add {1} minutes when you need them",
+    "fr": "Ajoute {1} minutes quand il t'en faut",
+    "description": "Benefit of pinning, shown once pinned. {1} is a number of minutes (15)."
+  },
+  "onb_pin_benefit_badge": {
+    "en": "See the time left on the icon",
+    "fr": "Vois le temps restant sur l'icône",
+    "description": "Benefit of pinning, shown once pinned."
+  },
+  "onb_pin_demo": {
+    "en": "Plays by itself: how to pin, then add {1} minutes from the icon.",
+    "fr": "Animation : comment épingler, puis ajouter {1} minutes depuis l'icône.",
+    "description": "Accessible label of the looping how-to animation. {1} is a number of minutes (15)."
+  },
+  "onb_pin_extensions": {
+    "en": "Extensions",
+    "fr": "Extensions",
+    "description": "Title of the browser's extensions menu, drawn in the pin step animation."
   }
 }

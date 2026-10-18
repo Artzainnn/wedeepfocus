@@ -4,7 +4,7 @@
 // Shots per language (<lang>-<n>-<name>.png): 1 blocked page, 2 popup (centered on a
 // neutral background), 3 options page with its groups (one group expanded), 4 onboarding
 // step 1, 5 options page scrolled to the "Unlock sentence" section. Demo groups (the presets
-// plus one group made by the user), one goal and a custom unlock sentence are seeded.
+// plus one group made by the user), one why and a custom unlock sentence are seeded.
 //
 // Usage: node scripts/screenshots.mjs [--lang=en|fr|all] [--shots=name,name] [--scheme=light|dark] [--headed] [--out=dir]
 // Default: --lang=all --scheme=light, every shot, into store/screenshots/.
@@ -60,12 +60,12 @@ const SHOT_FILTER = typeof argv.shots === "string" ? new Set(argv.shots.split(",
 
 const DEMO = {
   en: {
-    goal: "Ship the new onboarding by Friday",
+    goal: "I'm building something that matters to me.",
     phrase: "I said I would ship the onboarding this week. Opening this site means choosing not to, for now.",
     group: "Work chat",
   },
   fr: {
-    goal: "Livrer le nouvel onboarding vendredi",
+    goal: "Je construis quelque chose qui me tient à cœur.",
     phrase: "J'ai dit que je livrerais l'onboarding cette semaine. Ouvrir ce site, c'est choisir de ne pas le faire.",
     group: "Messagerie pro",
   },

@@ -17,9 +17,18 @@
       <a class="side-nav-link" href="../home/home.html" data-testid="nav-home" aria-current="page"><span data-icon="home"></span><span data-i18n="nav_home">Home</span></a>
       <a class="side-nav-link" href="../options/options.html" data-testid="nav-settings"><span data-icon="settings"></span><span data-i18n="common_settings">Settings</span></a>
       <a class="side-nav-link" href="../stats/stats.html" data-testid="nav-stats"><span data-icon="chart"></span><span data-i18n="nav_stats">Stats</span></a>
+      <a class="side-nav-link side-nav-feedback" data-testid="nav-feedback" target="_blank" rel="noopener" hidden><span data-icon="chat"></span><span class="side-nav-label" data-i18n="nav_feedback">Feedback</span><span class="side-nav-external" data-icon="external"></span></a>
     </nav>
     <main class="page" aria-busy="true">
       <h1 data-i18n="home_title">Home</h1>
+
+      <!-- Only while the extension is not pinned to the toolbar -->
+      <p class="pin-tip" data-testid="home-pin-tip" hidden>
+        <span class="pin-tip-icon" data-icon="pin"></span>
+        <span class="pin-tip-text" data-role="pin-tip-text"></span>
+        <a class="pin-tip-link" href="../onboarding/onboarding.html" data-testid="home-pin-show" data-i18n="home_pin_show">Show me how</a>
+        <button type="button" class="pin-tip-hide" data-testid="home-pin-hide" data-i18n-aria-label="home_pin_hide" aria-label="Hide"><span data-icon="x"></span></button>
+      </p>
 
       <section class="card home-card" data-testid="home-idle" hidden>
         <p class="home-text display" data-i18n="home_idle">No current session.</p>

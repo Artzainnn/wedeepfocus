@@ -13,47 +13,51 @@ WeDeepFocus
 ## Short description (132 characters max)
 
 ```
-Block distracting sites while you focus and see your goal instead. No account, no tracking.
+Block distracting sites in two clicks and see why you're doing this instead. Free, open source, no account.
 ```
 
-91 characters. It is `appDescription` in `i18n/common.json`, keep both in sync (`build-locales` rejects more than 132 characters).
+107 characters. It is `appDescription` in `i18n/common.json`, keep both in sync (`build-locales` rejects more than 132 characters).
 
 ## Detailed description
 
 ```
-WeDeepFocus keeps you off the sites that eat your time while you focus, and shows you what you're working toward instead.
+Instagram can wait. WeDeepFocus blocks the sites that pull you away while you focus, and shows you why you're doing this instead.
 
-OPEN A BLOCKED SITE, SEE YOUR GOAL
-Instead of the feed: your goal, the time left and a short line to keep you going. One click takes you back to work.
+HOW IT WORKS
+1. Pick what distracts you: social media, video, news, shopping, or your own sites.
+2. Click the icon and pick 15 min, 30 min or 1 h. Or set weekly time slots, like weekdays from 09:00 to 12:00.
+3. Open a blocked site: you see the time left and your why, one sentence you picked or wrote. One click takes you back to work.
 
-GROUPS OF SITES, YOUR WAY
-• Ready-made groups: social media, video and streaming, email and messaging, news, shopping (for example Instagram, TikTok, YouTube or Reddit)
-• Turn a group on or off, add or remove its sites
-• Create your own groups with a name and an icon, like "Work chat" or "Games"
-• Add single sites to "Your sites", or block the current site in one click from the toolbar
+NEED MORE TIME?
+Add 15 minutes from the icon. The time left shows right on it.
 
-YOU DECIDE WHEN
-• Start a session from the toolbar icon: 15 minutes, 30 minutes, 1 hour or any length up to 8 hours
-• Or add weekly time slots if you like, for example Monday to Friday, 09:00 to 12:00 (overnight slots work too)
-• Live countdown in the popup and remaining time on the toolbar icon
+ENDING EARLY TAKES EFFORT
+One honest question, then a sentence typed by hand. No copy-paste allowed, typos are rejected. That pause is often enough to change your mind. While a session runs, settings can only get stricter.
 
-STRICT, ON PURPOSE
-• Ending a session early is a ritual: one honest question, then a sentence typed by hand (copy and paste disabled, typos rejected). Then the whole session ends. The pause is often enough to change your mind. You can always turn the extension off in chrome://extensions.
-• The default sentence: "I am choosing to give up on my goals. I am trading my aspirations and commitments for a few minutes of distractions." You can write your own in the settings. It can't be changed while a block is running
-• While a block is running, settings can only get stricter: you can add sites, groups or time slots, not remove them
+YOUR SITES, YOUR WAY
+• Ready-made groups (Instagram, TikTok, YouTube, Reddit and more), each with sites you can keep or remove
+• Your own groups with a name and an icon, like "Work chat"
+• Block the site you're on in one click from the toolbar
 
-PRIVATE BY DEFAULT
-• No account, no analytics, no ads, no server
-• Your settings stay in your browser (and in your own Chrome sync if you use it)
-• Site access is optional and requested only for the sites you choose. It lets the extension show your goal instead of Chrome's error page. Without it, those sites are still blocked
-• Start over from the settings: one button puts everything back to default
+FREE, OPEN SOURCE, PRIVATE
+• No account, no ads, no analytics: your settings stay in your browser
+• Open source under the MIT license: github.com/Artzainnn/wedeepfocus
+• Site access is optional and asked only for the sites you choose. Without it, those sites are still blocked, with Chrome's error page
 
-Free. If it helps you, there's an optional "Buy a dev a coffee" link in the popup and the settings.
+Free. If it helps you, there's an optional "Buy a dev a coffee" link. Ideas or bugs? wedeepfocus.com/feedback
 
-Available in English and French.
+Works in Chrome and in Chromium browsers like Arc, Brave and Edge. English and French.
 
 Not affiliated with any of the websites mentioned. Trademarks belong to their owners.
 ```
+
+## Promo video
+
+```
+https://www.youtube.com/watch?v=yZ5A0IPuPWM
+```
+
+The "Global promo video" field of the store listing (37 s launch film). Use this long form: the dashboard refuses the youtu.be short link, and the whole save fails with it.
 
 ## Category
 
@@ -61,7 +65,7 @@ Productivity, subcategory "Workflow & Planning" (or "Tools" if that subcategory 
 
 ## Language
 
-Default language: English. The package also contains French (`_locales/fr`); add the French listing from `listing.fr.md`.
+Default language: English. The package also contains French (`_locales/fr`), but the store has no French listing on purpose (decision of 18/10/2026): French visitors get the French summary from the package, the English description and the global screenshots.
 
 ## Single purpose
 
@@ -141,12 +145,14 @@ Publish `PRIVACY.md` at a public address (for example GitHub Pages or your own s
 
 ## Test instructions for the reviewer
 
+"Additional instructions" field of the Test instructions tab, 500 characters max. Optional (no login needed), still empty in the dashboard: its "Save changes" button stayed disabled when filled by script.
+
 ```
-1. Install: the welcome page opens. Keep "Social media" selected and click Continue. Chrome asks for access to those sites: click Allow (if you decline, the sites are still blocked, with Chrome's error page instead of the goal page). "When I start a session" is already selected: click Continue. Type a goal, then click Finish.
-2. Click "Start a 10 min session" on the last screen (or click the toolbar icon, pinned from the puzzle menu if needed, then "15 min" under "Block now for").
-3. Open https://www.facebook.com: you land on the extension's page with your goal and a countdown instead.
-4. "I really need it" (or "End session early" in the popup) starts the ritual: one question ("Is it really worth breaking your focus?"), then a sentence typed by hand. The whole session then ends. The sentence can be changed in Settings, under "Ending a session early".
-No account or login is needed.
+No account needed.
+1. Welcome page: click Continue, Allow site access, Continue, then Finish (a sentence is preselected).
+2. Pin the icon or click Skip, then "Start a 15 min session".
+3. Open facebook.com: the extension's page shows the time left and your sentence.
+4. "I really need it" asks one question, then a sentence typed by hand (no paste) to end the session early.
 ```
 
 ## Graphic assets
@@ -154,18 +160,18 @@ No account or login is needed.
 | Asset | File | Size |
 | --- | --- | --- |
 | Store icon | `extension/assets/icon-128.png` | 128x128 (artwork 96x96 with transparent padding) |
-| Small promo tile | `store/promo-small-440x280.png` | 440x280 |
-| Marquee promo tile | `store/marquee-1400x560.png` | 1400x560 |
-| Screenshots | `store/screenshots/en-*.png` | 1280x800 |
+| Small promo tile | `store/upload/promo-small-440x280.png` | 440x280 |
+| Marquee promo tile | `store/upload/marquee-1400x560.png` | 1400x560 |
+| Screenshots | `store/upload/en/en-*.png` | 1280x800, in both "Localized screenshots" and "Global screenshots" |
 
-The promo tiles contain no localized text (only the brand name and a mock of the blocked page where the text is drawn as bars), because the store shows the same tiles in every language. Use them for both listings.
+All of them come from `node scripts/store-visuals.mjs` (real captures of the extension with a headline). The promo tiles are in English: the store shows the same tiles in every language, so use them for both listings.
 
 Suggested screenshot order and captions:
 
-1. `en-1-blocked.png`: See your goal instead of the feed
-2. `en-2-popup.png`: Start a focus session in one click
-3. `en-3-options.png`: Group the sites that distract you, your way
-4. `en-4-onboarding.png`: Set up in under a minute
-5. `en-5-phrase.png`: Make the unlock sentence your own
+1. `en-1-blocked.png`: Instagram can wait (the blocked page: time left and your why)
+2. `en-2-popup.png`: Focus in two clicks (start a session, add 15 minutes)
+3. `en-3-groups.png`: Pick what distracts you
+4. `en-4-why.png`: Remember why
+5. `en-5-friction.png`: Ending early takes effort (no copy-paste)
 
 Regenerate the images with `npm run icons` and `npm run screenshots`.

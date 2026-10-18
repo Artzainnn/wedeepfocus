@@ -1,0 +1,274 @@
+/* /concepts/ review page. Builds on styles.css (tokens, buttons, pills, segmented). */
+.concepts { padding-bottom: 120px; }
+.concepts-intro { padding: 40px 0 8px; text-align: center; }
+.concepts-intro .brand { justify-content: center; }
+.concepts-intro h1 { margin-top: 36px; font-size: clamp(34px, 5vw, 52px); }
+.concepts-list { list-style: none; margin: 24px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; counter-reset: change; }
+.concepts-list li { counter-increment: change; }
+.concepts-list a { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px 10px 10px; border-radius: 999px; border: 1px solid var(--border-strong); font-size: 16px; text-decoration: none; color: var(--text-2); background: var(--surface); }
+.concepts-list a::before { content: counter(change); width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--on-ink); font-size: 13px; font-weight: 800; }
+.concepts-list b { color: var(--text); }
+.concepts-legend { max-width: 560px; margin: 20px auto 0; font-size: 14px; color: var(--text-3); }
+.concepts-legend .review-tag { margin-right: 6px; }
+
+.concept { padding-top: 96px; scroll-margin-top: 24px; }
+.concept-head { max-width: 640px; margin: 0 auto 32px; text-align: center; }
+.concept-head h2 { margin-top: 10px; font-size: clamp(26px, 3.4vw, 36px); }
+.concept-head p { margin-top: 12px; font-size: 17px; color: var(--text-2); }
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: start; }
+
+/* Review-only controls: dashed, plainly not part of the product */
+.review { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px; max-width: 960px; margin: 16px auto 0; padding: 14px; border: 2px dashed var(--border-strong); border-radius: 16px; }
+.review-tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; background: var(--sun); color: var(--on-coffee); font-size: 12px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.review-label { font-size: 13px; font-weight: 800; color: var(--text-2); }
+.review-detected { font-size: 13px; color: var(--text-3); }
+.review .btn svg { flex: none; }
+
+/* Browser window. Only the page area belongs to the extension; the browser's own UI is a picture,
+   except the extension's icon once pinned (it opens the popup, as it would). */
+.chrome { position: relative; max-width: 960px; margin: 0 auto; border-radius: 14px; background: var(--surface); border: 1px solid var(--border-strong); box-shadow: var(--shadow-lg); }
+.chrome-top { position: relative; user-select: none; }
+.chrome-tabs { display: flex; align-items: flex-end; height: 40px; padding: 0 12px; background: var(--bg-2); border-radius: 14px 14px 0 0; }
+.chrome-tab { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px; border-radius: 10px 10px 0 0; background: var(--surface); font-size: 12px; font-weight: 600; }
+.chrome-tab img { border-radius: 4px; width: 14px; height: 14px; }
+.chrome-toolbar { display: flex; align-items: center; gap: 6px; height: 46px; padding: 0 12px; border-bottom: 1px solid var(--border); }
+.chrome-label, .arc-label { position: absolute; top: 10px; right: 14px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+.tb-btn { position: relative; width: 32px; height: 32px; flex: none; display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: var(--text-2); }
+.tb-btn svg { width: 18px; height: 18px; }
+.tb-btn img { width: 18px; height: 18px; border-radius: 5px; }
+.tb-ext { cursor: pointer; animation: pop-in 350ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.tb-ext:hover { background: var(--bg-2); }
+.tb-ext.is-hinted { animation: ring 1.6s ease-out infinite; }
+.tb-badge { position: absolute; right: -2px; bottom: 0; min-width: 18px; height: 14px; padding: 0 3px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 9px; font-weight: 800; line-height: 14px; font-variant-numeric: tabular-nums; }
+@keyframes pop-in { from { transform: scale(0); } }
+.tb-puzzle.is-hinted { animation: ring 1.6s ease-out infinite; }
+@keyframes ring { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 100% { box-shadow: 0 0 0 14px transparent; } }
+.tb-avatar { width: 26px; height: 26px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; }
+.omnibox { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px; border-radius: 999px; background: var(--bg-2); font-size: 13px; color: var(--text-2); }
+.omnibox img { width: 14px; height: 14px; border-radius: 4px; }
+.win-body { position: relative; }
+.chrome-page { position: relative; min-height: 520px; display: grid; place-items: center; padding: 56px 24px 40px; background: var(--bg); border-radius: 0 0 14px 14px; }
+/* Arrow drawn over the whole window, from the page to the browser's extensions icon (see aim() in concepts.js). */
+.pin-arrow { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; overflow: visible; color: var(--accent); pointer-events: none; }
+.pa-line { fill: none; stroke: currentColor; stroke-width: 4.5; stroke-linecap: round; stroke-dasharray: 1 11; animation: march 800ms linear infinite; }
+.pa-head { fill: none; stroke: currentColor; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes march { to { stroke-dashoffset: -12; } }
+
+/* Arc: a sidebar on the left instead of a toolbar on top */
+.arc-side { display: none; }
+.chrome[data-browser="arc"] .chrome-top { display: none; }
+.chrome[data-browser="arc"] .win-body { display: grid; grid-template-columns: 210px 1fr; }
+.chrome[data-browser="arc"] .arc-side { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 14px 12px; background: color-mix(in srgb, var(--accent) 14%, var(--bg-2)); border-radius: 14px 0 0 14px; user-select: none; }
+.chrome[data-browser="arc"] .chrome-page { border-radius: 0 14px 14px 0; }
+.arc-dots { display: flex; gap: 6px; }
+.arc-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+.arc-url { display: flex; align-items: center; gap: 2px; height: 36px; padding: 0 4px 0 12px; border-radius: 10px; background: var(--surface); font-size: 12px; color: var(--text-2); }
+.arc-url > span:first-child { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.arc-url .tb-btn { width: 26px; height: 26px; }
+.arc-url .tb-btn img { width: 16px; height: 16px; }
+.arc-ico { width: 26px; height: 26px; flex: none; display: grid; place-items: center; border-radius: 7px; color: var(--text-2); }
+.arc-ico svg { width: 16px; height: 16px; }
+.arc-tab { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.arc-tab:not(.is-on) { background: color-mix(in srgb, var(--surface) 40%, transparent); }
+.arc-tab.is-on { background: var(--surface); }
+.arc-tab img { width: 14px; height: 14px; border-radius: 4px; }
+.arc-label { top: auto; bottom: 12px; left: 12px; right: auto; }
+
+/* The pin screen */
+.onb-done { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 480px; text-align: center; }
+.onb-done h3 { font-size: 30px; }
+.onb-done p { color: var(--text-2); font-size: 17px; }
+.onb-check { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; animation: pop-in 400ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.onb-check svg { width: 30px; height: 30px; }
+.benefits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; text-align: left; font-size: 16px; font-weight: 700; }
+.benefits li { display: flex; align-items: center; gap: 10px; }
+.benefits svg { width: 18px; height: 18px; flex: none; color: var(--accent-text); }
+.howto-caption { display: none; font-size: 15px !important; }
+.chrome[data-browser="chrome"] [data-for="chrome"], .chrome[data-browser="edge"] [data-for="edge"],
+.chrome[data-browser="brave"] [data-for="brave"], .chrome[data-browser="arc"] [data-for="arc"] { display: block; }
+.howto-caption svg { width: 17px; height: 17px; vertical-align: -3px; color: var(--text); }
+.waiting { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 14px; font-weight: 700; color: var(--text-2); }
+.waiting i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border-strong); border-top-color: var(--accent); animation: spin 900ms linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* The extension's popup, opened from its pinned icon */
+.mini-popup { position: absolute; z-index: 5; width: 230px; padding: 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-lg); text-align: center; }
+.mini-popup-head { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; }
+.mini-popup-head img { width: 18px; height: 18px; border-radius: 5px; }
+.mini-popup-timer { margin-top: 14px; font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.mini-popup-timer.is-bumped { animation: bump 320ms ease; }
+.mini-popup p { margin: 6px 0 12px; font-size: 13px; color: var(--text-3); }
+.mini-popup .pill-add { margin: 0; }
+
+/* The how-to loop: plays by itself, cannot be clicked. Pin it, then click the pinned icon and
+   "Add 10 min". Positions come from variables so the same loop works for a toolbar on the right
+   (Chrome, Edge, Brave); Arc has its own loop below. The pointer's tip sits 9px right, 4px down
+   of its box: puzzle (262, 22), pin (285, 74), pinned icon (224, 22), "Add 10 min" (220, 133). */
+.howto { --c1: translate(253px, 18px); --c2: translate(276px, 70px); --c3: translate(215px, 18px); --c4: translate(211px, 129px);
+  position: relative; width: 320px; height: 176px; margin: 6px 0; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; pointer-events: none; user-select: none; }
+.howto-bar { position: absolute; inset: 0 0 auto 0; height: 44px; background: var(--bg-2); border-bottom: 1px solid var(--border); }
+.howto-omni { position: absolute; left: 12px; top: 10px; width: 180px; height: 24px; border-radius: 999px; background: var(--surface); }
+.howto-new, .howto-puzzle { position: absolute; top: 8px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; }
+.howto-new { left: 210px; animation: howto-new 12s infinite; }
+.howto-new img { width: 16px; height: 16px; border-radius: 4px; }
+.howto-puzzle { left: 248px; color: var(--text-2); animation: howto-press 12s infinite; }
+.howto-puzzle svg { width: 17px; height: 17px; }
+.howto-avatar { position: absolute; left: 286px; top: 10px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); }
+.howto-menu { position: absolute; top: 52px; left: 100px; width: 206px; padding: 6px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); animation: howto-menu 12s infinite; }
+.howto-row { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 4px 0 8px; font-size: 13px; font-weight: 700; text-align: left; }
+.howto-row img { width: 16px; height: 16px; border-radius: 4px; }
+.howto-pin { margin-left: auto; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; color: var(--text-3); animation: howto-pin 12s infinite; }
+.howto-pin svg { width: 15px; height: 15px; display: block; }
+.howto .ico-eye, .chrome[data-browser="edge"] .howto .ico-pin { display: none; }
+.chrome[data-browser="edge"] .howto .ico-eye { display: block; }
+/* The popup of the pinned icon */
+.howto-pop { position: absolute; top: 48px; left: 145px; width: 150px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); animation: howto-pop 12s infinite; }
+.hp-timer { position: relative; height: 30px; width: 100%; }
+.hp-timer b { position: absolute; inset: 0; font-size: 26px; font-weight: 800; line-height: 30px; font-variant-numeric: tabular-nums; }
+.hp-a { animation: hp-a 12s infinite; }
+.hp-b { animation: hp-b 12s infinite; color: var(--accent-text); }
+.howto-pop small { font-size: 10px; color: var(--text-3); }
+.hp-add { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; height: 26px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--border-strong); font-size: 11px; font-weight: 800; animation: hp-add 12s infinite; }
+.hp-add svg { width: 11px; height: 11px; }
+.howto-cursor { position: absolute; left: 0; top: 0; z-index: 2; width: 22px; height: 22px; color: var(--ink); animation: howto-cursor 12s infinite; }
+.howto-cursor svg { width: 100%; height: 100%; fill: var(--surface); filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); }
+@keyframes howto-cursor {
+  0%, 4% { transform: translate(120px, 150px); opacity: 0; }
+  7% { opacity: 1; }
+  14% { transform: var(--c1); }
+  16% { transform: var(--c1) scale(0.82); }
+  18% { transform: var(--c1); }
+  28% { transform: var(--c2); }
+  30% { transform: var(--c2) scale(0.82); }
+  32%, 38% { transform: var(--c2); }
+  46% { transform: var(--c3); }
+  48% { transform: var(--c3) scale(0.82); }
+  50% { transform: var(--c3); }
+  60% { transform: var(--c4); }
+  62% { transform: var(--c4) scale(0.82); }
+  64%, 88% { transform: var(--c4); opacity: 1; }
+  94%, 100% { transform: var(--c4); opacity: 0; }
+}
+@keyframes howto-press { 0%, 15% { background: transparent; } 16%, 36% { background: var(--surface); } 39%, 100% { background: transparent; } }
+@keyframes howto-menu { 0%, 17% { opacity: 0; transform: translateY(-4px); } 19%, 35% { opacity: 1; transform: none; } 38%, 100% { opacity: 0; transform: translateY(-4px); } }
+@keyframes howto-pin { 0%, 29% { color: var(--text-3); background: transparent; } 31%, 100% { color: var(--accent-text); background: var(--accent-soft); } }
+@keyframes howto-new { 0%, 31% { transform: scale(0); background: transparent; } 34% { transform: scale(1.2); } 36%, 47% { transform: scale(1); background: transparent; } 48%, 92% { transform: scale(1); background: var(--surface); } 96%, 100% { transform: scale(0); } }
+@keyframes howto-pop { 0%, 48% { opacity: 0; transform: translateY(-4px); } 51%, 91% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(-4px); } }
+@keyframes hp-a { 0%, 62% { opacity: 1; } 63%, 100% { opacity: 0; } }
+@keyframes hp-b { 0%, 62% { opacity: 0; transform: scale(1); } 64% { opacity: 1; transform: scale(1.12); } 67%, 100% { opacity: 1; transform: scale(1); } }
+@keyframes hp-add { 0%, 61% { background: transparent; } 62%, 65% { background: var(--accent-soft); } 68%, 100% { background: transparent; } }
+
+/* Why: the onboarding step */
+.onb-step { display: flex; flex-direction: column; gap: 14px; padding: 32px; border-radius: 24px; background: var(--surface); border: 1px solid var(--border); }
+.onb-step-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; text-align: center; }
+.onb-step-sub { margin-top: -6px; font-size: 15px; color: var(--text-2); text-align: center; }
+.why-options { display: flex; flex-direction: column; gap: 8px; }
+.why-option { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; transition: border-color 150ms ease; }
+.why-option:hover { border-color: var(--border-strong); }
+.why-option[aria-checked="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.why-option .radio { width: 18px; height: 18px; flex: none; border-radius: 50%; border: 1.5px solid var(--border-strong); }
+.why-option[aria-checked="true"] .radio { border: 5px solid var(--accent); }
+.why-input { width: 100%; height: 48px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font: inherit; font-size: 16px; }
+.why-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+/* The blocked page, in three layouts */
+.why-preview .review { margin-top: 14px; }
+.bp { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; min-height: 480px; justify-content: center; padding: 64px 28px 40px; border-radius: 24px; background: var(--bg); border: 1px solid var(--border); text-align: center; }
+.bp-brand { position: absolute; top: 18px; left: 20px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-3); }
+.bp-brand img { border-radius: 5px; }
+.bp-host { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 13px; color: var(--text-2); }
+.bp-host svg { width: 14px; height: 14px; color: var(--accent); }
+.bp-host-time b { color: var(--text); font-variant-numeric: tabular-nums; }
+.bp-timer { font-size: 72px; font-weight: 600; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.bp-left { font-size: 16px; color: var(--text-2); }
+.bp-eyebrow { margin-top: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+.bp-card { display: flex; align-items: center; gap: 14px; width: min(100%, 520px); padding: 16px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); text-align: left; font-size: 17px; font-weight: 600; }
+.bp-card .bubble { width: 40px; height: 40px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); }
+.bp-card .bubble svg { width: 20px; height: 20px; }
+.bp-why { margin: 0; max-width: 460px; font-family: var(--font-serif); font-size: 34px; line-height: 1.25; color: var(--text); text-wrap: balance; overflow-wrap: anywhere; }
+.bp-why span::before { content: "“"; }
+.bp-why span::after { content: "”"; }
+.bp-why small { display: block; margin-top: 14px; font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+.bp-why.is-bumped { animation: fade-up 400ms ease; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } }
+.bp-quote { max-width: 440px; padding-top: 18px; border-top: 2px solid var(--sky); font-family: var(--font-serif); font-size: 18px; }
+.bp-resisted { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-text); font-size: 13px; font-weight: 700; }
+.bp-resisted svg { width: 14px; height: 14px; }
+.bp-back { margin-top: 18px; height: 46px; padding: 0 56px; border-radius: 999px; display: inline-flex; align-items: center; background: var(--ink); color: var(--on-ink); font-size: 15px; font-weight: 600; }
+.bp-need { font-size: 13px; color: var(--text-3); }
+/* A. Why first: the sentence is the page; the time left moves into the top pill. */
+.bp[data-layout="why"] :is(.bp-timer, .bp-left, .bp-eyebrow, .bp-card, .bp-quote, .bp-resisted) { display: none; }
+.bp[data-layout="why"] .bp-why { margin: 36px 0 12px; }
+/* B. Timer first: the big timer, then the sentence alone. */
+.bp[data-layout="timer"] :is(.bp-host-time, .bp-eyebrow, .bp-card, .bp-quote, .bp-resisted) { display: none; }
+.bp[data-layout="timer"] .bp-why { margin-top: 26px; font-size: 24px; color: var(--text-2); }
+.bp[data-layout="timer"] .bp-why small { display: none; }
+/* Today, for comparison. */
+.bp[data-layout="today"] :is(.bp-host-time, .bp-why) { display: none; }
+
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; }
+  .chrome[data-browser="arc"] .win-body { grid-template-columns: 1fr; }
+  .chrome[data-browser="arc"] .arc-side { border-radius: 14px 14px 0 0; }
+  .chrome[data-browser="arc"] .arc-side :is(.arc-tab, .arc-label) { display: none; }
+  .chrome[data-browser="arc"] .chrome-page { border-radius: 0 0 14px 14px; }
+}
+@media (max-width: 560px) {
+  .concept { padding-top: 72px; }
+  .bp { min-height: 420px; padding: 56px 16px 32px; }
+  .bp-timer { font-size: 56px; }
+  .bp-why { font-size: 27px; }
+  .onb-step { padding: 22px 16px; }
+  .chrome-label { display: none; }
+  .chrome-page { padding: 64px 14px 32px; }
+  .onb-done h3 { font-size: 24px; }
+  .chrome-page { padding-top: 130px; }
+  .howto { transform: scale(0.88); margin: -8px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .howto * { animation: none !important; }
+  .howto-menu { opacity: 1; }
+  .howto-new { transform: scale(1); }
+}
+.review .segmented button { white-space: nowrap; }
+@media (max-width: 560px) { .review .segmented button { padding: 0 10px; font-size: 13px; } }
+
+/* Arc's how-to: site controls icon, the extensions grid, then the pinned icon and "Add 10 min".
+   Site controls (290, 25), our icon in the grid (246, 93), pinned icon (239, 25), "Add 10 min" (229, 133). */
+.howto-arc { display: none; }
+.chrome[data-browser="arc"] .howto:not(.howto-arc) { display: none; }
+.chrome[data-browser="arc"] .howto-arc { display: block; }
+.ha-url { position: absolute; left: 12px; top: 10px; width: 296px; height: 30px; display: flex; align-items: center; gap: 4px; padding: 0 6px 0 12px; border-radius: 10px; background: var(--bg-2); font-size: 12px; color: var(--text-2); text-align: left; }
+.ha-url > span:first-child { flex: 1; }
+.ha-new, .ha-link, .ha-controls { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 6px; }
+.ha-new { animation: howto-new 12s infinite; }
+.ha-new img { width: 14px; height: 14px; border-radius: 4px; }
+.ha-link svg, .ha-controls svg { width: 14px; height: 14px; }
+.ha-controls { animation: howto-press 12s infinite; }
+.ha-panel { position: absolute; top: 48px; left: 150px; width: 158px; padding: 8px; border-radius: 12px; background: var(--ink); color: var(--on-ink); text-align: left; animation: howto-menu 12s infinite; }
+.ha-title { display: block; font-size: 11px; font-weight: 800; opacity: 0.8; }
+.ha-grid { display: grid; grid-template-columns: repeat(4, 30px); gap: 6px; margin-top: 8px; }
+.ha-grid > * { position: relative; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; background: color-mix(in srgb, var(--on-ink) 14%, transparent); }
+.ha-ours img { width: 16px; height: 16px; border-radius: 4px; }
+.ha-ours b { position: absolute; right: -5px; top: -5px; width: 16px; height: 16px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; animation: ha-pin 12s infinite; }
+.ha-ours b svg { width: 10px; height: 10px; }
+.howto-arc .howto-pop { left: 154px; }
+.ha-cursor { animation-name: ha-cursor; }
+@keyframes ha-cursor {
+  0%, 4% { transform: translate(120px, 150px); opacity: 0; }
+  7% { opacity: 1; }
+  14% { transform: translate(281px, 21px); }
+  16% { transform: translate(281px, 21px) scale(0.82); }
+  18% { transform: translate(281px, 21px); }
+  28% { transform: translate(237px, 89px); }
+  30% { transform: translate(237px, 89px) scale(0.82); }
+  32%, 38% { transform: translate(237px, 89px); }
+  46% { transform: translate(230px, 21px); }
+  48% { transform: translate(230px, 21px) scale(0.82); }
+  50% { transform: translate(230px, 21px); }
+  60% { transform: translate(220px, 129px); }
+  62% { transform: translate(220px, 129px) scale(0.82); }
+  64%, 88% { transform: translate(220px, 129px); opacity: 1; }
+  94%, 100% { transform: translate(220px, 129px); opacity: 0; }
+}
+@keyframes ha-pin { 0%, 29% { transform: scale(0); } 32%, 92% { transform: scale(1); } 96%, 100% { transform: scale(0); } }

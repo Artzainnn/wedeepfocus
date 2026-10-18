@@ -2,11 +2,10 @@ import { api, onStateChange } from "../shared/api.js";
 import { t, applyI18n, uiLocale } from "../shared/i18n.js";
 import { findBlockingDomain } from "../shared/domains.js";
 import { isValidPrefix, isComplete, normalizeForCompare } from "../shared/friction.js";
-import { formatCountdown, formatClock, formatDurationShort, formatWeekdayClock, localDayKey } from "../shared/format.js";
+import { formatCountdown, formatClock, formatDurationShort, formatWeekdayClock } from "../shared/format.js";
 import { icon } from "../shared/icons.js";
 import { ACCOUNTABILITY_ENABLED, CUSTOM_AMOUNT_MAX, CUSTOM_AMOUNT_MIN, DEFAULT_AMOUNT, PAYMENT_AMOUNTS } from "../shared/constants.js";
 import { createCheckout, formatAmount, isPresetAmount, isValidAmount, newPaymentToken, paymentCurrency, verifyPayment } from "../shared/payment.js";
-import { QUOTES } from "./quotes.js";
 
 // Steps of the ritual that ends a session early. "waiting" shares the pay step's dot.
 const STEP_ORDER = { question: 0, pay: 1, waiting: 1, type: 2 };
@@ -40,7 +39,6 @@ const framed = isFramed();
 // Opened from the popup ("End session early"): no blocked site, the ritual starts right away.
 const endMode = new URLSearchParams(location.search).get("end") === "1";
 const target = framed || endMode ? null : parseTarget(location.hash);
-const quoteText = pickQuote();
 const graphemes = graphemeSegmenter();
 
 const q = (selector) => document.querySelector(selector);
@@ -56,13 +54,9 @@ const el = {
   until: byRole("until"),
   noEnd: byRole("no-end"),
   goal: byTestId("blocked-goals"),
-  goalCard: byRole("goal-card"),
   goalText: byRole("goal-text"),
   goalEmpty: byRole("goal-empty"),
   openOptions: byRole("open-options"),
-  quote: byTestId("blocked-quote"),
-  stats: byTestId("blocked-stats"),
-  statText: byRole("stat-text"),
   need: byTestId("blocked-need"),
   backButtons: [...document.querySelectorAll('[data-role="back"]')],
   steps: [...document.querySelectorAll("[data-step]")],
@@ -301,40 +295,21 @@ function renderMain(state) {
   const goals = state?.settings?.goals;
   el.goal.hidden = ui.degraded;
   renderGoal(goals);
-  renderQuote(goals);
-  renderStats(state?.stats);
 
   el.need.hidden = !canUnlock();
   for (const button of el.backButtons) button.hidden = framed;
 }
 
-// One goal. Settings saved before V3 may still hold several: the first non-empty one wins.
+// The user's why (stored as the single goal). Settings saved before V3 may still hold several:
+// the first non-empty one wins. Nothing saved yet (onboarding skipped): the default suggestion.
 function renderGoal(goals) {
   const items = Array.isArray(goals?.items) ? goals.items : [];
-  // No goal saved yet (onboarding skipped): the default long-term goal stands in.
-  const goal = items.map((item) => (typeof item === "string" ? item.trim() : "")).find(Boolean) ?? t("goal_option_projects");
+  const goal = items.map((item) => (typeof item === "string" ? item.trim() : "")).find(Boolean) ?? t("goal_option_finish");
   if (goal === ui.goalKey) return;
   ui.goalKey = goal;
   el.goalText.textContent = goal;
-  el.goalCard.hidden = !goal;
+  el.goalText.hidden = !goal;
   el.goalEmpty.hidden = Boolean(goal);
-}
-
-function renderQuote(goals) {
-  const show = goals?.showQuote !== false && Boolean(quoteText);
-  el.quote.hidden = !show;
-  if (show && el.quote.textContent !== quoteText) el.quote.textContent = quoteText;
-}
-
-function renderStats(stats) {
-  const today = localDayKey(Date.now());
-  const sameDay = stats && (!stats.day || stats.day === today);
-  const count = sameDay ? Math.max(0, Math.floor(Number(stats.resisted) || 0)) : 0;
-  el.stats.hidden = count === 0;
-  if (count > 0) {
-    el.statText.textContent =
-      count === 1 ? t("blocked_resisted_one") : t("blocked_resisted_many", [String(count)]);
-  }
 }
 
 function startTicker() {
@@ -1023,11 +998,6 @@ function makeIcon(name) {
 }
 
 /* ---------- Helpers ---------- */
-
-function pickQuote() {
-  const list = QUOTES[locale] ?? QUOTES.en ?? [];
-  return list.length ? list[Math.floor(Math.random() * list.length)] : "";
-}
 
 function insertedText(event) {
   return event.data ?? event.dataTransfer?.getData("text/plain") ?? "";

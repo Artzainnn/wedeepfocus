@@ -115,8 +115,8 @@
     "description": "Popup chip when the current site is already on the block list"
   },
   "popup_allow_site_title": {
-    "en": "Show your goal here instead of an error page",
-    "fr": "Affiche ton objectif ici au lieu d'une page d'erreur",
+    "en": "Show your why here instead of an error page",
+    "fr": "Affiche ton pourquoi ici au lieu d'une page d'erreur",
     "description": "Tooltip of the Allow button next to the current site in the popup. The site is already blocked (with Chrome's error page); access upgrades it to the goal page"
   },
   "popup_site_fallback": {
@@ -130,13 +130,13 @@
     "description": "Popup note when the current page (IP address, localhost, Chrome Web Store) cannot be blocked"
   },
   "popup_missing_one": {
-    "en": "{1} shows an error page instead of your goal.",
-    "fr": "{1} affiche une page d'erreur au lieu de ton objectif.",
+    "en": "{1} shows an error page instead of your why.",
+    "fr": "{1} affiche une page d'erreur au lieu de ton pourquoi.",
     "description": "Popup banner when one blocked site lacks host access: it is still blocked, but with Chrome's error page; the Allow button next to it upgrades it to the goal page. {1} is a domain, e.g. 'linkedin.com'"
   },
   "popup_missing_many": {
-    "en": "{1} sites show an error page instead of your goal.",
-    "fr": "{1} sites affichent une page d'erreur au lieu de ton objectif.",
+    "en": "{1} sites show an error page instead of your why.",
+    "fr": "{1} sites affichent une page d'erreur au lieu de ton pourquoi.",
     "description": "Popup banner when several blocked sites lack host access: they are still blocked, but with Chrome's error page; the Allow button next to it upgrades them to the goal page. {1} is a number above 1"
   },
   "popup_load_error": {

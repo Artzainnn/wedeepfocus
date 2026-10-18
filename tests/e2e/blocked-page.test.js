@@ -21,22 +21,13 @@ import {
 const GOAL = "Ship the beta by Friday";
 const GOALS = { items: [GOAL], showQuote: true };
 
-async function loadQuotes(locale) {
-  try {
-    const { QUOTES } = await import(pathToFileURL(path.join(EXT_SRC, "blocked", "quotes.js")).href);
-    return Array.isArray(QUOTES?.[locale]) ? QUOTES[locale] : null;
-  } catch {
-    return null;
-  }
-}
-
 describe("blocked page", { timeout: SUITE_TIMEOUT }, () => {
   let ctx;
   let page;
   let blockedSiteUrl;
 
   before(async () => {
-    requireExtensionFiles("blocked/blocked.html", "blocked/blocked.js", "blocked/quotes.js");
+    requireExtensionFiles("blocked/blocked.html", "blocked/blocked.js");
     ctx = await launch();
     await ctx.setSync({ goals: GOALS });
     await ctx.startSessionDirect(25);
@@ -46,7 +37,7 @@ describe("blocked page", { timeout: SUITE_TIMEOUT }, () => {
     await ctx?.close();
   });
 
-  test("shows the host, a live countdown, the goal and a quote", { timeout: 40_000 }, async () => {
+  test("shows the host, a live countdown and the why, nothing else", { timeout: 40_000 }, async () => {
     blockedSiteUrl = ctx.site("linkedin.com", "/feed/?from=blocked-page");
     page = await ctx.newPage();
     await ctx.gotoBlocked(page, blockedSiteUrl);
@@ -66,15 +57,8 @@ describe("blocked page", { timeout: SUITE_TIMEOUT }, () => {
     const goalsText = await page.getByTestId("blocked-goals").innerText();
     assert.ok(goalsText.includes(GOAL), `the goal is missing from: ${goalsText}`);
 
-    const quote = page.getByTestId("blocked-quote");
-    await quote.waitFor({ state: "visible" });
-    const quoteText = (await quote.innerText()).trim();
-    assert.ok(quoteText.length > 5, "the motivational line is not empty");
-    const quotes = await loadQuotes("en");
-    if (quotes) {
-      const normalize = (s) => s.replace(/\s+/g, " ").trim();
-      assert.ok(quotes.map(normalize).includes(normalize(quoteText)), `"${quoteText}" should come from QUOTES.en`);
-    }
+    // Layout B: the timer, then the why alone. No card, no quote, no resisted line.
+    assert.equal(await page.locator('[data-testid="blocked-quote"], [data-testid="blocked-stats"], .goal-card').count(), 0);
 
     assert.deepEqual(await findRawI18nKeys(page), [], "no untranslated i18n keys on the blocked page");
   });
@@ -94,13 +78,14 @@ describe("blocked page", { timeout: SUITE_TIMEOUT }, () => {
     assert.equal(stats.blocked, 1);
   });
 
-  test("hides the quote when the motivational line is turned off", { timeout: 20_000 }, async () => {
-    await ctx.setSync({ goals: { ...GOALS, showQuote: false } });
-    await waitFor(async () => !(await isShown(page.getByTestId("blocked-quote"))), {
-      message: "the quote to disappear after showQuote is turned off",
+  test("a settings change re-renders without counting another blocked visit", { timeout: 20_000 }, async () => {
+    await ctx.setSync({ goals: { ...GOALS, items: ["I want more time for what matters."] } });
+    await waitFor(async () => (await page.getByTestId("blocked-goals").innerText()).includes("more time"), {
+      message: "the new why to show",
     });
     const { stats } = await ctx.getLocal("stats");
     assert.equal(stats.blocked, 1, "a re-render must not count another blocked visit");
+    await ctx.setSync({ goals: GOALS });
   });
 
   test("without a goal it invites the user to add one", { timeout: 20_000 }, async () => {

@@ -1,6 +1,6 @@
 {
   "appDescription": {
-    "message": "Bloque les sites qui te distraient pendant tes heures de focus et affiche ton objectif à la place. Sans compte, sans pistage.",
+    "message": "Bloque les sites qui te distraient en deux clics et rappelle-toi pourquoi tu fais ça. Gratuit, open source, sans compte.",
     "description": "Chrome Web Store short description, 132 characters max."
   },
   "appName": {
@@ -85,7 +85,7 @@
     }
   },
   "blocked_ended_sub": {
-    "message": "Ton objectif t'attendra la prochaine fois.",
+    "message": "Ton pourquoi t'attendra la prochaine fois.",
     "description": "Line under Session ended."
   },
   "blocked_ended_title": {
@@ -194,16 +194,16 @@
     "description": "Unlock flow, step 1: answer that continues to the typing step"
   },
   "blocked_goal_add": {
-    "message": "Ajouter un objectif",
+    "message": "L'écrire",
     "description": "Blocked page: link to the settings page to write a goal"
   },
   "blocked_goal_empty": {
-    "message": "Pas encore d'objectif.",
+    "message": "Pourquoi tu fais ça ?",
     "description": "Blocked page: shown under 'Remember why' when the user has not written a goal"
   },
   "blocked_goal_title": {
     "message": "Rappelle-toi pourquoi",
-    "description": "Blocked page: small heading above the user's goal"
+    "description": "Blocked page: accessible heading above the user's why (not shown on screen)."
   },
   "blocked_host": {
     "message": "$p1$ est bloqué",
@@ -262,19 +262,6 @@
   "blocked_pay_unavailable": {
     "message": "Le paiement n'est pas disponible pour l'instant. Tu peux toujours passer gratuitement.",
     "description": "Error when the payment server can't be reached."
-  },
-  "blocked_resisted_many": {
-    "message": "Tu as résisté $p1$ fois aujourd'hui",
-    "description": "Blocked page: stat line. {1} is a number of 2 or more",
-    "placeholders": {
-      "p1": {
-        "content": "$1"
-      }
-    }
-  },
-  "blocked_resisted_one": {
-    "message": "Tu as résisté une fois aujourd'hui",
-    "description": "Blocked page: stat line when the user went back to work once today"
   },
   "blocked_step": {
     "message": "Étape $p1$ sur $p2$",
@@ -429,21 +416,21 @@
       }
     }
   },
-  "goal_option_deep": {
-    "message": "Travailler en profondeur, chaque jour",
-    "description": "Suggested long-term goal."
-  },
   "goal_option_finish": {
-    "message": "Finir ce que je commence",
-    "description": "Suggested long-term goal."
+    "message": "Je veux finir ce que je commence.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked. Also the default when none is saved."
   },
-  "goal_option_focus": {
-    "message": "Améliorer mon focus et ma productivité",
-    "description": "Suggested long-term goal."
+  "goal_option_future": {
+    "message": "Mon futur moi me remerciera.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
   },
-  "goal_option_projects": {
-    "message": "Avancer à fond sur mes projets",
-    "description": "Suggested long-term goal, the default one."
+  "goal_option_proud": {
+    "message": "Je construis quelque chose qui me tient à cœur.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
+  },
+  "goal_option_time": {
+    "message": "Je veux plus de temps pour ce qui compte.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
   },
   "home_active": {
     "message": "Session en cours",
@@ -462,6 +449,23 @@
       }
     }
   },
+  "home_pin_hide": {
+    "message": "Masquer",
+    "description": "Accessible label of the button that hides the pin tip."
+  },
+  "home_pin_show": {
+    "message": "Me montrer",
+    "description": "Home page tip button: opens the pin step of the onboarding."
+  },
+  "home_pin_tip": {
+    "message": "Épingle $p1$ pour qu'une session soit à un clic.",
+    "description": "Home page tip while the extension is not pinned to the toolbar. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "home_start": {
     "message": "Lancer $p1$ minutes",
     "description": "Home page button that starts a session. {1} is a number of minutes (15).",
@@ -474,6 +478,10 @@
   "home_title": {
     "message": "Accueil",
     "description": "Home page title."
+  },
+  "nav_feedback": {
+    "message": "Ton avis",
+    "description": "Side menu link (bottom) that opens the feedback page on the website in a new tab."
   },
   "nav_home": {
     "message": "Accueil",
@@ -592,23 +600,23 @@
     "description": "Screen reader label of the start time input in onboarding step 2"
   },
   "onb_goal_custom": {
-    "message": "Écrire le mien",
+    "message": "Écrire la mienne",
     "description": "Last choice of the goal step: reveals a text field."
   },
   "onb_goal_empty": {
-    "message": "Écris ton objectif, ou choisis-en un au-dessus.",
+    "message": "Écris ta phrase, ou choisis-en une au-dessus.",
     "description": "Error when the custom goal is empty."
   },
   "onb_goal_label": {
-    "message": "Ton objectif",
+    "message": "Ton pourquoi",
     "description": "Screen reader label of the goal input"
   },
   "onb_goal_placeholder": {
-    "message": "Lancer mon appli cette année",
+    "message": "Je veux…",
     "description": "Example in the custom goal field."
   },
   "onb_missing_many": {
-    "message": "$p1$ sites n'afficheront pas ton objectif.",
+    "message": "$p1$ sites n'afficheront pas ton pourquoi.",
     "description": "Done screen line before an Allow link: {1} chosen sites (2 or more) lack access, so they are blocked with Chrome's error page instead of the goal page",
     "placeholders": {
       "p1": {
@@ -617,7 +625,7 @@
     }
   },
   "onb_missing_one": {
-    "message": "1 site n'affichera pas ton objectif.",
+    "message": "1 site n'affichera pas ton pourquoi.",
     "description": "Done screen line before an Allow link: one chosen site lacks access, so it is blocked with Chrome's error page instead of the goal page"
   },
   "onb_mode_free": {
@@ -652,13 +660,118 @@
     "message": "Choisis un groupe ou ajoute un site.",
     "description": "Error when continuing onboarding step 1 with nothing to block"
   },
+  "onb_pin_benefit_add": {
+    "message": "Ajoute $p1$ minutes quand il t'en faut",
+    "description": "Benefit of pinning, shown once pinned. {1} is a number of minutes (15).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_benefit_badge": {
+    "message": "Vois le temps restant sur l'icône",
+    "description": "Benefit of pinning, shown once pinned."
+  },
+  "onb_pin_benefit_start": {
+    "message": "Lance une session de $p1$ min en un clic",
+    "description": "Benefit of pinning, shown once pinned. {1} is a number of minutes (15).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_demo": {
+    "message": "Animation : comment épingler, puis ajouter $p1$ minutes depuis l'icône.",
+    "description": "Accessible label of the looping how-to animation. {1} is a number of minutes (15).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_extensions": {
+    "message": "Extensions",
+    "description": "Title of the browser's extensions menu, drawn in the pin step animation."
+  },
   "onb_pin_hint": {
     "message": "Icône puzzle, puis l'épingle",
     "description": "Screen reader text of the tiny drawing under the pin line: click Chrome's puzzle icon, then the pin next to the extension"
   },
+  "onb_pin_how_arc": {
+    "message": "Dans la barre latérale d'Arc : clique sur l'icône des réglages du site à côté de l'adresse, puis sur la petite épingle de $p1$.",
+    "description": "How to pin in Arc. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_how_brave": {
+    "message": "En haut à droite de Brave : clique sur l'icône puzzle, puis sur l'épingle à côté de $p1$.",
+    "description": "How to pin in Brave. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_how_chrome": {
+    "message": "En haut à droite de Chrome : clique sur l'icône puzzle, puis sur l'épingle à côté de $p1$.",
+    "description": "How to pin in Chrome. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_how_edge": {
+    "message": "En haut à droite d'Edge : clique sur l'icône puzzle, puis sur l'œil à côté de $p1$.",
+    "description": "How to pin in Microsoft Edge (its button is an eye, 'Show in toolbar'). {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_how_other": {
+    "message": "Dans la barre d'outils de ton navigateur : ouvre le menu des extensions, puis épingle $p1$.",
+    "description": "How to pin in another Chromium browser. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "onb_pin_line": {
     "message": "Épingle l'icône pour lancer une session à tout moment.",
     "description": "Done screen line: pin the extension icon in the Chrome toolbar to start focus sessions"
+  },
+  "onb_pin_skip": {
+    "message": "Passer",
+    "description": "Link that leaves the pin step without pinning."
+  },
+  "onb_pin_sub": {
+    "message": "Pour qu'une session soit toujours à un clic.",
+    "description": "Line under onb_pin_title."
+  },
+  "onb_pin_title": {
+    "message": "Dernière étape : épingle $p1$",
+    "description": "Last onboarding screen, until the extension is pinned to the toolbar. {1} is the app name.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "onb_pin_waiting": {
+    "message": "En attente de l'épingle",
+    "description": "Status while the onboarding waits for the user to pin the extension; it moves on by itself."
+  },
+  "onb_pinned_title": {
+    "message": "Épinglée. Tout est prêt.",
+    "description": "Title once the extension is pinned."
   },
   "onb_privacy": {
     "message": "Reste dans ton navigateur. Rien n'est envoyé.",
@@ -690,11 +803,11 @@
     "description": "Onboarding step 2 heading: when blocking happens"
   },
   "onb_step3_sub": {
-    "message": "Ce que tu construis, pas ta liste du jour. Tu le verras quand un site est bloqué.",
+    "message": "Une phrase pour toi. Tu la verras quand un site est bloqué.",
     "description": "Line under the goal step title."
   },
   "onb_step3_title": {
-    "message": "Ton objectif à long terme",
+    "message": "Pourquoi tu fais ça ?",
     "description": "Title of the goal step."
   },
   "onb_step4_sub": {
@@ -828,11 +941,11 @@
     "description": "Settings section title: what it takes to end a focus session before its end (pay a chosen amount, or type a sentence for free)."
   },
   "options_goal_sub": {
-    "message": "Affiché quand un site est bloqué.",
+    "message": "Une phrase, affichée quand un site est bloqué.",
     "description": "One short line under the Your goal title."
   },
   "options_goal_title": {
-    "message": "Ton objectif à long terme",
+    "message": "Ton pourquoi",
     "description": "Section title (the user has a single goal). Also the accessible label of the goal field."
   },
   "options_group_count": {
@@ -1030,11 +1143,11 @@
     "description": "Tooltip on controls disabled during an active block."
   },
   "options_missing_one": {
-    "message": "1 site affiche la page d'erreur de Chrome au lieu de ton objectif.",
+    "message": "1 site affiche la page d'erreur de Chrome au lieu de ton pourquoi.",
     "description": "Banner when one blocked site lacks host permission. It is still blocked, with Chrome's own error page instead of the page showing the goal. Next to an Allow button."
   },
   "options_missing_other": {
-    "message": "$p1$ sites affichent la page d'erreur de Chrome au lieu de ton objectif.",
+    "message": "$p1$ sites affichent la page d'erreur de Chrome au lieu de ton pourquoi.",
     "description": "Same banner for several sites. {1} is the number of sites (2 or more). Never say the sites are not blocked.",
     "placeholders": {
       "p1": {
@@ -1096,10 +1209,6 @@
   "options_phrase_title": {
     "message": "Phrase à taper",
     "description": "Heading of the sentence typed by hand to end a session early for free. Also the accessible label of its field."
-  },
-  "options_quote_toggle": {
-    "message": "Afficher une phrase de motivation",
-    "description": "Label of the switch for the motivational line on the blocked page."
   },
   "options_reload": {
     "message": "Recharger",
@@ -1291,7 +1400,7 @@
     }
   },
   "popup_allow_site_title": {
-    "message": "Affiche ton objectif ici au lieu d'une page d'erreur",
+    "message": "Affiche ton pourquoi ici au lieu d'une page d'erreur",
     "description": "Tooltip of the Allow button next to the current site in the popup. The site is already blocked (with Chrome's error page); access upgrades it to the goal page"
   },
   "popup_already_blocked": {
@@ -1384,7 +1493,7 @@
     }
   },
   "popup_missing_many": {
-    "message": "$p1$ sites affichent une page d'erreur au lieu de ton objectif.",
+    "message": "$p1$ sites affichent une page d'erreur au lieu de ton pourquoi.",
     "description": "Popup banner when several blocked sites lack host access: they are still blocked, but with Chrome's error page; the Allow button next to it upgrades them to the goal page. {1} is a number above 1",
     "placeholders": {
       "p1": {
@@ -1393,7 +1502,7 @@
     }
   },
   "popup_missing_one": {
-    "message": "$p1$ affiche une page d'erreur au lieu de ton objectif.",
+    "message": "$p1$ affiche une page d'erreur au lieu de ton pourquoi.",
     "description": "Popup banner when one blocked site lacks host access: it is still blocked, but with Chrome's error page; the Allow button next to it upgrades it to the goal page. {1} is a domain, e.g. 'linkedin.com'",
     "placeholders": {
       "p1": {
@@ -1591,7 +1700,7 @@
     "description": "Card title."
   },
   "stats_blocked_sub": {
-    "message": "Fois où un site bloqué a affiché ton objectif",
+    "message": "Fois où un site bloqué a affiché ton pourquoi",
     "description": "Card subtitle."
   },
   "stats_completed": {

@@ -9,7 +9,7 @@ describe("constants", () => {
     assert.deepEqual(constants.SESSION_PRESETS, [15, 30, 60]);
     assert.equal(constants.SESSION_MIN, 1);
     assert.equal(constants.SESSION_MAX, 480);
-    assert.equal(constants.EXTEND_MINUTES, 10);
+    assert.equal(constants.EXTEND_MINUTES, 15);
     assert.equal(constants.MAX_CUSTOM_DOMAINS, 200);
     assert.equal(constants.GOAL_MAX_LENGTH, 140);
     assert.equal(constants.GOAL_COUNT, 1);

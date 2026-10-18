@@ -103,6 +103,11 @@ const ICONS = {
   ],
   puzzle: [path("M6.5 8h2a2 2 0 1 1 3.6 0h3.4v3a2 2 0 1 1 0 3.6v3.4a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z")],
   pin: [path("M9 3.5h6"), path("M10 3.5v5.5l-3 3.5h10l-3-3.5V3.5"), path("M12 12.5v8")],
+  // Pin step how-to: Edge's "show in toolbar" eye, Arc's site controls and link icons, the pointer.
+  eye: [path("M2.5 12c1.9-3.7 5.4-6 9.5-6s7.6 2.3 9.5 6c-1.9 3.7-5.4 6-9.5 6s-7.6-2.3-9.5-6z"), circle(12, 12, 3)],
+  sliders: [rect(3.5, 3.5, 17, 17, 4), path("M8 9.5h8"), path("M8 14.5h8"), ["circle", { cx: 10, cy: 9.5, r: 1.6, fill: "currentColor" }], ["circle", { cx: 14, cy: 14.5, r: 1.6, fill: "currentColor" }]],
+  link: [path("M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"), path("M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1")],
+  pointer: [path("M6 3.5l12.5 6.5-5.5 1.8 3.8 6.7-2.8 1.6-3.8-6.7L6 17.5z")],
   external: [
     path("M14 4.5h5.5V10"),
     path("M19.5 4.5L11 13"),

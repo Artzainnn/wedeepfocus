@@ -93,14 +93,14 @@
         </p>
       </section>
 
-      <!-- Step 3: goal -->
+      <!-- Step 3: why (stored as the goal) -->
       <section class="onb-step" id="step-3" data-testid="onb-step-3" aria-labelledby="step-3-title" hidden>
-        <h1 class="onb-title" id="step-3-title" tabindex="-1" data-i18n="onb_step3_title">Your long-term goal</h1>
-        <p class="onb-sub" data-i18n="onb_step3_sub">What you're building, not today's to-do.</p>
+        <h1 class="onb-title" id="step-3-title" tabindex="-1" data-i18n="onb_step3_title">Why are you doing this?</h1>
+        <p class="onb-sub" data-i18n="onb_step3_sub">One sentence for yourself. You'll see it when a site is blocked.</p>
         <div class="onb-goals" id="goal-options" role="radiogroup" aria-labelledby="step-3-title"></div>
         <input type="text" class="onb-goal" id="goal" data-testid="onb-goal" maxlength="140" autocomplete="off"
-          enterkeyhint="done" data-i18n-aria-label="onb_goal_label" aria-label="Your goal" aria-describedby="goal-error"
-          data-i18n-placeholder="onb_goal_placeholder" placeholder="Launch my app this year" hidden>
+          enterkeyhint="done" data-i18n-aria-label="onb_goal_label" aria-label="Your why" aria-describedby="goal-error"
+          data-i18n-placeholder="onb_goal_placeholder" placeholder="I want to…" hidden>
         <p class="error-text onb-error" id="goal-error" data-testid="onb-goal-error" aria-live="polite"></p>
       </section>
 
@@ -156,52 +156,126 @@
         </div>
       </section>
 
-      <!-- Done -->
-      <section class="onb-step onb-done" id="done" data-testid="onb-done" aria-labelledby="done-title" hidden>
-        <svg class="onb-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-          <circle class="onb-art-halo" cx="60" cy="60" r="56"/>
-          <circle class="onb-art-ring" cx="60" cy="60" r="44"/>
-          <circle class="onb-art-disk" cx="60" cy="60" r="31"/>
-          <path class="onb-art-check" pathLength="1" d="M46.5 60.5l9 9 18-18.5"/>
-          <circle class="onb-art-dot" cx="14" cy="30" r="3"/>
-          <circle class="onb-art-dot" cx="107" cy="22" r="2.5"/>
-          <circle class="onb-art-dot" cx="110" cy="90" r="3.5"/>
-          <circle class="onb-art-dot" cx="20" cy="98" r="2"/>
-        </svg>
-        <h1 class="onb-title" id="done-title" tabindex="-1" data-i18n="onb_done_title">You're all set</h1>
-        <p class="onb-sub" data-i18n="onb_pin_line">Pin the icon to start a session anytime.</p>
-        <span class="onb-pin-hint" role="img" data-testid="onb-pin-hint"
-          data-i18n-aria-label="onb_pin_hint" aria-label="Puzzle icon, then the pin">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M5 9.5a1.5 1.5 0 0 1 1.5-1.5H9V7a2 2 0 1 1 4 0v1h2.5A1.5 1.5 0 0 1 17 9.5V12h1a2 2 0 1 1 0 4h-1v2.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5 18.5z"/>
-          </svg>
-          <svg class="onb-pin-sep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M9.5 6l6 6-6 6"/>
-          </svg>
-          <svg class="onb-pin-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M9 3.5h6"/><path d="M10 3.5v5.5l-3 3.5h10l-3-3.5V3.5"/><path d="M12 12.5v8"/>
-          </svg>
-        </span>
+      <!-- Done: first the pin step (until the extension is pinned or the user skips), then all set -->
+      <section class="onb-step onb-done" id="done" data-testid="onb-done" hidden>
+        <div class="onb-pin" id="pin-step" data-testid="onb-pin-step" data-browser="chrome" hidden>
+          <h1 class="onb-title" id="pin-title" tabindex="-1"></h1>
+          <p class="onb-sub" data-i18n="onb_pin_sub">So a session is always one click away.</p>
 
-        <div class="onb-actions">
-          <button type="button" class="btn btn-primary btn-lg onb-try" id="try-session" data-testid="onb-try-session">
-            <span class="onb-try-icon" id="try-icon" hidden><span class="icon icon-sm" data-icon="check"></span></span>
-            <span id="try-label">Start a 10 min session</span>
-          </button>
-          <button type="button" class="btn btn-ghost" id="open-settings" data-testid="onb-open-settings">
-            <span data-i18n="common_settings">Settings</span>
-          </button>
+          <!-- A browser window drawn in the page, playing by itself (it cannot be clicked): open the
+               extensions menu, pin, then click the pinned icon and "Add 15 min". -->
+          <div class="pin-demo" id="pin-demo" role="img" data-i18n-aria-label="onb_pin_demo" aria-label="How to pin">
+            <div class="pd-stage" id="pin-stage">
+              <div class="pd-win pd-toolbar-kind" aria-hidden="true">
+                <div class="pd-tabs"><span class="pd-tab"><img src="../assets/icon-32.png" width="14" height="14" alt=""><span data-i18n="appName">WeDeepFocus</span></span></div>
+                <div class="pd-bar">
+                  <span class="pd-back"><span class="icon" data-icon="arrow-left"></span></span>
+                  <span class="pd-omni"><img src="../assets/icon-32.png" width="14" height="14" alt=""><span data-i18n="appName">WeDeepFocus</span></span>
+                  <span class="pd-new"><img src="../assets/icon-32.png" width="18" height="18" alt=""></span>
+                  <span class="pd-menu-btn"><span class="icon" data-icon="puzzle"></span></span>
+                  <span class="pd-avatar"></span>
+                </div>
+                <div class="pd-page"><i></i><i></i><i></i></div>
+                <div class="pd-menu">
+                  <span class="pd-menu-title" data-i18n="onb_pin_extensions">Extensions</span>
+                  <span class="pd-row"><img src="../assets/icon-32.png" width="18" height="18" alt=""><span data-i18n="appName">WeDeepFocus</span><span class="pd-pin"><span class="icon pd-ico-pin" data-icon="pin"></span><span class="icon pd-ico-eye" data-icon="eye"></span></span></span>
+                  <span class="pd-row is-muted"><i></i><b></b><span class="pd-pin-static"><span class="icon pd-ico-pin" data-icon="pin"></span><span class="icon pd-ico-eye" data-icon="eye"></span></span></span>
+                </div>
+                <div class="pd-pop">
+                <span class="pd-pop-head"><img src="../assets/icon-32.png" width="18" height="18" alt=""><span data-i18n="appName">WeDeepFocus</span></span>
+                <span class="pd-timer"><b class="pd-a">30:00</b><b class="pd-b">40:00</b></span>
+                <small data-i18n="blocked_focus_left">of focus left</small>
+                <span class="pd-add"><span class="icon" data-icon="plus"></span><span class="pd-add-label"></span></span>
+              </div>
+              <span class="pd-cursor"><span class="icon" data-icon="pointer"></span></span>
+              </div>
+              <div class="pd-win pd-arc-kind" aria-hidden="true">
+                <div class="pd-side">
+                  <span class="pd-dots"><i></i><i></i><i></i></span>
+                  <span class="pd-url"><span class="pd-host">wedeepfocus.com</span><span class="pd-new"><img src="../assets/icon-32.png" width="14" height="14" alt=""></span><span class="pd-ico"><span class="icon" data-icon="link"></span></span><span class="pd-ico pd-menu-btn"><span class="icon" data-icon="sliders"></span></span></span>
+                  <span class="pd-stab is-on"><img src="../assets/icon-32.png" width="14" height="14" alt=""><span data-i18n="appName">WeDeepFocus</span></span>
+                  <span class="pd-stab"></span>
+                  <span class="pd-stab"></span>
+                </div>
+                <div class="pd-page pd-arc-page"><i></i><i></i><i></i></div>
+                <div class="pd-menu pd-panel">
+                  <span class="pd-actions"><i></i><i></i><i></i><i></i></span>
+                  <span class="pd-menu-title" data-i18n="onb_pin_extensions">Extensions</span>
+                  <span class="pd-grid"><i></i><i></i><span class="pd-ours"><img src="../assets/icon-32.png" width="18" height="18" alt=""><b class="pd-badge"><span class="icon" data-icon="pin"></span></b></span><i></i><i></i><i></i></span>
+                </div>
+                <div class="pd-pop">
+                <span class="pd-pop-head"><img src="../assets/icon-32.png" width="18" height="18" alt=""><span data-i18n="appName">WeDeepFocus</span></span>
+                <span class="pd-timer"><b class="pd-a">30:00</b><b class="pd-b">40:00</b></span>
+                <small data-i18n="blocked_focus_left">of focus left</small>
+                <span class="pd-add"><span class="icon" data-icon="plus"></span><span class="pd-add-label"></span></span>
+              </div>
+              <span class="pd-cursor"><span class="icon" data-icon="pointer"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <p class="onb-pin-how" id="pin-how" data-testid="onb-pin-how"></p>
+          <p class="onb-waiting" data-testid="onb-pin-waiting"><span class="onb-spinner" aria-hidden="true"></span><span data-i18n="onb_pin_waiting">Waiting for the pin</span></p>
+          <button type="button" class="onb-link" id="pin-skip" data-testid="onb-pin-skip"><span data-i18n="onb_pin_skip">Skip</span></button>
         </div>
-        <p class="sr-only" id="try-status" aria-live="polite"></p>
-        <p class="error-text onb-error" id="try-error" data-testid="onb-try-error" role="alert"></p>
 
-        <p class="onb-missing" id="missing" data-testid="onb-missing" hidden>
-          <span class="icon icon-sm" data-icon="alert"></span>
-          <span id="missing-text"></span>
-          <button type="button" class="onb-link" id="grant-missing" data-testid="onb-grant-missing">
-            <span data-i18n="common_allow">Allow</span>
-          </button>
-        </p>
+        <div class="onb-final" id="final" data-testid="onb-final" hidden>
+          <svg class="onb-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <circle class="onb-art-halo" cx="60" cy="60" r="56"/>
+            <circle class="onb-art-ring" cx="60" cy="60" r="44"/>
+            <circle class="onb-art-disk" cx="60" cy="60" r="31"/>
+            <path class="onb-art-check" pathLength="1" d="M46.5 60.5l9 9 18-18.5"/>
+            <circle class="onb-art-dot" cx="14" cy="30" r="3"/>
+            <circle class="onb-art-dot" cx="107" cy="22" r="2.5"/>
+            <circle class="onb-art-dot" cx="110" cy="90" r="3.5"/>
+            <circle class="onb-art-dot" cx="20" cy="98" r="2"/>
+          </svg>
+          <h1 class="onb-title" id="done-title" tabindex="-1" data-i18n="onb_done_title">You're all set</h1>
+
+          <!-- Once pinned: what it gives -->
+          <ul class="onb-benefits" id="benefits" data-testid="onb-benefits" hidden>
+            <li><span class="icon icon-sm" data-icon="clock"></span><span id="benefit-start"></span></li>
+            <li><span class="icon icon-sm" data-icon="plus"></span><span id="benefit-add"></span></li>
+            <li><span class="icon icon-sm" data-icon="target"></span><span data-i18n="onb_pin_benefit_badge">See the time left on the icon</span></li>
+          </ul>
+
+          <!-- Skipped, or the browser cannot tell: the short reminder -->
+          <div class="onb-pin-reminder" id="pin-reminder" hidden>
+            <p class="onb-sub" data-i18n="onb_pin_line">Pin the icon to start a session anytime.</p>
+            <span class="onb-pin-hint" role="img" data-testid="onb-pin-hint"
+              data-i18n-aria-label="onb_pin_hint" aria-label="Puzzle icon, then the pin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M5 9.5a1.5 1.5 0 0 1 1.5-1.5H9V7a2 2 0 1 1 4 0v1h2.5A1.5 1.5 0 0 1 17 9.5V12h1a2 2 0 1 1 0 4h-1v2.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5 18.5z"/>
+              </svg>
+              <svg class="onb-pin-sep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M9.5 6l6 6-6 6"/>
+              </svg>
+              <svg class="onb-pin-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M9 3.5h6"/><path d="M10 3.5v5.5l-3 3.5h10l-3-3.5V3.5"/><path d="M12 12.5v8"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="onb-actions">
+            <button type="button" class="btn btn-primary btn-lg onb-try" id="try-session" data-testid="onb-try-session">
+              <span class="onb-try-icon" id="try-icon" hidden><span class="icon icon-sm" data-icon="check"></span></span>
+              <span id="try-label">Start a 15 min session</span>
+            </button>
+            <button type="button" class="btn btn-ghost" id="open-settings" data-testid="onb-open-settings">
+              <span data-i18n="common_settings">Settings</span>
+            </button>
+          </div>
+          <p class="sr-only" id="try-status" aria-live="polite"></p>
+          <p class="error-text onb-error" id="try-error" data-testid="onb-try-error" role="alert"></p>
+
+          <p class="onb-missing" id="missing" data-testid="onb-missing" hidden>
+            <span class="icon icon-sm" data-icon="alert"></span>
+            <span id="missing-text"></span>
+            <button type="button" class="onb-link" id="grant-missing" data-testid="onb-grant-missing">
+              <span data-i18n="common_allow">Allow</span>
+            </button>
+          </p>
+        </div>
       </section>
 
       <p class="error-text onb-error onb-nav-error" id="nav-error" data-testid="onb-error" role="alert"></p>
@@ -219,5 +293,10 @@
       </footer>
     </main>
   </div>
+  <!-- Pin step arrow, outside the animated sections so it stays fixed to the window corner. -->
+  <svg class="onb-pin-arrow" id="pin-arrow" data-browser="chrome" viewBox="0 0 96 96" aria-hidden="true" focusable="false" hidden>
+    <path class="onb-pin-arrow-line" d="M10 90 C 22 50, 52 28, 84 12"/>
+    <path class="onb-pin-arrow-head" d="M66 8 L86 11 L80 30"/>
+  </svg>
 </body>
 </html>

@@ -27,27 +27,17 @@
   "blocked_goal_title": {
     "en": "Remember why",
     "fr": "Rappelle-toi pourquoi",
-    "description": "Blocked page: small heading above the user's goal"
+    "description": "Blocked page: accessible heading above the user's why (not shown on screen)."
   },
   "blocked_goal_empty": {
-    "en": "No goal yet.",
-    "fr": "Pas encore d'objectif.",
+    "en": "Why are you doing this?",
+    "fr": "Pourquoi tu fais ça ?",
     "description": "Blocked page: shown under 'Remember why' when the user has not written a goal"
   },
   "blocked_goal_add": {
-    "en": "Add a goal",
-    "fr": "Ajouter un objectif",
+    "en": "Write it down",
+    "fr": "L'écrire",
     "description": "Blocked page: link to the settings page to write a goal"
-  },
-  "blocked_resisted_one": {
-    "en": "You've resisted once today",
-    "fr": "Tu as résisté une fois aujourd'hui",
-    "description": "Blocked page: stat line when the user went back to work once today"
-  },
-  "blocked_resisted_many": {
-    "en": "You've resisted {1} times today",
-    "fr": "Tu as résisté {1} fois aujourd'hui",
-    "description": "Blocked page: stat line. {1} is a number of 2 or more"
   },
   "blocked_back": {
     "en": "Back to work",
@@ -240,8 +230,8 @@
     "description": "Title once the session was ended early."
   },
   "blocked_ended_sub": {
-    "en": "Your goal will still be here next time.",
-    "fr": "Ton objectif t'attendra la prochaine fois.",
+    "en": "Your why will still be here next time.",
+    "fr": "Ton pourquoi t'attendra la prochaine fois.",
     "description": "Line under Session ended."
   },
   "blocked_ended_next": {

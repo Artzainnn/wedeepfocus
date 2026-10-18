@@ -21,3 +21,4 @@ landing/site.local.mjs
 .claude/
 .idea/
 .vscode/
+landing/src/video/

@@ -12,21 +12,25 @@ import {
   CUSTOM_AMOUNT_MIN,
   DEFAULT_AMOUNT,
   DEFAULT_SLOT,
+  EXTEND_MINUTES,
   GOAL_MAX_LENGTH,
   MAX_CUSTOM_DOMAINS,
   PAYMENT_AMOUNTS,
+  SESSION_PRESETS,
 } from "../shared/constants.js";
 
 // Step 4 (money or free) only exists while accountability payments are on.
 const TOTAL_STEPS = ACCOUNTABILITY_ENABLED ? 4 : 3;
 const STEPS = Array.from({ length: TOTAL_STEPS }, (_, index) => index + 1);
-const TRY_MINUTES = 10;
+const TRY_MINUTES = SESSION_PRESETS[0]; // the same first choice as the popup and home page
 const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Monday first, Date#getDay numbering
 const MAX_TIMEOUT_MS = 2 ** 31 - 1;
 const BUSY_DELAY_MS = 250;
-// Suggested long-term goals (i18n goal_option_<id>), "projects" preselected.
-const GOAL_CHOICES = ["focus", "projects", "deep", "finish"];
-const DEFAULT_GOAL_CHOICE = "projects";
+const PIN_POLL_MS = 1500;
+const PIN_BROWSERS = ["chrome", "edge", "brave", "arc", "other"];
+// Suggested whys (i18n goal_option_<id>), "finish" preselected. The why is stored as the goal.
+const GOAL_CHOICES = ["finish", "future", "proud", "time"];
+const DEFAULT_GOAL_CHOICE = "finish";
 
 const locale = uiLocale();
 const $ = (id) => document.getElementById(id);
@@ -59,6 +63,11 @@ let expiryTimer = 0;
 let slotTouched = false;
 let sessionTried = false;
 let trying = false;
+// Pin step on the done screen: "unknown" until the browser answers, then "waiting", "pinned",
+// "skipped", or "unsupported" (the browser cannot tell, so only the short reminder shows).
+let pinStep = "unknown";
+let pinTimer = 0;
+let browserKind = "chrome";
 // Set while this page saves prefs.onboarded itself, so its own write is not taken for a sync.
 let finishing = false;
 
@@ -74,6 +83,7 @@ async function init() {
   buildDays();
   buildAmounts();
   buildGoalOptions();
+  buildPinStep();
   bindEvents();
 
   state = await fetchState();
@@ -261,6 +271,7 @@ function goTo(step, { focus = true, direction = "forward" } = {}) {
   setError($("nav-error"), "");
   for (const n of STEPS) $(`step-${n}`).hidden = n !== step;
   $("done").hidden = true;
+  $("pin-arrow").setAttribute("hidden", "");
   $("dots").hidden = false;
   $("nav").hidden = false;
   $("back").hidden = step === 1;
@@ -280,7 +291,7 @@ function showDone({ focus = true } = {}) {
   $("done").hidden = false;
   animateIn($("done"), "forward");
   renderDone();
-  if (focus) focusHeading("done-title");
+  checkPin({ focus });
 }
 
 function renderDots(step) {
@@ -726,7 +737,7 @@ function newScheduleId() {
   return `s_${random.slice(0, 6)}`;
 }
 
-/* ---------- step 3: goal ---------- */
+/* ---------- step 3: why (stored as the goal) ---------- */
 
 function buildGoalOptions() {
   const root = $("goal-options");
@@ -877,6 +888,123 @@ function onAmountBlur() {
 function renderDone() {
   renderMissing();
   renderTry();
+  renderPin();
+}
+
+/* ---------- done: pin step ---------- */
+
+function buildPinStep() {
+  const app = t("appName");
+  $("pin-title").textContent = t("onb_pin_title", [app]);
+  $("benefit-start").textContent = t("onb_pin_benefit_start", [TRY_MINUTES]);
+  $("benefit-add").textContent = t("onb_pin_benefit_add", [EXTEND_MINUTES]);
+  for (const demo of document.querySelectorAll('[data-i18n-aria-label="onb_pin_demo"]')) demo.setAttribute("aria-label", t("onb_pin_demo", [EXTEND_MINUTES]));
+  for (const label of document.querySelectorAll(".pd-add-label")) label.textContent = t("popup_extend", [EXTEND_MINUTES]);
+  for (const after of document.querySelectorAll(".pd-b")) after.textContent = formatMinutes(30 + EXTEND_MINUTES);
+  for (const before of document.querySelectorAll(".pd-a")) before.textContent = formatMinutes(30);
+  new ResizeObserver(fitPinDemo).observe($("pin-demo"));
+  detectBrowser().then(setBrowserKind);
+  // Arc adds its palette to pages a moment after they load.
+  setTimeout(() => detectBrowser().then(setBrowserKind), 1200);
+  chrome.action?.onUserSettingsChanged?.addListener((change) => {
+    if (change?.isOnToolbar === true) onPinned();
+  });
+}
+
+// The demo window is drawn at 720 px wide; zoom it to the space available (the box is at most 920 px).
+function fitPinDemo() {
+  const width = $("pin-demo").clientWidth;
+  if (width) $("pin-stage").style.zoom = String(width / 720);
+}
+
+function formatMinutes(minutes) {
+  return `${minutes}:00`;
+}
+
+// Where the extensions menu lives differs per browser: Arc keeps it behind the site controls
+// icon in its sidebar, Edge shows an eye instead of a pin. Arc sets --arc-palette-* on pages,
+// Brave answers navigator.brave, Edge names itself in the user agent brands.
+async function detectBrowser() {
+  if (getComputedStyle(document.documentElement).getPropertyValue("--arc-palette-title").trim()) return "arc";
+  try {
+    if (navigator.brave && (await navigator.brave.isBrave())) return "brave";
+  } catch {
+    // Not Brave.
+  }
+  const brands = (navigator.userAgentData?.brands ?? []).map((entry) => entry.brand);
+  if (brands.some((brand) => /edge/i.test(brand))) return "edge";
+  if (brands.includes("Google Chrome") || !brands.length) return "chrome";
+  return "other";
+}
+
+function setBrowserKind(kind) {
+  browserKind = PIN_BROWSERS.includes(kind) ? kind : "other";
+  renderPin();
+}
+
+// The browser decides whether the icon is pinned (chrome.action.getUserSettings). null: it cannot tell.
+async function readPinned() {
+  try {
+    const settings = await chrome.action.getUserSettings();
+    return typeof settings?.isOnToolbar === "boolean" ? settings.isOnToolbar : null;
+  } catch {
+    return null;
+  }
+}
+
+async function checkPin({ focus = false } = {}) {
+  const pinned = await readPinned();
+  if (pinned === null) pinStep = "unsupported";
+  else if (pinned) pinStep = "pinned";
+  else if (pinStep !== "skipped") pinStep = "waiting";
+  renderPin();
+  watchPin();
+  if (focus) focusHeading(pinStep === "waiting" ? "pin-title" : "done-title");
+}
+
+// Chrome 130+ reports the pin as it happens (onUserSettingsChanged); a short poll covers older
+// versions and browsers that never send the event.
+function watchPin() {
+  clearTimeout(pinTimer);
+  if (pinStep !== "waiting") return;
+  pinTimer = setTimeout(async () => {
+    if (pinStep !== "waiting") return;
+    if (!document.hidden && (await readPinned()) === true) onPinned();
+    else watchPin();
+  }, PIN_POLL_MS);
+}
+
+function onPinned() {
+  if (pinStep !== "waiting" || model.step !== "done") return;
+  pinStep = "pinned";
+  clearTimeout(pinTimer);
+  renderPin();
+  animateIn($("final"), "forward");
+  focusHeading("done-title");
+}
+
+function skipPin() {
+  pinStep = "skipped";
+  clearTimeout(pinTimer);
+  renderPin();
+  animateIn($("final"), "forward");
+  focusHeading("done-title");
+}
+
+function renderPin() {
+  const known = pinStep !== "unknown";
+  const waiting = pinStep === "waiting";
+  $("pin-step").hidden = !waiting;
+  $("final").hidden = !known || waiting;
+  $("benefits").hidden = pinStep !== "pinned";
+  $("pin-reminder").hidden = pinStep === "pinned";
+  const title = t(pinStep === "pinned" ? "onb_pinned_title" : "onb_done_title");
+  if ($("done-title").textContent !== title) $("done-title").textContent = title;
+  $("pin-step").dataset.browser = browserKind;
+  $("pin-arrow").dataset.browser = browserKind;
+  $("pin-arrow").toggleAttribute("hidden", !waiting || model.step !== "done"); // an SVG element has no .hidden
+  const how = t(`onb_pin_how_${browserKind}`, [t("appName")]);
+  if ($("pin-how").textContent !== how) $("pin-how").textContent = how;
 }
 
 // Sites without host access are still blocked, with Chrome's error page instead of the goal.
@@ -986,6 +1114,10 @@ function bindEvents() {
   });
 
   $("try-session").addEventListener("click", trySession);
+  $("pin-skip").addEventListener("click", skipPin);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && pinStep === "waiting") readPinned().then((pinned) => pinned && onPinned());
+  });
   $("open-settings").addEventListener("click", () => api.openOptions());
   $("grant-missing").addEventListener("click", grantMissing);
 }

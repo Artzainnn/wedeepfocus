@@ -67,7 +67,7 @@ describe("api", () => {
   test("extendSession defaults to EXTEND_MINUTES", async () => {
     const { state } = installChrome(() => ({ ok: true }));
     await api.extendSession();
-    assert.deepEqual(state.sent[0], { type: "extendSession", minutes: 10 });
+    assert.deepEqual(state.sent[0], { type: "extendSession", minutes: 15 });
   });
 
   test("the message is sent synchronously, before any await (user gesture flows)", () => {

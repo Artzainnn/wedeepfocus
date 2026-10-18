@@ -27,24 +27,15 @@
       </div>
       <p class="timer-open" data-role="no-end" data-i18n="blocked_no_end" hidden>Focus time is on</p>
 
+      <!-- The user's why, alone under the timer. -->
       <section class="goal" data-testid="blocked-goals" aria-labelledby="goal-title">
-        <h2 class="eyebrow" id="goal-title" data-i18n="blocked_goal_title">Remember why</h2>
-        <div class="goal-card" data-role="goal-card" hidden>
-          <span class="goal-icon" data-icon="target" aria-hidden="true"></span>
-          <p class="goal-text" data-role="goal-text"></p>
-        </div>
+        <h2 class="sr-only" id="goal-title" data-i18n="blocked_goal_title">Remember why</h2>
+        <p class="goal-text" data-role="goal-text" hidden></p>
         <div class="goal-empty" data-role="goal-empty" hidden>
-          <p class="goal-empty-text" data-i18n="blocked_goal_empty">No goal yet.</p>
-          <a class="goal-empty-link" href="../options/options.html" data-role="open-options" data-i18n="blocked_goal_add">Add a goal</a>
+          <p class="goal-empty-text" data-i18n="blocked_goal_empty">Why are you doing this?</p>
+          <a class="goal-empty-link" href="../options/options.html" data-role="open-options" data-i18n="blocked_goal_add">Write it down</a>
         </div>
       </section>
-
-      <p class="quote" data-testid="blocked-quote" hidden></p>
-
-      <p class="stat" data-testid="blocked-stats" hidden>
-        <span class="stat-icon" data-icon="sparkles" aria-hidden="true"></span>
-        <span data-role="stat-text"></span>
-      </p>
 
       <div class="actions">
         <button type="button" class="btn btn-primary btn-lg btn-back" data-testid="blocked-back" data-role="back" data-i18n="blocked_back">Back to work</button>

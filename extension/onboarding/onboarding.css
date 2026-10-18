@@ -42,7 +42,7 @@ body { min-height: 100vh; }
 }
 .onb-title:focus { outline: none; }
 .onb-sub {
-  max-width: 42ch; margin: 10px auto 0;
+  max-width: 100%; margin: 14px auto 0;
   font-size: 15px; color: var(--text-2);
   text-align: center; text-wrap: balance;
 }
@@ -95,7 +95,7 @@ body { min-height: 100vh; }
 
 /* ---------- step 1: groups ---------- */
 
-.onb-groups { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.onb-groups { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
 
 /* The toggle (label) spans the whole head row; the Edit button sits on top of its middle column. */
 .onb-group { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; column-gap: 8px; }
@@ -168,7 +168,7 @@ body { min-height: 100vh; }
 
 /* ---------- step 2: when ---------- */
 
-.onb-choices { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.onb-choices { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
 .onb-choice {
   display: flex; align-items: center; gap: 14px;
   min-height: 76px; padding: 14px 18px 14px 14px;
@@ -235,7 +235,7 @@ input.onb-goal {
   box-shadow: var(--shadow-card);
 }
 input.onb-goal:focus-visible { border-color: var(--accent); box-shadow: var(--focus-ring), var(--shadow-card); }
-.onb-goals { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+.onb-goals { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
 .onb-goal-option {
   display: flex; align-items: center; gap: 12px;
   min-height: 52px; padding: 12px 16px;
@@ -259,7 +259,7 @@ input.onb-goal { margin-top: 10px; }
 
 /* ---------- step 4: ending a session early ---------- */
 
-.onb-modes { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.onb-modes { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
 .onb-mode-toggle {
   display: flex; align-items: center; gap: 14px;
   min-height: 76px; padding: 14px 18px 14px 14px;
@@ -323,11 +323,11 @@ input.onb-goal { margin-top: 10px; }
 }
 .onb-art-dot { fill: var(--accent); opacity: 0.35; }
 .onb-art circle { transform-box: fill-box; transform-origin: center; }
-.onb-done.is-forward .onb-art-halo { animation: onb-pop 640ms 60ms var(--onb-ease) both; }
-.onb-done.is-forward .onb-art-ring { animation: onb-pop 560ms 30ms var(--onb-ease) both; }
-.onb-done.is-forward .onb-art-disk { animation: onb-pop 480ms var(--onb-ease) both; }
-.onb-done.is-forward .onb-art-check { animation: onb-draw 420ms 300ms ease-out both; }
-.onb-done.is-forward .onb-art-dot { animation: onb-pop 520ms 420ms var(--onb-ease) both; }
+:is(.onb-done, .onb-final).is-forward .onb-art-halo { animation: onb-pop 640ms 60ms var(--onb-ease) both; }
+:is(.onb-done, .onb-final).is-forward .onb-art-ring { animation: onb-pop 560ms 30ms var(--onb-ease) both; }
+:is(.onb-done, .onb-final).is-forward .onb-art-disk { animation: onb-pop 480ms var(--onb-ease) both; }
+:is(.onb-done, .onb-final).is-forward .onb-art-check { animation: onb-draw 420ms 300ms ease-out both; }
+:is(.onb-done, .onb-final).is-forward .onb-art-dot { animation: onb-pop 520ms 420ms var(--onb-ease) both; }
 
 .onb-pin-hint {
   display: inline-flex; align-items: center; gap: 6px;
@@ -365,6 +365,163 @@ input.onb-goal { margin-top: 10px; }
 .onb-link:hover { text-decoration: underline; }
 .onb-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
+/* ---------- done: pin step ---------- */
+
+.onb-final { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.onb-pin { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+.onb-pin .onb-sub { margin-top: -4px; }
+
+/* The arrow points at where this browser keeps its extensions: top right of the window, or the
+   top of Arc's sidebar on the left. The page cannot know the exact spot, only the corner. */
+.onb-pin-arrow { position: fixed; top: 6px; right: 90px; width: 96px; height: 96px; color: var(--accent); pointer-events: none; animation: onb-nudge 1.4s ease-in-out infinite; }
+.onb-pin-arrow[data-browser="arc"] { right: auto; left: 6px; transform: scaleX(-1); animation-name: onb-nudge-left; }
+.onb-pin-arrow-line { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1 11; }
+.onb-pin-arrow-head { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes onb-nudge { 50% { transform: translate(5px, -5px); } }
+@keyframes onb-nudge-left { 50% { transform: scaleX(-1) translate(5px, -5px); } }
+
+.onb-pin-how { max-width: 440px; font-size: 15px; color: var(--text-2); }
+.onb-waiting {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border);
+  font-size: 14px; font-weight: 600; color: var(--text-2);
+}
+.onb-spinner { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border-strong); border-top-color: var(--accent); animation: onb-spin 900ms linear infinite; }
+@keyframes onb-spin { to { transform: rotate(360deg); } }
+
+.onb-benefits { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; text-align: left; font-weight: 600; }
+.onb-benefits li { display: flex; align-items: center; gap: 10px; }
+.onb-benefits .icon { color: var(--accent-text); flex: none; }
+.onb-pin-reminder { display: flex; flex-direction: column; align-items: center; }
+
+/* The pin step is wider than the wizard and more airy. */
+body:has(#pin-step:not([hidden])) .onb-shell { width: min(1000px, 100% - 32px); }
+.onb-pin { gap: 22px; padding-top: 8px; }
+.onb-pin .onb-title { font-size: 36px; }
+.onb-pin .onb-sub { margin-top: -10px; font-size: 17px; }
+.onb-pin .onb-pin-how { max-width: 600px; font-size: 17px; line-height: 1.6; }
+
+/* Demo: a 720 x 330 browser window, zoomed to the space available, up to 920 px wide (see fitPinDemo). It plays by itself and
+   cannot be clicked. One window for a toolbar on top (Chrome, Edge, Brave, others), one for Arc's
+   sidebar. The pointer's tip sits 5px right, 3px down of its 26px box, so each target below is
+   reached at translate(x - 5, y - 3).
+   Toolbar: extensions button (625, 61), pin in the menu (629, 146), pinned icon (587, 61), "Add" (587, 236).
+   Arc: site controls (191, 54), our icon (278, 184), its little pin (295, 167), pinned icon (139, 54), "Add" (140, 236). */
+.pin-demo { width: min(100%, 920px); margin: 8px 0; pointer-events: none; user-select: none; }
+.pd-stage { position: relative; width: 720px; height: 330px; }
+.pd-win { position: absolute; inset: 0; overflow: hidden; border-radius: 16px; background: var(--surface); border: 1px solid var(--border-strong); box-shadow: var(--shadow-card); text-align: left; }
+.pd-arc-kind, .onb-pin[data-browser="arc"] .pd-toolbar-kind { display: none; }
+.onb-pin[data-browser="arc"] .pd-arc-kind { display: block; }
+.pin-demo .icon { width: 18px; height: 18px; }
+.pin-demo img { border-radius: 4px; }
+.pd-tabs { position: absolute; inset: 0 0 auto 0; height: 38px; background: var(--surface-2); }
+.pd-tab { position: absolute; left: 12px; bottom: 0; display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 16px; border-radius: 10px 10px 0 0; background: var(--surface); font-size: 12px; font-weight: 600; }
+.pd-bar { position: absolute; top: 38px; left: 0; right: 0; height: 46px; border-bottom: 1px solid var(--border); }
+.pd-back, .pd-bar .pd-new, .pd-bar .pd-menu-btn { position: absolute; top: 8px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: var(--text-2); }
+.pd-back { left: 14px; color: var(--text-3); }
+.pd-omni { position: absolute; left: 56px; top: 8px; width: 500px; height: 30px; display: flex; align-items: center; gap: 8px; padding: 0 14px; border-radius: 999px; background: var(--surface-2); font-size: 13px; color: var(--text-2); }
+.pd-bar .pd-new { left: 572px; }
+.pd-bar .pd-menu-btn { left: 610px; }
+.pd-avatar { position: absolute; left: 652px; top: 10px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); }
+.pd-page { position: absolute; top: 84px; left: 0; right: 0; bottom: 0; padding: 40px 64px; }
+.pd-page i { display: block; height: 12px; margin-bottom: 16px; border-radius: 999px; background: var(--surface-2); }
+.pd-page i:nth-child(1) { width: 46%; height: 18px; }
+.pd-page i:nth-child(2) { width: 72%; }
+.pd-page i:nth-child(3) { width: 58%; }
+.pd-menu { position: absolute; top: 90px; left: 400px; width: 260px; padding: 10px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-card); animation: pd-menu 12s infinite; }
+.pd-menu-title { display: block; height: 20px; margin: 0 0 6px 6px; font-size: 13px; font-weight: 700; }
+.pd-row { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 10px; font-size: 14px; font-weight: 600; }
+.pd-row.is-muted i { width: 18px; height: 18px; border-radius: 5px; background: var(--surface-2); }
+.pd-row.is-muted b { flex: 1; height: 10px; border-radius: 999px; background: var(--surface-2); }
+.pd-pin, .pd-pin-static { margin-left: auto; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: var(--text-3); }
+.pd-pin { animation: pd-pin 12s infinite; }
+.pd-ico-eye, .onb-pin[data-browser="edge"] .pd-ico-pin { display: none; }
+.onb-pin[data-browser="edge"] .pd-ico-eye { display: block; }
+.pd-new { animation: pd-new 12s infinite; }
+.pd-menu-btn { animation: pd-press 12s infinite; }
+.pd-pop { position: absolute; top: 90px; left: 467px; width: 240px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 16px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-card); animation: pd-pop 12s infinite; }
+.pd-pop-head { align-self: flex-start; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+.pd-timer { position: relative; width: 100%; height: 52px; margin-top: 8px; }
+.pd-timer b { position: absolute; inset: 0; text-align: center; font-family: var(--font-display); font-size: 44px; font-weight: 800; line-height: 52px; font-variant-numeric: tabular-nums; }
+.pd-a { animation: pd-a 12s infinite; }
+.pd-b { color: var(--accent-text); animation: pd-b 12s infinite; }
+.pd-pop small { font-size: 12px; color: var(--text-3); }
+.pd-add { display: inline-flex; align-items: center; gap: 6px; height: 34px; margin-top: 10px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--border-strong); font-size: 13px; font-weight: 700; animation: pd-add 12s infinite; }
+.pd-add .icon { width: 14px; height: 14px; }
+.pd-cursor { position: absolute; left: 0; top: 0; z-index: 3; width: 26px; height: 26px; color: var(--ink); animation: pd-cursor 12s infinite; }
+.pd-cursor .icon { width: 26px; height: 26px; fill: var(--surface); filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)); }
+/* Arc */
+.pd-side { position: absolute; left: 0; top: 0; bottom: 0; width: 220px; background: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); }
+.pd-dots { position: absolute; left: 16px; top: 14px; display: flex; gap: 6px; }
+.pd-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+.pd-url { position: absolute; left: 12px; top: 36px; width: 196px; height: 36px; display: flex; align-items: center; gap: 0; padding: 0 4px 0 12px; border-radius: 10px; background: var(--surface); font-size: 12px; color: var(--text-2); }
+.pd-host { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; }
+.pd-url .pd-new, .pd-ico { width: 26px; height: 26px; flex: none; display: grid; place-items: center; border-radius: 7px; }
+.pd-ico .icon { width: 16px; height: 16px; }
+.pd-stab { position: absolute; left: 12px; width: 196px; height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border-radius: 10px; font-size: 12px; font-weight: 600; background: color-mix(in srgb, var(--surface) 45%, transparent); }
+.pd-stab:nth-child(3) { top: 86px; background: var(--surface); }
+.pd-stab:nth-child(4) { top: 126px; }
+.pd-stab:nth-child(5) { top: 166px; }
+.pd-arc-page { top: 0; left: 220px; padding: 56px 48px; }
+.pd-panel { top: 80px; left: 150px; width: 250px; padding: 12px; background: #1f1e24; color: #f3f1ee; border-color: rgba(255, 255, 255, 0.08); }
+.pd-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.pd-actions i { height: 36px; border-radius: 10px; background: rgba(255, 255, 255, 0.1); }
+.pd-panel .pd-menu-title { margin: 12px 0 8px 2px; height: 16px; }
+.pd-grid { display: grid; grid-template-columns: repeat(4, 40px); gap: 8px; }
+.pd-grid > * { position: relative; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(255, 255, 255, 0.1); }
+.pd-badge { position: absolute; right: -7px; top: -7px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; background: #3a3943; color: #f3f1ee; box-shadow: 0 0 0 2px #1f1e24; animation: pd-badge 12s infinite; }
+.pd-badge .icon { width: 12px; height: 12px; }
+.pd-arc-kind .pd-pop { left: 20px; }
+.pd-arc-kind .pd-cursor { animation-name: pd-cursor-arc; }
+.pd-arc-kind .pd-new { animation-name: pd-new; }
+
+@keyframes pd-cursor {
+  0%, 4% { transform: translate(300px, 270px); opacity: 0; }
+  7% { opacity: 1; }
+  12% { transform: translate(620px, 58px); }
+  14% { transform: translate(620px, 58px) scale(0.82); }
+  16% { transform: translate(620px, 58px); }
+  26% { transform: translate(624px, 143px); }
+  28% { transform: translate(624px, 143px) scale(0.82); }
+  30%, 44% { transform: translate(624px, 143px); }
+  56% { transform: translate(582px, 58px); }
+  58% { transform: translate(582px, 58px) scale(0.82); }
+  60% { transform: translate(582px, 58px); }
+  70% { transform: translate(582px, 233px); }
+  72% { transform: translate(582px, 233px) scale(0.82); }
+  74%, 88% { transform: translate(582px, 233px); opacity: 1; }
+  94%, 100% { transform: translate(582px, 233px); opacity: 0; }
+}
+@keyframes pd-cursor-arc {
+  0%, 4% { transform: translate(460px, 280px); opacity: 0; }
+  7% { opacity: 1; }
+  12% { transform: translate(186px, 51px); }
+  14% { transform: translate(186px, 51px) scale(0.82); }
+  16% { transform: translate(186px, 51px); }
+  24%, 27% { transform: translate(273px, 181px); }
+  32% { transform: translate(290px, 164px); }
+  34% { transform: translate(290px, 164px) scale(0.82); }
+  36%, 44% { transform: translate(290px, 164px); }
+  56% { transform: translate(134px, 51px); }
+  58% { transform: translate(134px, 51px) scale(0.82); }
+  60% { transform: translate(134px, 51px); }
+  70% { transform: translate(135px, 233px); }
+  72% { transform: translate(135px, 233px) scale(0.82); }
+  74%, 88% { transform: translate(135px, 233px); opacity: 1; }
+  94%, 100% { transform: translate(135px, 233px); opacity: 0; }
+}
+@keyframes pd-press { 0%, 13% { background: transparent; } 14%, 44% { background: var(--surface-2); } 47%, 100% { background: transparent; } }
+@keyframes pd-menu { 0%, 15% { opacity: 0; transform: translateY(-6px); } 17%, 43% { opacity: 1; transform: none; } 46%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes pd-pin { 0%, 27% { color: var(--text-3); background: transparent; } 29%, 100% { color: var(--accent-text); background: var(--accent-soft); } }
+/* Arc's little pin shows on hover, then turns blue once clicked. */
+@keyframes pd-badge { 0%, 24% { transform: scale(0); background: #3a3943; } 26%, 33% { transform: scale(1); background: #3a3943; } 35%, 92% { transform: scale(1); background: var(--accent); } 96%, 100% { transform: scale(0); } }
+@keyframes pd-new { 0%, 47% { transform: scale(0); background: transparent; } 50% { transform: scale(1.2); } 52%, 57% { transform: scale(1); background: transparent; } 58%, 92% { transform: scale(1); background: var(--surface-2); } 96%, 100% { transform: scale(0); } }
+@keyframes pd-pop { 0%, 59% { opacity: 0; transform: translateY(-6px); } 62%, 91% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes pd-a { 0%, 72% { opacity: 1; } 73%, 100% { opacity: 0; } }
+@keyframes pd-b { 0%, 72% { opacity: 0; transform: scale(1); } 74% { opacity: 1; transform: scale(1.1); } 77%, 100% { opacity: 1; transform: scale(1); } }
+@keyframes pd-add { 0%, 71% { background: transparent; } 72%, 75% { background: var(--accent-soft); } 78%, 100% { background: transparent; } }
+
 /* ---------- motion ---------- */
 
 @keyframes onb-enter { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
@@ -394,4 +551,12 @@ input.onb-goal { margin-top: 10px; }
   .onb-day { font-size: 12px; }
   .onb-add .btn { padding: 0 18px; }
   .onb-done { padding-top: 12px; }
+  .onb-pin-arrow { right: 70px; width: 72px; height: 72px; }
+}
+
+/* Without motion, the demo shows its key frame: the menu open with the pin on. */
+@media (prefers-reduced-motion: reduce) {
+  .pd-pop, .pd-cursor, .pd-new { display: none; }
+  .pd-pin { color: var(--accent-text); background: var(--accent-soft); }
+  .pd-badge { background: var(--accent); }
 }

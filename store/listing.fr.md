@@ -1,5 +1,7 @@
 # Fiche Chrome Web Store (français)
 
+Pas utilisée : le Store n'a pas de fiche française (décision du 18/10/2026). Ce fichier reste comme traduction de référence.
+
 Copie chaque bloc dans le champ correspondant de la console développeur du Chrome Web Store (fiche en français). Les champs réservés à l'équipe de revue (justifications des autorisations, pratiques de confidentialité, instructions de test) se remplissent une seule fois, en anglais : voir `listing.en.md`. Leur traduction est donnée ici pour référence.
 
 ## Nom
@@ -13,47 +15,51 @@ WeDeepFocus
 ## Description courte (132 caractères max)
 
 ```
-Bloque les sites qui te distraient pendant tes heures de focus et affiche ton objectif à la place. Sans compte, sans pistage.
+Bloque les sites qui te distraient en deux clics et rappelle-toi pourquoi tu fais ça. Gratuit, open source, sans compte.
 ```
 
-125 caractères. C'est `appDescription` dans `i18n/common.json`, garde les deux identiques (`build-locales` refuse plus de 132 caractères).
+120 caractères. C'est `appDescription` dans `i18n/common.json`, garde les deux identiques (`build-locales` refuse plus de 132 caractères).
 
 ## Description détaillée
 
 ```
-WeDeepFocus t'éloigne des sites qui te volent ton temps quand tu veux te concentrer, et te montre ce vers quoi tu avances.
+Instagram peut attendre. WeDeepFocus bloque les sites qui te détournent quand tu veux te concentrer, et te rappelle pourquoi tu fais ça.
 
-QUAND TU OUVRES UN SITE BLOQUÉ, TU VOIS TON OBJECTIF
-À la place du fil d'actualité : ton objectif, le temps restant et une petite phrase pour tenir. Un clic et tu retournes au travail.
+COMMENT ÇA MARCHE
+1. Choisis ce qui te distrait : réseaux sociaux, vidéo, actus, shopping, ou tes propres sites.
+2. Clique sur l'icône et choisis 15 min, 30 min ou 1 h. Ou programme des créneaux, par exemple en semaine de 09:00 à 12:00.
+3. Ouvre un site bloqué : tu vois le temps restant et ton pourquoi, une phrase que tu as choisie ou écrite. Un clic et tu retournes au travail.
 
-DES GROUPES DE SITES, À TA FAÇON
-• Des groupes tout prêts : réseaux sociaux, vidéo et streaming, mails et messageries, actualités, shopping (par exemple Instagram, TikTok, YouTube ou Reddit)
-• Active ou désactive un groupe, ajoute ou retire ses sites
-• Crée tes propres groupes avec un nom et une icône, comme « Messagerie pro » ou « Jeux »
-• Ajoute des sites à part dans « Tes sites », ou bloque le site ouvert en un clic depuis la barre d'outils
+BESOIN DE PLUS DE TEMPS ?
+Ajoute 15 minutes depuis l'icône. Le temps restant s'affiche directement dessus.
 
-C'EST TOI QUI DÉCIDES QUAND
-• Lance une session depuis l'icône de l'extension : 15 minutes, 30 minutes, 1 heure ou la durée de ton choix, jusqu'à 8 heures
-• Ou ajoute des créneaux hebdomadaires si tu veux, par exemple du lundi au vendredi, de 09:00 à 12:00 (les créneaux de nuit marchent aussi)
-• Compte à rebours en direct dans la fenêtre de l'extension et temps restant sur l'icône
+ARRÊTER AVANT LA FIN, ÇA SE MÉRITE
+Une question honnête, puis une phrase tapée à la main. Copier-coller interdit, fautes de frappe refusées. Cette pause suffit souvent à te faire changer d'avis. Pendant une session, les réglages ne peuvent que se durcir.
 
-STRICT, ET C'EST VOULU
-• Arrêter une session avant la fin est un rituel : une question honnête, puis une phrase à taper à la main (copier-coller désactivé, fautes de frappe refusées). Ensuite, toute la session s'arrête. Cette pause suffit souvent à te faire changer d'avis. Tu peux toujours désactiver l'extension dans chrome://extensions.
-• La phrase par défaut : « Je choisis de renoncer à mes objectifs. J'échange mes aspirations et mes engagements contre quelques minutes de distraction. » Tu peux écrire la tienne dans les réglages. Elle ne peut pas être modifiée pendant un blocage
-• Pendant un blocage, les réglages ne peuvent que se durcir : tu peux ajouter des sites, des groupes ou des créneaux, pas en retirer
+TES SITES, À TA FAÇON
+• Des groupes tout prêts (Instagram, TikTok, YouTube, Reddit et d'autres), avec des sites à garder ou retirer
+• Tes propres groupes avec un nom et une icône, comme « Messagerie pro »
+• Bloque le site ouvert en un clic depuis la barre d'outils
 
-PRIVÉ PAR DÉFAUT
-• Pas de compte, pas de statistiques, pas de pub, pas de serveur
-• Tes réglages restent dans ton navigateur (et dans ta propre synchronisation Chrome si tu l'utilises)
-• L'accès aux sites est facultatif et demandé uniquement pour ceux que tu choisis. Il permet d'afficher ton objectif au lieu de la page d'erreur de Chrome. Sans lui, ces sites restent bloqués
-• Tu peux tout recommencer depuis les réglages : un bouton remet tout par défaut
+GRATUIT, OPEN SOURCE, PRIVÉ
+• Pas de compte, pas de pub, pas de statistiques : tes réglages restent dans ton navigateur
+• Open source sous licence MIT : github.com/Artzainnn/wedeepfocus
+• L'accès aux sites est facultatif et demandé uniquement pour ceux que tu choisis. Sans lui, ces sites restent bloqués, avec la page d'erreur de Chrome
 
-Gratuit. Si l'extension t'aide, un lien facultatif « Offrir un café au dev » t'attend dans la fenêtre de l'extension et dans les réglages.
+Gratuit. Si l'extension t'aide, un lien facultatif « Offrir un café au dev » t'attend. Une idée, un bug ? wedeepfocus.com/fr/feedback
 
-Disponible en français et en anglais.
+Marche dans Chrome et dans les navigateurs Chromium comme Arc, Brave et Edge. En français et en anglais.
 
 Aucun lien avec les sites mentionnés. Les marques citées appartiennent à leurs propriétaires.
 ```
+
+## Vidéo promo
+
+```
+https://youtu.be/yZ5A0IPuPWM
+```
+
+Le champ « Vidéo YouTube » de la fiche (film de lancement de 37 s).
 
 ## Catégorie
 
@@ -97,9 +103,9 @@ Publie `PRIVACY.md` à une adresse publique (par exemple GitHub Pages ou ton sit
 
 ## Instructions de test (traduction de référence)
 
-1. Installation : la page d'accueil s'ouvre. Garde « Réseaux sociaux » sélectionné et clique sur Continuer. Chrome demande l'accès à ces sites : clique sur Autoriser (en cas de refus, les sites restent bloqués, avec la page d'erreur de Chrome au lieu de la page avec l'objectif). « Quand je lance une session » est déjà sélectionné : clique sur Continuer. Écris un objectif, puis clique sur Terminer.
-2. Clique sur « Lancer une session de 10 min » sur le dernier écran (ou clique sur l'icône de l'extension, épinglée depuis le menu en forme de puzzle si besoin, puis sur « 15 min » sous « Bloquer pendant »).
-3. Ouvre https://www.facebook.com : tu arrives sur la page de l'extension, avec ton objectif et un compte à rebours.
+1. Installation : la page d'accueil s'ouvre. Garde « Réseaux sociaux » sélectionné et clique sur Continuer. Chrome demande l'accès à ces sites : clique sur Autoriser (en cas de refus, les sites restent bloqués, avec la page d'erreur de Chrome au lieu de la page de l'extension). « Quand je lance une session » est déjà sélectionné : clique sur Continuer. Une phrase est déjà choisie sous « Pourquoi tu fais ça ? » : clique sur Terminer.
+2. L'écran suivant montre comment épingler l'icône : épingle-la depuis le menu en forme de puzzle (l'écran avance tout seul), ou clique sur Passer. Puis clique sur « Lancer une session de 15 min » (ou sur l'icône de l'extension, puis « 15 min »).
+3. Ouvre https://www.facebook.com : tu arrives sur la page de l'extension, avec le temps restant et ta phrase.
 4. « J'en ai vraiment besoin » (ou « Arrêter la session » dans la fenêtre de l'extension) lance le rituel : une question (« Ça vaut vraiment le coup d'interrompre ton focus ? »), puis une phrase tapée à la main. Ensuite, toute la session s'arrête. La phrase se modifie dans les réglages, section « Arrêter une session avant la fin ».
 
 Aucun compte ni identifiant n'est nécessaire.
@@ -109,18 +115,18 @@ Aucun compte ni identifiant n'est nécessaire.
 | Visuel | Fichier | Taille |
 | --- | --- | --- |
 | Icône du store | `extension/assets/icon-128.png` | 128x128 (motif 96x96 avec marge transparente) |
-| Petite vignette promo | `store/promo-small-440x280.png` | 440x280 |
-| Bannière promo | `store/marquee-1400x560.png` | 1400x560 |
-| Captures d'écran | `store/screenshots/fr-*.png` | 1280x800 |
+| Petite vignette promo | `store/upload/promo-small-440x280.png` | 440x280 |
+| Bannière promo | `store/upload/marquee-1400x560.png` | 1400x560 |
+| Captures d'écran | `store/upload/fr/fr-*.png` | 1280x800 |
 
-Les vignettes promo ne contiennent aucun texte traduit (seulement le nom de la marque et une maquette de la page de blocage où le texte est remplacé par des barres), car le store affiche les mêmes vignettes dans toutes les langues. Ce sont les mêmes fichiers pour les deux fiches.
+Tout vient de `node scripts/store-visuals.mjs` (vraies captures de l'extension avec un titre). Les vignettes promo sont en anglais : le store affiche les mêmes dans toutes les langues, ce sont donc les mêmes fichiers pour les deux fiches.
 
 Ordre et légendes suggérés pour les captures :
 
-1. `fr-1-blocked.png` : Ton objectif à la place du fil d'actualité
-2. `fr-2-popup.png` : Lance une session de focus en un clic
-3. `fr-3-options.png` : Regroupe les sites qui te distraient, à ta façon
-4. `fr-4-onboarding.png` : Prêt en moins d'une minute
-5. `fr-5-phrase.png` : Choisis ta propre phrase de déblocage
+1. `fr-1-blocked.png` : Instagram peut attendre (la page bloquée : temps restant et ton pourquoi)
+2. `fr-2-popup.png` : Concentre-toi en deux clics (lancer une session, ajouter 15 minutes)
+3. `fr-3-groups.png` : Choisis ce qui te distrait
+4. `fr-4-why.png` : Rappelle-toi pourquoi
+5. `fr-5-friction.png` : Arrêter avant la fin, ça se mérite (copier-coller interdit)
 
 Pour régénérer les visuels : `npm run icons` et `npm run screenshots`.

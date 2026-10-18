@@ -1,4 +1,5 @@
 import { t, applyI18n, uiLocale } from "../shared/i18n.js";
+import { mountFeedbackLink } from "../ui/feedback-link.js";
 import { api, onStateChange } from "../shared/api.js";
 import { icon } from "../shared/icons.js";
 import { cleanGroupName, groupDisplayName, newGroupId } from "../shared/presets.js";
@@ -113,6 +114,7 @@ let toastAction = null;
 
 async function init() {
   applyI18n();
+  mountFeedbackLink();
   document.title = t("options_page_title", [t("appName")]);
   weekdays = buildWeekdays();
   collectRefs();
@@ -148,7 +150,6 @@ function collectRefs() {
   ui.scheduleAdd = document.querySelector(".schedule-add");
   ui.goalInput = document.querySelector(".goal-input");
   ui.goalCounter = document.querySelector(".goal-counter");
-  ui.quoteToggle = document.querySelector("#quote-toggle");
   ui.modeCards = new Map([...document.querySelectorAll(".mode")].map((card) => [card.querySelector(".mode-input").value, card]));
   ui.modeInputs = [...document.querySelectorAll(".mode-input")];
   // Free only (first release): the sentence is the only way to end early, so no mode to pick.
@@ -201,7 +202,6 @@ function bindEvents() {
   ui.scheduleAdd.addEventListener("click", onAddSlot);
   ui.goalInput.addEventListener("input", onGoalInput);
   ui.goalInput.addEventListener("blur", () => flushTextSave("goals"));
-  ui.quoteToggle.addEventListener("change", onQuoteToggle);
   for (const input of ui.modeInputs) input.addEventListener("change", () => onModeChange(input.value));
   ui.amountInput.addEventListener("input", onAmountInput);
   ui.amountInput.addEventListener("keydown", onAmountKeydown);
@@ -1599,7 +1599,6 @@ function buildGoal() {
 function renderGoal(force) {
   setInputValue(ui.goalInput, model.goals.items[0], force);
   updateGoalCounter();
-  ui.quoteToggle.checked = model.goals.showQuote;
 }
 
 function updateGoalCounter() {
@@ -1615,11 +1614,6 @@ function onGoalInput() {
   model.goals = { ...model.goals, items: [ui.goalInput.value] };
   updateGoalCounter();
   scheduleTextSave("goals");
-}
-
-function onQuoteToggle() {
-  if (!model) return;
-  commit("goals", { ...model.goals, showQuote: ui.quoteToggle.checked });
 }
 
 /* ---------- Ending a session early (mode and amount stay editable during a block) ---------- */

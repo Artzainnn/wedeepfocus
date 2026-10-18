@@ -57,6 +57,10 @@ If you chose "Accountability with money", ending a session early can cost the am
 
 The website wedeepfocus.com (not the extension) uses DataFast to count visits: pages viewed, the referring site, country, device and browser. It helps us understand how people find WeDeepFocus. DataFast sets a cookie to recognise returning visitors and its privacy policy applies (https://datafa.st/privacy). The extension itself never loads DataFast and sends nothing.
 
+## Feedback
+
+The "Feedback" link in the extension's menu opens the feedback page of the website in a new tab. When you uninstall the extension, Chrome opens that same page, so you can say why if you want to. Only the language, where you came from ("menu" or "uninstall") and the extension version are in its address; the extension sends nothing else. If you send the form, your message and the email address you choose to give (optional) go to the developer by email through Web3Forms (https://web3forms.com/privacy). Nothing is sent if you don't press Send.
+
 ## Optional tip link
 
 The "Buy a dev a coffee" link opens a Stripe payment page in a new tab. The extension sends nothing to Stripe. If you choose to pay, the payment happens on Stripe and Stripe's privacy policy applies (https://stripe.com/privacy). Like any Stripe merchant, the developer can see that payment in Stripe (for example the amount and the details you enter there). Nothing links it to how you use the extension.
@@ -129,6 +133,10 @@ Si tu as choisi « Engagement avec argent », arrêter une session avant la fin 
 ## Le site web
 
 Le site wedeepfocus.com (pas l'extension) utilise DataFast pour compter les visites : pages vues, site d'origine, pays, appareil et navigateur. Ça nous aide à comprendre comment les gens découvrent WeDeepFocus. DataFast dépose un cookie pour reconnaître les visiteurs qui reviennent et sa politique de confidentialité s'applique (https://datafa.st/privacy). L'extension elle-même ne charge jamais DataFast et n'envoie rien.
+
+## Ton avis
+
+Le lien « Ton avis » du menu de l'extension ouvre la page de retour du site dans un nouvel onglet. Quand tu désinstalles l'extension, Chrome ouvre cette même page, pour que tu puisses dire pourquoi si tu le souhaites. Seuls la langue, l'endroit d'où tu viens (« menu » ou « désinstallation ») et la version de l'extension figurent dans son adresse ; l'extension n'envoie rien d'autre. Si tu envoies le formulaire, ton message et l'adresse email que tu choisis de donner (facultative) parviennent au développeur par email via Web3Forms (https://web3forms.com/privacy). Rien n'est envoyé tant que tu n'appuies pas sur Envoyer.
 
 ## Lien de soutien facultatif
 

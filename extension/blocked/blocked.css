@@ -89,60 +89,23 @@ body {
   color: var(--text);
 }
 
+/* The why: one sentence under the timer, no card, no icon. */
 .goal {
   width: 100%;
   max-width: 560px;
-  margin-top: var(--gap-xl);
+  margin-top: var(--gap-lg);
 }
-.eyebrow {
-  font-family: var(--font);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-.goal-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 14px;
-  padding: 16px 22px 16px 16px;
-  text-align: left;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-.goal-icon {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-}
-.goal-icon .icon { width: 20px; height: 20px; }
 .goal-text {
-  min-width: 0;
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-size: 24px;
   line-height: 1.4;
-  color: var(--text);
+  color: var(--text-2);
   overflow-wrap: anywhere;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
+.goal-text::before { content: "\201C"; }
+.goal-text::after { content: "\201D"; }
 
-.goal-empty {
-  margin-top: 14px;
-  padding: 18px 22px;
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-lg);
-}
 .goal-empty-text { color: var(--text-2); font-size: 15px; }
 .goal-empty-link {
   display: inline-block;
@@ -152,45 +115,6 @@ body {
   border-radius: 6px;
 }
 .goal-empty-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-
-.quote {
-  position: relative;
-  max-width: 30em;
-  margin-top: var(--gap-lg);
-  padding-top: clamp(16px, 2.6vh, 24px);
-  font-family: var(--font-serif);
-  font-size: 21px;
-  line-height: 1.45;
-  color: var(--text);
-  text-wrap: balance;
-}
-.quote::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 28px;
-  height: 3px;
-  margin-left: -14px;
-  border-radius: 999px;
-  background: var(--accent);
-  opacity: 0.5;
-}
-
-.stat {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: var(--gap-md);
-  padding: 5px 13px 5px 11px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-size: 13px;
-  font-weight: 500;
-}
-.stat-icon { display: inline-flex; }
-.stat-icon .icon { width: 14px; height: 14px; }
 
 .actions {
   margin-top: var(--gap-md);
@@ -478,9 +402,7 @@ body {
   .friction-card { padding: 26px 20px 24px; }
   .question { font-size: 24px; }
   .question-sm { font-size: 19px; }
-  .goal-card { padding: 14px 18px 14px 14px; }
-  .goal-text { font-size: 17px; }
-  .quote { font-size: 19px; }
+  .goal-text { font-size: 20px; }
   .phrase { font-size: 17px; padding: 14px 16px; }
   .typing-input { font-size: 17px; }
   .typing-actions { flex-direction: column; align-items: stretch; }

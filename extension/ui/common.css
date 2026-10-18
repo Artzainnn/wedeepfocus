@@ -187,10 +187,13 @@ button.chip { cursor: pointer; font: inherit; font-size: 12px; }
 .side-nav-link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .side-nav-link[aria-current="page"] { color: var(--text); background: var(--surface); box-shadow: var(--shadow-card); }
 .side-nav-link .icon { width: 18px; height: 18px; }
+.side-nav-external { display: inline-flex; margin-left: -4px; opacity: 0.55; }
+.side-nav-link .side-nav-external .icon { width: 13px; height: 13px; }
 @media (max-width: 760px) {
   .app-layout { flex-direction: column; align-items: stretch; gap: 16px; padding-top: 20px; }
   .app-layout > .page { width: 100%; }
   .side-nav { position: static; width: 100%; flex-direction: row; align-items: center; gap: 6px; }
   .side-nav-brand { padding: 0 8px 0 4px; margin-right: auto; }
   .side-nav-link { height: 36px; }
+  .side-nav-feedback :is(.side-nav-label, .side-nav-external) { display: none; }
 }

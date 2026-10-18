@@ -188,7 +188,7 @@ describe("groups in the options page", { timeout: SUITE_TIMEOUT }, () => {
     await page.close();
   });
 
-  test("Your goal is a single field that saves one goal", { timeout: 30_000 }, async () => {
+  test("Your why is a single field that saves one sentence", { timeout: 30_000 }, async () => {
     const goal = options.getByTestId("goal-0");
     await goal.scrollIntoViewIfNeeded();
     assert.equal(await options.locator('[data-testid="goal-1"], [data-testid="goal-2"]').count(), 0, "one goal only (SPEC 12.5)");
@@ -198,12 +198,7 @@ describe("groups in the options page", { timeout: SUITE_TIMEOUT }, () => {
     });
     const { goals } = await ctx.getSync("goals");
     assert.deepEqual(goals.items, ["Ship the beta by Friday"], "goals.items holds exactly one goal");
-
-    const quote = options.getByTestId("quote-toggle");
-    const wasOn = await isSelected(quote);
-    await quote.click();
-    await waitForValue(() => ctx.getSync("goals"), ({ goals: g }) => g?.showQuote === !wasOn, { message: "the quote toggle to be saved" });
-    assert.deepEqual((await ctx.getSync("goals")).goals.items, ["Ship the beta by Friday"], "the goal is kept");
+    assert.equal(await options.getByTestId("quote-toggle").count(), 0, "no motivational line setting any more");
   });
 
   test("a disabled group can be deleted", { timeout: 30_000 }, async () => {

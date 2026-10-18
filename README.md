@@ -1,18 +1,18 @@
 # WeDeepFocus
 
-**Block distracting sites in two clicks. See your goal instead.**
+**Block distracting sites in two clicks. Remember why you're doing this.**
 
-WeDeepFocus is a free Chrome extension for focus sessions. Pick the sites that pull you away, start a session from the toolbar, and when you open one of them you see your own goal and the time left instead of the feed. Ending a session early takes a moment: one honest question, then a sentence to type by hand.
+WeDeepFocus is a free Chrome extension for focus sessions. Pick the sites that pull you away, start a session from the toolbar, and when you open one of them you see the time left and your own why instead of the feed. Ending a session early takes a moment: one honest question, then a sentence to type by hand.
 
 No account, no analytics, no server: your settings stay in your browser.
 
-[Website](https://wedeepfocus.com) · [Privacy policy](https://wedeepfocus.com/privacy/) · English and French
+[Chrome Web Store](https://chromewebstore.google.com/detail/wedeepfocus/jbhlbkglabiceehaphjjnfiohkkkkomi) · [Website](https://wedeepfocus.com) · [Video (37 s)](https://youtu.be/yZ5A0IPuPWM) · [Privacy policy](https://wedeepfocus.com/privacy/) · English and French
 
 ## Features
 
 - **Groups of sites**: ready-made groups (social media, video, email, news, shopping) and your own groups with a name and an icon. Turn a group on or off, add or remove sites, or block the current site from the toolbar.
 - **Sessions in two clicks**: 15 minutes, 30 minutes, 1 hour or any length up to 8 hours, from the toolbar popup. Or weekly time slots (overnight slots work too).
-- **Your goal instead of the feed**: blocked sites show your goal, a countdown and a short line to keep you going.
+- **Your why instead of the feed**: blocked sites show the time left and one sentence on why you're doing this.
 - **Strict on purpose**: during a block, settings can only get stricter. Ending early means typing a sentence by hand (paste and typos are refused).
 - **Stats that stay local**: focus time, sites blocked, sessions completed and a daily streak, kept in your browser for one year.
 
@@ -69,7 +69,7 @@ Everything specific to the WeDeepFocus deployment lives in three places:
 
 1. `i18n/common.json`: `appName`, `appShortName` and `appDescription` (the name shown everywhere).
 2. `extension/shared/config.js`: the "Buy a dev a coffee" links (leave empty to hide them), the payment server address and the switch for paid accountability.
-3. `landing/site.config.mjs`: website address, Chrome Web Store link, GitHub link and contact email. Values you would rather keep out of git (like an analytics id) go in `landing/site.local.mjs`, which is ignored: `export default { datafastId: "dfid_..." };`
+3. `landing/site.config.mjs`: website address, Chrome Web Store link, GitHub link, contact email and the "Made by" section (set `maker: null` to remove it). Values you would rather keep out of git (like an analytics id) go in `landing/site.local.mjs`, which is ignored: `export default { datafastId: "dfid_..." };`
 
 Then run `npm run build:locales`, `npm run icons` and `npm run zip`.
 
@@ -77,7 +77,9 @@ Then run `npm run build:locales`, `npm run icons` and `npm run zip`.
 
 The website is static: `node landing/build.mjs` writes it to `landing/public` (add `--og` to also render the social preview image). It deploys to any static host; `landing/vercel.json` is set up for Vercel, including the rewrites that serve DataFast from the site's own domain.
 
-`landing/api/` holds two optional serverless functions for paid accountability (paying a chosen amount to end a session early, verified with Stripe on the server). This feature is **off** in the published extension (`ACCOUNTABILITY_ENABLED = false`). To use it on your own deployment, set these environment variables on your host, never in the code:
+`landing/api/stars.js` serves the GitHub star count shown in the nav, cached for an hour by the CDN so visitors never call GitHub themselves.
+
+`landing/api/` also holds two optional serverless functions for paid accountability (paying a chosen amount to end a session early, verified with Stripe on the server). This feature is **off** in the published extension (`ACCOUNTABILITY_ENABLED = false`). To use it on your own deployment, set these environment variables on your host, never in the code:
 
 | Variable | Value |
 | --- | --- |

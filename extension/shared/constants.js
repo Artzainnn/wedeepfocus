@@ -1,10 +1,10 @@
 // Shared constants. Pure module: no chrome, no document.
-// Deployment settings (coffee links, payment server, accountability switch) live in config.js.
-export { COFFEE_URLS, ACCOUNTABILITY_ENABLED, PAYMENT_API } from "./config.js";
+// Deployment settings (coffee and feedback links, payment server, accountability switch) live in config.js.
+export { COFFEE_URLS, FEEDBACK_URLS, ACCOUNTABILITY_ENABLED, PAYMENT_API } from "./config.js";
 
 export const PASS_MINUTES = 10;
 export const SESSION_PRESETS = [15, 30, 60];
-export const SESSION_MIN = 1, SESSION_MAX = 480, EXTEND_MINUTES = 10;
+export const SESSION_MIN = 1, SESSION_MAX = 480, EXTEND_MINUTES = 15;
 export const MAX_CUSTOM_DOMAINS = 200;
 export const GOAL_MAX_LENGTH = 140;
 export const GOAL_COUNT = 1;

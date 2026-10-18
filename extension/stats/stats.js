@@ -1,5 +1,6 @@
 // Stats page: the local usage history (chrome.storage.local "history"), never sent anywhere.
 import { t, applyI18n, uiLocale } from "../shared/i18n.js";
+import { mountFeedbackLink } from "../ui/feedback-link.js";
 import { formatDurationShort, localDayKey } from "../shared/format.js";
 import { cleanHistory, focusLevel, gridWeeks, streaks, summarize } from "../shared/stats.js";
 import { icon } from "../shared/icons.js";
@@ -18,6 +19,7 @@ init();
 async function init() {
   applyI18n();
   document.title = t("stats_page_title", [t("appName")]);
+  mountFeedbackLink();
   for (const slot of document.querySelectorAll("[data-icon]")) {
     slot.replaceChildren(icon(slot.dataset.icon));
     slot.setAttribute("aria-hidden", "true");

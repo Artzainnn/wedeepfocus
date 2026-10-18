@@ -5,6 +5,7 @@ import { formatCountdown, formatClock, formatWeekdayClock, localDayKey } from ".
 import { normalizeDomain, originPatterns, findBlockingDomain } from "../shared/domains.js";
 import { SESSION_PRESETS, SESSION_MIN, SESSION_MAX, EXTEND_MINUTES } from "../shared/constants.js";
 import { coffeeUrl } from "../shared/payment.js";
+import { feedbackUrl } from "../shared/feedback.js";
 import { streaks } from "../shared/stats.js";
 
 const byId = (id) => document.getElementById(id);
@@ -49,7 +50,7 @@ const els = {
   alreadyBlocked: byTestId("popup-already-blocked"),
   allowSite: byTestId("popup-allow-site"),
   siteUnsupported: byId("site-unsupported"),
-  settings: byTestId("popup-settings"),
+  feedback: byTestId("popup-feedback"),
   stats: byTestId("popup-stats"),
   footerSettings: byTestId("popup-footer-settings"),
   streak: byTestId("popup-streak"),
@@ -600,6 +601,7 @@ function setStaticTexts() {
   const coffee = coffeeUrl(locale());
   els.coffee.href = coffee;
   els.coffee.hidden = !coffee;
+  els.feedback.hidden = !feedbackUrl(locale(), "popup");
   const brandIcon = document.querySelector(".brand-icon");
   const hideBrokenIcon = () => { brandIcon.hidden = true; };
   brandIcon.addEventListener("error", hideBrokenIcon);
@@ -629,7 +631,7 @@ function bindEvents() {
   });
   els.grantMissing.addEventListener("click", () => grantOrigins(state?.missing || [], els.grantMissing));
   els.finishSetup.addEventListener("click", openOnboarding);
-  els.settings.addEventListener("click", openOptions);
+  els.feedback.addEventListener("click", openFeedback);
   els.footerSettings.addEventListener("click", openOptions);
   els.stats.addEventListener("click", openStats);
   els.streak.addEventListener("click", openStats);
@@ -668,6 +670,13 @@ async function renderStreak() {
   const { current } = streaks(stored?.history, localDayKey(Date.now()));
   els.streak.hidden = current === 0;
   els.streak.textContent = current === 1 ? t("popup_streak_one") : t("popup_streak_many", [String(current)]);
+}
+
+async function openFeedback() {
+  const url = feedbackUrl(locale(), "popup", chrome.runtime.getManifest().version);
+  if (!url) return;
+  await safeCall(() => chrome.tabs.create({ url }));
+  window.close();
 }
 
 async function openStats() {

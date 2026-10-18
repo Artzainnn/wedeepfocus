@@ -37,12 +37,20 @@ describe("home page", { timeout: SUITE_TIMEOUT }, () => {
     await page.close();
   });
 
-  test("home, settings and stats all link to each other", { timeout: 30_000 }, async () => {
+  test("home, settings and stats all link to each other, and to the feedback page", { timeout: 30_000 }, async () => {
     for (const file of ["home/home.html", "options/options.html", "stats/stats.html"]) {
       const page = await ctx.openExtensionPage(file);
       for (const id of ["nav-home", "nav-settings", "nav-stats"]) {
         assert.equal(await page.getByTestId(id).count(), 1, `${id} in ${file}`);
       }
+      // Feedback opens the website's form in a new tab, tagged "menu" with the version only.
+      const feedback = page.getByTestId("nav-feedback");
+      await feedback.waitFor({ state: "visible" });
+      const href = new URL(await feedback.getAttribute("href"));
+      assert.equal(href.protocol, "https:");
+      assert.equal(href.searchParams.get("from"), "menu");
+      assert.deepEqual([...href.searchParams.keys()].sort(), ["from", "v"]);
+      assert.equal(await feedback.getAttribute("target"), "_blank");
       await page.close();
     }
   });

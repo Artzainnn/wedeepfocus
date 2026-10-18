@@ -1,6 +1,6 @@
 {
   "name": "wedeepfocus",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "private": true,
   "type": "module",
   "description": "WeDeepFocus: a free, private Chrome extension that blocks distracting sites during focus time and shows your goal instead.",

@@ -19,6 +19,7 @@
       <a class="side-nav-link" href="../home/home.html" data-testid="nav-home"><span data-icon="home"></span><span data-i18n="nav_home">Home</span></a>
       <a class="side-nav-link" href="../options/options.html" data-testid="nav-settings" aria-current="page"><span data-icon="settings"></span><span data-i18n="common_settings">Settings</span></a>
       <a class="side-nav-link" href="../stats/stats.html" data-testid="nav-stats"><span data-icon="chart"></span><span data-i18n="nav_stats">Stats</span></a>
+      <a class="side-nav-link side-nav-feedback" data-testid="nav-feedback" target="_blank" rel="noopener" hidden><span data-icon="chat"></span><span class="side-nav-label" data-i18n="nav_feedback">Feedback</span><span class="side-nav-external" data-icon="external"></span></a>
     </nav>
   <main class="page" aria-busy="true">
     <header class="page-header">
@@ -81,19 +82,12 @@
 
     <section class="card section" id="goals" data-testid="options-goals" aria-labelledby="goals-title">
       <div class="section-head">
-        <h2 id="goals-title" data-i18n="options_goal_title">Your goal</h2>
-        <p class="section-sub" data-i18n="options_goal_sub">Shown when a site is blocked.</p>
+        <h2 id="goals-title" data-i18n="options_goal_title">Your why</h2>
+        <p class="section-sub" data-i18n="options_goal_sub">One sentence, shown when a site is blocked.</p>
       </div>
       <div class="goal-field">
-        <input type="text" class="goal-input" autocomplete="off" data-testid="goal-0" aria-labelledby="goals-title" data-i18n-placeholder="goal_option_projects" placeholder="Finish my thesis">
+        <input type="text" class="goal-input" autocomplete="off" data-testid="goal-0" aria-labelledby="goals-title" data-i18n-placeholder="goal_option_finish" placeholder="I want to finish what I start.">
         <span class="goal-counter num" aria-hidden="true"></span>
-      </div>
-      <div class="setting-row">
-        <label for="quote-toggle" class="setting-label" data-i18n="options_quote_toggle">Show a motivational line</label>
-        <label class="toggle">
-          <input id="quote-toggle" type="checkbox" data-testid="quote-toggle">
-          <span></span>
-        </label>
       </div>
     </section>
 

@@ -23,5 +23,20 @@
     "en": "Session in progress",
     "fr": "Session en cours",
     "description": "Home page, while a block is active."
+  },
+  "home_pin_tip": {
+    "en": "Pin {1} so a session is one click away.",
+    "fr": "Épingle {1} pour qu'une session soit à un clic.",
+    "description": "Home page tip while the extension is not pinned to the toolbar. {1} is the app name."
+  },
+  "home_pin_show": {
+    "en": "Show me how",
+    "fr": "Me montrer",
+    "description": "Home page tip button: opens the pin step of the onboarding."
+  },
+  "home_pin_hide": {
+    "en": "Hide",
+    "fr": "Masquer",
+    "description": "Accessible label of the button that hides the pin tip."
   }
 }

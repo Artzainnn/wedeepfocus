@@ -16,6 +16,7 @@ import { BLOCK_RULE_ID, FALLBACK_RULE_ID, buildRules } from "../shared/rules.js"
 import { formatBadge, formatClock, formatWeekdayClock, localDayKey } from "../shared/format.js";
 import { getRuntime, getSettings, mergeSettings } from "../shared/storage.js";
 import { t, uiLocale } from "../shared/i18n.js";
+import { feedbackUrl } from "../shared/feedback.js";
 import {
   END_METHODS,
   HEARTBEAT_MINUTES,
@@ -563,12 +564,21 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason === "install") {
     chrome.tabs.create({ url: ONBOARDING_URL }).catch((error) => logError("open onboarding", error));
   }
+  setUninstallPage();
   reconcile();
 });
 
 chrome.runtime.onStartup.addListener(() => {
+  setUninstallPage();
   reconcile();
 });
+
+// On uninstall, Chrome opens the feedback page ("why are you leaving?"). Only the language,
+// "uninstall" and the version are in the address; the extension sends nothing itself.
+function setUninstallPage() {
+  const url = feedbackUrl(uiLocale(), "uninstall", chrome.runtime.getManifest().version);
+  chrome.runtime.setUninstallURL(url).catch((error) => logError("uninstall page", error));
+}
 
 chrome.alarms.onAlarm.addListener(() => {
   reconcile();

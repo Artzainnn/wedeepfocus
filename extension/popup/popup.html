@@ -19,8 +19,10 @@
       <button type="button" class="btn btn-ghost icon-btn" data-testid="popup-stats" data-i18n-aria-label="popup_stats" data-i18n-title="popup_stats" aria-label="Your stats">
         <span data-icon="chart"></span>
       </button>
-      <button type="button" class="btn btn-ghost icon-btn" data-testid="popup-settings" data-i18n-aria-label="common_settings" data-i18n-title="common_settings" aria-label="Settings">
-        <span data-icon="settings"></span>
+      <!-- Settings is in the footer; the header offers feedback (opens the website's form). -->
+      <button type="button" class="btn btn-ghost btn-sm feedback-btn" data-testid="popup-feedback" hidden>
+        <span data-icon="chat" class="icon icon-sm"></span>
+        <span data-i18n="nav_feedback">Feedback</span>
       </button>
     </header>
 

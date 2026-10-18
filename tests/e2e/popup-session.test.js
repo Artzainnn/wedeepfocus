@@ -160,12 +160,12 @@ describe("popup session", { timeout: SUITE_TIMEOUT }, () => {
     await page.close();
   });
 
-  test("Add 10 min extends the session by ten minutes", { timeout: 30_000 }, async () => {
+  test("Add 15 min extends the session by fifteen minutes", { timeout: 30_000 }, async () => {
     const before = await readSession();
     await popup.getByTestId("popup-extend").click();
     const after = await waitForValue(readSession, (s) => s && s.endsAt > before.endsAt, { message: "the session to be extended" });
     const added = after.endsAt - before.endsAt;
-    assert.ok(Math.abs(added - 10 * MINUTE) < 5_000, `expected +10 min, got +${added} ms`);
+    assert.ok(Math.abs(added - 15 * MINUTE) < 5_000, `expected +15 min, got +${added} ms`);
     assert.equal(after.startedAt, before.startedAt, "extending keeps the original start");
     const countdown = popup.getByTestId("popup-countdown");
     await waitFor(async () => parseCountdown(await countdown.textContent()) > 18 * MINUTE, {

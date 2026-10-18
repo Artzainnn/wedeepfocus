@@ -10,8 +10,8 @@
     "description": "Short extension name (12 characters or fewer)."
   },
   "appDescription": {
-    "en": "Block distracting sites while you focus and see your goal instead. No account, no tracking.",
-    "fr": "Bloque les sites qui te distraient pendant tes heures de focus et affiche ton objectif à la place. Sans compte, sans pistage.",
+    "en": "Block distracting sites in two clicks and see why you're doing this instead. Free, open source, no account.",
+    "fr": "Bloque les sites qui te distraient en deux clics et rappelle-toi pourquoi tu fais ça. Gratuit, open source, sans compte.",
     "description": "Chrome Web Store short description, 132 characters max."
   },
   "category_social": {
@@ -249,30 +249,20 @@
     "fr": "Tu pourras tout réinitialiser à la fin du blocage.",
     "description": "Refusal: the user tried to reset every setting during an active block (only when the build locks reset during blocks)."
   },
-  "goal_option_focus": {
-    "en": "Sharpen my focus and get more done",
-    "fr": "Améliorer mon focus et ma productivité",
-    "description": "Suggested long-term goal."
-  },
-  "goal_option_projects": {
-    "en": "Go all in on my projects",
-    "fr": "Avancer à fond sur mes projets",
-    "description": "Suggested long-term goal, the default one."
-  },
-  "goal_option_deep": {
-    "en": "Do deep work, every day",
-    "fr": "Travailler en profondeur, chaque jour",
-    "description": "Suggested long-term goal."
-  },
   "goal_option_finish": {
-    "en": "Finish what I start",
-    "fr": "Finir ce que je commence",
-    "description": "Suggested long-term goal."
+    "en": "I want to finish what I start.",
+    "fr": "Je veux finir ce que je commence.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked. Also the default when none is saved."
   },
   "nav_stats": {
     "en": "Stats",
     "fr": "Stats",
     "description": "Left menu tab to the stats page."
+  },
+  "nav_feedback": {
+    "en": "Feedback",
+    "fr": "Ton avis",
+    "description": "Side menu link (bottom) that opens the feedback page on the website in a new tab."
   },
   "common_hours_short": {
     "en": "{1} h",
@@ -283,5 +273,20 @@
     "en": "Home",
     "fr": "Accueil",
     "description": "Left menu tab to the home page (current session)."
+  },
+  "goal_option_future": {
+    "en": "My future self will thank me.",
+    "fr": "Mon futur moi me remerciera.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
+  },
+  "goal_option_proud": {
+    "en": "I'm building something that matters to me.",
+    "fr": "Je construis quelque chose qui me tient à cœur.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
+  },
+  "goal_option_time": {
+    "en": "I want more time for what matters.",
+    "fr": "Je veux plus de temps pour ce qui compte.",
+    "description": "Suggested why (onboarding, step 3). Shown on blocked pages if picked."
   }
 }
