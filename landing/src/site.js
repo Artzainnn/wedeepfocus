@@ -119,7 +119,17 @@ const bump = (node) => {
   node.classList.add("is-bumped");
 };
 
-// Every [data-countdown] ticks; "+ 10 min" in the same [data-timer-scope] adds time.
+// DataFast goals sent by the demo, each at most once per page view (links and buttons that only
+// need a click count carry data-fast-goal in the HTML). Nothing is sent without DataFast.
+const sentGoals = new Set();
+const demoGoal = (name, props) => {
+  const key = `${name} ${JSON.stringify(props ?? {})}`;
+  if (sentGoals.has(key)) return;
+  sentGoals.add(key);
+  window.datafast?.(name, props);
+};
+
+// Every [data-countdown] ticks; "+ 15 min" in the same [data-timer-scope] adds time.
 const countdowns = new Map();
 const renderCountdown = (node) => {
   node.textContent = countdown(Math.max(0, Math.round((countdowns.get(node) - Date.now()) / 1000)));
@@ -135,6 +145,7 @@ for (const button of document.querySelectorAll("[data-add]")) {
     countdowns.set(node, Math.min(countdowns.get(node) + 15 * 60_000, Date.now() + 10 * 3600_000));
     renderCountdown(node);
     bump(node);
+    demoGoal("demo_add_time");
   });
 }
 
@@ -158,10 +169,13 @@ for (const win of document.querySelectorAll("[data-swap]")) {
   const names = win.dataset.names.split("|");
   const rotator = document.querySelector("[data-rotator]");
   const toggle = document.querySelector("[data-toggle]");
+  // "+ 15 min" beside the switch, shown while a session runs, as in the extension's popup.
+  const add = win.closest("[data-timer-scope]")?.querySelector("[data-add]");
   let manual = false;
   const setBlocked = (on) => {
     win.classList.toggle("is-blocked", on);
     toggle?.setAttribute("aria-checked", String(on));
+    if (add) add.hidden = !on;
     win.dispatchEvent(new CustomEvent("session", { detail: on }));
   };
   const takeOver = () => {
@@ -169,6 +183,7 @@ for (const win of document.querySelectorAll("[data-swap]")) {
   };
   win.addEventListener("pointerdown", takeOver);
   win.addEventListener("focusin", takeOver);
+  add?.addEventListener("click", takeOver);
   win.addEventListener("session-end", () => setBlocked(false));
   toggle?.addEventListener("click", () => {
     manual = true;
@@ -242,7 +257,13 @@ for (const page of document.querySelectorAll("[data-blocked]")) {
     first?.focus({ preventScroll: true });
   };
 
-  for (const button of page.querySelectorAll("[data-go]")) button.addEventListener("click", () => show(button.dataset.go));
+  const tried = { done: "back_to_work", question: "really_need" };
+  for (const button of page.querySelectorAll("[data-go]")) {
+    button.addEventListener("click", () => {
+      if (tried[button.dataset.go]) demoGoal("try_demo", { action: tried[button.dataset.go] });
+      show(button.dataset.go);
+    });
+  }
   win?.addEventListener("session", () => show("main", false));
   const refusePaste = (event) => {
     event.preventDefault();
@@ -272,6 +293,7 @@ for (const page of document.querySelectorAll("[data-blocked]")) {
   });
   end.addEventListener("click", () => {
     if (end.disabled) return;
+    demoGoal("try_demo", { action: "typed" });
     win?.dispatchEvent(new CustomEvent("session-end"));
   });
 }

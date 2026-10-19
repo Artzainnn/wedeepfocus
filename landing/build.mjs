@@ -29,6 +29,10 @@ const CONTACT_EMAIL = CONFIG.contactEmail;
 const SITE_URL = CONFIG.siteUrl;
 const GITHUB_URL = CONFIG.githubUrl;
 const DATAFAST_ID = CONFIG.datafastId;
+// DataFast goal on a link or button: counts its clicks, with where it sits on the page. Empty
+// without DataFast. The demo goals are sent from site.js.
+const goal = (name, location) =>
+  DATAFAST_ID ? ` data-fast-goal="${name}"${location ? ` data-fast-goal-location="${location}"` : ""}` : "";
 const WEB3FORMS_KEY = CONFIG.web3formsKey;
 
 // Star count of the GitHub repository at build time, refreshed in the page by /api/stars.
@@ -132,8 +136,8 @@ function nav(t, lang, { onHome }) {
       <a href="${anchor("how")}">${esc(t.nav.how)}</a>
       <a href="${anchor("privacy")}">${esc(t.nav.privacy)}</a>
       <a href="${anchor("faq")}">${esc(t.nav.faq)}</a>
-      ${GITHUB_URL ? `<a class="nav-github" href="${esc(GITHUB_URL)}" rel="noopener">${icon("github", ' width="18" height="18"')}<span class="nav-github-label">${esc(t.nav.github)}</span><span class="stars">${icon("star")}<span data-stars-count>${STARS || esc(t.nav.star)}</span><span class="sr-only"> ${esc(t.nav.stars)}</span></span></a>` : ""}
-      <a class="btn btn-primary btn-sm nav-cta" href="${CWS_URL}">${esc(t.nav.cta)}</a>
+      ${GITHUB_URL ? `<a class="nav-github" href="${esc(GITHUB_URL)}" rel="noopener"${goal("github_click", "nav")}>${icon("github", ' width="18" height="18"')}<span class="nav-github-label">${esc(t.nav.github)}</span><span class="stars">${icon("star")}<span data-stars-count>${STARS || esc(t.nav.star)}</span><span class="sr-only"> ${esc(t.nav.stars)}</span></span></a>` : ""}
+      <a class="btn btn-primary btn-sm nav-cta" href="${CWS_URL}"${goal("add_to_chrome", "nav")}>${esc(t.nav.cta)}</a>
     </nav>
   </div>
 </header>`;
@@ -178,7 +182,7 @@ function footer(t, lang) {
     <nav class="footer-links" aria-label="Footer">
       <a href="${p.privacy}">${esc(t.footer.privacy)}</a>
       <a href="${p.feedback}">${esc(t.footer.feedback)}</a>
-      ${GITHUB_URL ? `<a href="${esc(GITHUB_URL)}" rel="noopener">${esc(t.nav.github)}</a>` : ""}
+      ${GITHUB_URL ? `<a href="${esc(GITHUB_URL)}" rel="noopener"${goal("github_click", "footer")}>${esc(t.nav.github)}</a>` : ""}
       ${contact}
       <a href="${t.nav.switchHref}" lang="${lang === "fr" ? "en" : "fr"}">${esc(t.nav.switchLabel)}</a>
     </nav>
@@ -215,7 +219,7 @@ function blockedPage(t) {
   const m = t.mock;
   const sentence = t.ritual.sentence;
   const chip = esc(m.blockedTemplate).replace("{site}", `<b data-site>${esc(m.sites[0])}</b>`);
-  return `<div class="blocked-page" data-blocked data-timer-scope>
+  return `<div class="blocked-page" data-blocked>
             <div class="blocked-view" data-view="main">
               <span class="demo-chip">${icon("shield")}<span>${chip}</span></span>
               <div class="focus-timer" data-countdown>${esc(m.timer)}</div>
@@ -259,7 +263,7 @@ function hero(t) {
   const title = esc(h.title).replace("{site}", `<span class="rotator" data-rotator>${esc(t.brands[0][0])}</span>`);
   // Second action: the launch film, full screen (see filmDialog), or "See how it works" without it.
   const secondary = VIDEO
-    ? `<button type="button" class="btn btn-ghost" data-film-open>${icon("playCircle", ' width="20" height="20"')}${esc(t.video.cta)}</button>`
+    ? `<button type="button" class="btn btn-ghost" data-film-open${goal("watch_video")}>${icon("playCircle", ' width="20" height="20"')}${esc(t.video.cta)}</button>`
     : `<a class="btn btn-ghost" href="#how">${esc(h.secondary)} ${icon("arrowRight", ' width="18" height="18"')}</a>`;
   return `<section class="hero">
     <div class="container">
@@ -268,13 +272,13 @@ function hero(t) {
         <h1>${title}</h1>
         <p class="sub">${esc(GITHUB_URL ? h.sub : h.subClosed)}</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="${CWS_URL}">${esc(h.cta)}${icon("arrowRight", ' class="btn-arrow"')}</a>
+          <a class="btn btn-primary" href="${CWS_URL}"${goal("add_to_chrome", "hero")}>${esc(h.cta)}${icon("arrowRight", ' class="btn-arrow"')}</a>
           ${secondary}
         </div>
         <p class="hero-note">${icon("shield")}${esc(h.note)}</p>
       </div>
-      <div class="hero-visual">
-        <div class="session-toggle"><span id="session-label">${esc(h.toggle)}</span><button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="session-label" data-toggle><i></i></button></div>
+      <div class="hero-visual" data-timer-scope>
+        <div class="session-toggle"><span id="session-label">${esc(h.toggle)}</span><button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="session-label" data-toggle><i></i></button><button type="button" class="pill pill-add" data-add hidden>${icon("plus")}${esc(t.mock.add)}</button></div>
         ${browser(t, { attrs: ` data-swap data-sites="${esc(t.brands.map(([, domain]) => domain).join(" "))}" data-names="${esc(t.brands.map(([name]) => name).join("|"))}"`, body: feedMock() + blockedPage(t) })}
         <p class="hero-try">${icon("pointer")}${esc(h.try)}</p>
       </div>
@@ -429,7 +433,7 @@ ${nav(t, lang, { onHome: true })}
           id: "privacy",
           label: t.privacy.eyebrow,
           title: t.privacy.title,
-          extra: `<a class="privacy-link" href="${p.privacy}">${esc(t.privacy.link)} ${icon("arrowRight", ' width="18" height="18"')}</a>${GITHUB_URL ? `<br><a class="privacy-link" href="${esc(GITHUB_URL)}" rel="noopener">${icon("github", ' width="18" height="18"')} ${esc(t.privacy.code)} ${icon("arrowRight", ' width="18" height="18"')}</a>` : ""}`,
+          extra: `<a class="privacy-link" href="${p.privacy}">${esc(t.privacy.link)} ${icon("arrowRight", ' width="18" height="18"')}</a>${GITHUB_URL ? `<br><a class="privacy-link" href="${esc(GITHUB_URL)}" rel="noopener"${goal("github_click", "privacy")}>${icon("github", ' width="18" height="18"')} ${esc(t.privacy.code)} ${icon("arrowRight", ' width="18" height="18"')}</a>` : ""}`,
           visual: ticksVisual(t),
         }),
       ].join("\n      ")}
@@ -458,7 +462,7 @@ ${nav(t, lang, { onHome: true })}
         <img src="/assets/icon-128.png" alt="" width="56" height="56">
         <h2>${esc(t.final.title)}</h2>
         <p>${esc(t.final.sub)}</p>
-        <a class="btn btn-primary" href="${CWS_URL}">${esc(t.final.cta)}${icon("arrowRight", ' class="btn-arrow"')}</a>
+        <a class="btn btn-primary" href="${CWS_URL}"${goal("add_to_chrome", "final")}>${esc(t.final.cta)}${icon("arrowRight", ' class="btn-arrow"')}</a>
       </div>
     </div>
   </section>

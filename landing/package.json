@@ -2,5 +2,8 @@
   "name": "wedeepfocus-landing",
   "private": true,
   "type": "module",
-  "description": "WeDeepFocus website (prebuilt static pages in public/) and payment functions (api/). No dependencies."
+  "description": "WeDeepFocus website (prebuilt static pages in public/), the stars function (api/) and the crawler middleware (middleware.js).",
+  "dependencies": {
+    "@datafast/ai-crawl": "1.0.9"
+  }
 }

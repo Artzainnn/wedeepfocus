@@ -350,6 +350,7 @@ button.hero-back:disabled { opacity: 0.3; cursor: not-allowed; }
 .hero-try { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--text-3); text-align: center; }
 .hero-try svg { width: 16px; height: 16px; flex: none; }
 .session-toggle { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 800; }
+.session-toggle .pill-add { margin: 0 0 0 4px; height: 34px; padding: 0 14px; font-size: 14px; }
 .switch { position: relative; width: 52px; height: 30px; flex: none; border-radius: 999px; border: 0; background: var(--border-strong); cursor: pointer; transition: background 200ms ease; }
 .switch i { position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: var(--surface); box-shadow: var(--shadow-sm); transition: transform 200ms ease; }
 .switch[aria-checked="true"] { background: var(--accent); }

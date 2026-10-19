@@ -4,7 +4,7 @@
 
 Version française plus bas.
 
-Last updated: September 27, 2026
+Last updated: October 19, 2026
 
 ## Short version
 
@@ -55,7 +55,7 @@ If you chose "Accountability with money", ending a session early can cost the am
 
 ## The website
 
-The website wedeepfocus.com (not the extension) uses DataFast to count visits: pages viewed, the referring site, country, device and browser. It helps us understand how people find WeDeepFocus. DataFast sets a cookie to recognise returning visitors and its privacy policy applies (https://datafa.st/privacy). The extension itself never loads DataFast and sends nothing.
+The website wedeepfocus.com (not the extension) uses DataFast to count visits: pages viewed, the referring site, country, device and browser, and clicks on a few buttons (Add to Chrome, the video, GitHub and the demo on the home page). It helps us understand how people find WeDeepFocus. The site also tells DataFast when a known crawler, such as a search engine or an AI assistant, requests a page; this concerns bots, not people. DataFast sets a cookie to recognise returning visitors and its privacy policy applies (https://datafa.st/privacy). The extension itself never loads DataFast and sends nothing.
 
 ## Feedback
 
@@ -81,7 +81,7 @@ Questions: [contact]
 
 # WeDeepFocus : politique de confidentialité
 
-Dernière mise à jour : 27 septembre 2026
+Dernière mise à jour : 19 octobre 2026
 
 ## En bref
 
@@ -132,7 +132,7 @@ Si tu as choisi « Engagement avec argent », arrêter une session avant la fin 
 
 ## Le site web
 
-Le site wedeepfocus.com (pas l'extension) utilise DataFast pour compter les visites : pages vues, site d'origine, pays, appareil et navigateur. Ça nous aide à comprendre comment les gens découvrent WeDeepFocus. DataFast dépose un cookie pour reconnaître les visiteurs qui reviennent et sa politique de confidentialité s'applique (https://datafa.st/privacy). L'extension elle-même ne charge jamais DataFast et n'envoie rien.
+Le site wedeepfocus.com (pas l'extension) utilise DataFast pour compter les visites : pages vues, site d'origine, pays, appareil et navigateur, et les clics sur quelques boutons (Ajouter à Chrome, la vidéo, GitHub et la démo de la page d'accueil). Ça nous aide à comprendre comment les gens découvrent WeDeepFocus. Le site signale aussi à DataFast quand un robot connu, comme un moteur de recherche ou un assistant d'IA, demande une page ; ça concerne les robots, pas les personnes. DataFast dépose un cookie pour reconnaître les visiteurs qui reviennent et sa politique de confidentialité s'applique (https://datafa.st/privacy). L'extension elle-même ne charge jamais DataFast et n'envoie rien.
 
 ## Ton avis
 
