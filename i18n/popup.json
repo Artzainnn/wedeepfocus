@@ -178,5 +178,20 @@
     "en": "Your stats",
     "fr": "Tes stats",
     "description": "Accessible label and tooltip of the stats button."
+  },
+  "popup_rate_question": {
+    "en": "Enjoy the app?",
+    "fr": "L'app te plaît ?",
+    "description": "Popup rating line, first part (shown after a first completed block)"
+  },
+  "popup_rate_open": {
+    "en": "Rate it on Chrome Store ⭐",
+    "fr": "Note-la sur le Store ⭐",
+    "description": "Popup rating line, link part: opens the store's review page in a new tab"
+  },
+  "popup_rate_later": {
+    "en": "Dismiss",
+    "fr": "Masquer",
+    "description": "Popup rating line, close button label: hides it for two weeks (it stops after the second time)"
   }
 }

@@ -7,11 +7,14 @@ import { SESSION_PRESETS, SESSION_MIN, SESSION_MAX, EXTEND_MINUTES } from "../sh
 import { coffeeUrl } from "../shared/payment.js";
 import { feedbackUrl } from "../shared/feedback.js";
 import { streaks } from "../shared/stats.js";
+import { reviewUrl, shouldAskRating, rateLater } from "../shared/rating.js";
 
 const byId = (id) => document.getElementById(id);
 const byTestId = (id) => document.querySelector(`[data-testid="${id}"]`);
 
 const LONG_HOST_CHARS = 28;
+// The answer to "Rate it", a display preference in the extension's own localStorage (like Home's pin tip).
+const RATE_PREFS = "wedeepfocus.rate";
 const HOST_DISPLAY_MAX = 80;
 
 const els = {
@@ -55,6 +58,9 @@ const els = {
   footerSettings: byTestId("popup-footer-settings"),
   streak: byTestId("popup-streak"),
   coffee: byTestId("popup-coffee"),
+  rate: byId("rate"),
+  rateOpen: byTestId("popup-rate-open"),
+  rateLater: byTestId("popup-rate-later"),
 };
 
 let state = null;
@@ -252,6 +258,7 @@ function render() {
   renderStatus();
   renderQuickStart(active);
   renderCurrentSite();
+  renderRate(active);
   startTicker();
 }
 
@@ -609,6 +616,8 @@ function setStaticTexts() {
 }
 
 function bindEvents() {
+  els.rateOpen.addEventListener("click", openReview);
+  els.rateLater.addEventListener("click", postponeRating);
   els.quickGrid.addEventListener("click", (event) => {
     const preset = event.target.closest("[data-minutes]");
     if (preset) startSession(Number(preset.dataset.minutes));
@@ -662,6 +671,45 @@ function init() {
   });
   refresh();
   renderStreak();
+}
+
+function readRatePrefs() {
+  try {
+    return JSON.parse(localStorage.getItem(RATE_PREFS));
+  } catch {
+    return null;
+  }
+}
+
+function saveRatePrefs(prefs) {
+  try {
+    localStorage.setItem(RATE_PREFS, JSON.stringify(prefs));
+  } catch {
+    // Storage unavailable: the question may come back, nothing breaks.
+  }
+}
+
+async function renderRate(active) {
+  if (active || !reviewUrl()) {
+    els.rate.hidden = true;
+    return;
+  }
+  const stored = await safeCall(() => chrome.storage.local.get({ history: null }));
+  // A block may have started while storage answered.
+  const ask = !state?.block?.active && shouldAskRating({ history: stored?.history, active: false, prefs: readRatePrefs(), now: Date.now() });
+  els.rate.hidden = !ask;
+}
+
+async function openReview() {
+  saveRatePrefs({ rated: true });
+  els.rate.hidden = true;
+  await safeCall(() => chrome.tabs.create({ url: reviewUrl() }));
+  window.close();
+}
+
+function postponeRating() {
+  saveRatePrefs(rateLater(readRatePrefs(), Date.now()));
+  els.rate.hidden = true;
 }
 
 // "12 days 🔥" in the header, from the local history (days with protected focus in a row).

@@ -1540,6 +1540,18 @@
     "message": "Block now for",
     "description": "Popup label above the quick session buttons (10 min, 20 min...)"
   },
+  "popup_rate_later": {
+    "message": "Dismiss",
+    "description": "Popup rating line, close button label: hides it for two weeks (it stops after the second time)"
+  },
+  "popup_rate_open": {
+    "message": "Rate it on Chrome Store ⭐",
+    "description": "Popup rating line, link part: opens the store's review page in a new tab"
+  },
+  "popup_rate_question": {
+    "message": "Enjoy the app?",
+    "description": "Popup rating line, first part (shown after a first completed block)"
+  },
   "popup_retry": {
     "message": "Try again",
     "description": "Popup button retrying after a load error"

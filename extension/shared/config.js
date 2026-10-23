@@ -16,6 +16,10 @@ export const FEEDBACK_URLS = Object.freeze({
   other: "https://wedeepfocus.com/feedback/",
 });
 
+// Store page where people leave a rating: the popup asks once a first block has run to its end
+// (see rating.js). Leave it empty ("") to never ask.
+export const REVIEW_URL = "https://chromewebstore.google.com/detail/wedeepfocus/jbhlbkglabiceehaphjjnfiohkkkkomi/reviews";
+
 // Paying to end a session early ("accountability", SPEC 13). Off in the published build: the typed
 // sentence is the only way to end early. Turning it on needs your own payment server (landing/api).
 export const ACCOUNTABILITY_ENABLED = false;

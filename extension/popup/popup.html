@@ -131,6 +131,17 @@
           <span class="site-unsupported" id="site-unsupported" data-i18n="popup_site_unsupported" hidden>Can't block this page</span>
         </div>
       </section>
+
+      <!-- Asked once a first block has run to its end, never during a block (shared/rating.js). -->
+      <div class="rate" id="rate" data-testid="popup-rate" hidden>
+        <button type="button" class="rate-open" data-testid="popup-rate-open">
+          <span data-i18n="popup_rate_question">Enjoy the app?</span>
+          <span class="rate-cta" data-i18n="popup_rate_open">Rate it on Chrome Store ⭐</span>
+        </button>
+        <button type="button" class="btn btn-ghost icon-btn icon-btn-sm rate-close" data-testid="popup-rate-later" data-i18n-aria-label="popup_rate_later" data-i18n-title="popup_rate_later" aria-label="Dismiss">
+          <span data-icon="x" class="icon icon-sm"></span>
+        </button>
+      </div>
     </main>
 
     <footer class="popup-footer">

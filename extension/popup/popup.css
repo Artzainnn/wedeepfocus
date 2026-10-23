@@ -187,3 +187,14 @@ body.is-booting { visibility: hidden; animation: boot-reveal 0s linear 600ms for
 .popup-header .brand { margin-right: auto; }
 .feedback-btn { gap: 6px; padding: 0 10px; color: var(--text-2); font-weight: 600; }
 .feedback-btn:hover { color: var(--text); }
+
+/* Rating request: one quiet line, shown once a first block has run to its end */
+.rate { display: flex; align-items: center; gap: 2px; padding: 0 0 0 4px; }
+.rate-open {
+  flex: 1; min-width: 0; padding: 6px 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 12.5px; font-weight: 400; color: var(--text-2); text-align: left;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.rate-cta { color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px; }
+.rate-open:hover .rate-cta { text-decoration-thickness: 2px; }
+.rate-close { flex: none; width: 24px; height: 24px; color: var(--text-2); }
