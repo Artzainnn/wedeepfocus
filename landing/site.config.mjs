@@ -34,6 +34,8 @@ export default {
         text: { en: "Track your Claude usage in the menu bar.", fr: "Suis ta consommation Claude dans la barre de menus." } },
       { name: "CodexUsageBar", tag: { en: "Free · macOS", fr: "Gratuit · macOS" }, logo: "codexusagebar.png", url: "https://codexusagebar.com",
         text: { en: "Track your Codex usage in the menu bar.", fr: "Suis ta consommation Codex dans la barre de menus." } },
+      { name: "FundraiseBase", tag: { en: "Free · Web", fr: "Gratuit · Web" }, logo: "fundraisebase.png", url: "https://fundraisebase.com",
+        text: { en: "Every startup funding round, checked at the source.", fr: "Toutes les levées de fonds de startups, vérifiées à la source." } },
     ],
   },
 };
